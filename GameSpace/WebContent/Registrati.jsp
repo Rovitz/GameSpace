@@ -184,46 +184,46 @@
 					
 						<br>
 						<p>
-							<span><font color="white"> Email </font></span><input class="contact" required
-								name="user_email" value="" />
+							<strong><font color="white"> Email </font></strong>
+							<input class="contact" required name="user_email" value="" />
 						</p>
 						<br>
 						<p>
-							<span><font color="white">Nome</font></span><input class="contact" required
-								name="user_nome" value="" />
+							<strong><font color="white">Nome</font></strong>
+							<input class="contact" required name="user_nome" value="" />
 						</p>
 						<br>
 						<p>
-							<span><font color="white" >Cognome</font></span><input class="contact" required
-								name="user_cognome" value="" />
+							<strong><font color="white" >Cognome</font></strong>
+							<input class="contact" required name="user_cognome" value="" />
 						</p>
 						<br>
 						<p>
-							<span><font color="white"> Password</font></span><input class="contact" type="password"
-								name="user_password" id="user_password" value="" />
+							<strong><font color="white"> Password</font></strong>
+							<input class="contact" type="password" name="user_password" id="user_password" value="" />
 						</p>
 						<br>
 						<p>
-							<span><font color="white">Conferma Password</font></span><input class="contact"
-								type="password" name="user_confpassword" value="" />
+							<strong><font color="white">Conferma Password</font></strong>
+							<input class="contact" type="password" name="user_confpassword" value="" />
 						</p>
 						<br>
-						<p><font color="white">Sesso:</font></p>
+						
+						<section>
+						    <strong><font color="white">Sesso:</font></strong>
+						    &nbsp;
+							<strong><font color="white">Uomo</font></strong>
+							&nbsp; &nbsp;
+							<strong><font color="white">Donna</font></strong>
+							<br>
+							<input class="checkbox" type="radio" name="user_sesso" value="u" style="left:60px;"/>
+							<input class="checkbox" type="radio" name="user_sesso" value="d" style="left:100px;"/>
+						</section>
 
-						<p>
-							<span> <font color="white">Uomo </font></span><input class="checkbox" type="radio"
-								name="user_sesso" value="u" />
+						<p style="margin-top: 20px; align:center;">
+							<input class="submit" type="submit" name="contact_submitted" value="Registrati" />
 						</p>
-						<p>
-							<span><font color="white">Donna</font></span><input class="checkbox" type="radio"
-								name="user_sesso" value="d" />
-						</p>
-
-						<p style="padding-top: 10px; margin-left:-212px;">
-							<span></span><input class="submit" type="submit"
-								name="contact_submitted" value="Registrati" />
-						</p>
-					</section>
+		</section>
 	 
 
 
