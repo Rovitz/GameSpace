@@ -112,7 +112,7 @@
 								</div>
 								<strong class="text-uppercase marginright">Il mio Account</strong><i class="fa fa-caret-down"></i>
 							</div>
-							<a href="Login.jsp" class="text-uppercase">Login</a> / <a href="Registrati1.jsp" class="text-uppercase">Registrati</a>
+							<a href="Login.jsp" class="text-uppercase">Login</a> / <a href="Registrati.jsp" class="text-uppercase">Registrati</a>
 							<ul class="custom-menu">
 								<li><a href="#"><i class="fa fa-user-o"></i>Il mio Account</a></li>
 								<li style="margin-left: 3px"><a href="#"><i class="fa fa-unlock-alt"></i>Login</a></li>
