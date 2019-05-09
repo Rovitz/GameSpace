@@ -307,10 +307,57 @@
 											<li><a href="#">Survival Horror</a></li>
 											<li><a href="#">Giochi di guida</a></li>
 											<li><a href="#">Rompicapo</a></li>
-											
-										</ul>
+											</ul>
+										</div>
 									</div>
-							</div>
+							
+							<li class="dropdown side-dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">CONSOLE <i class="fa fa-angle-right"></i></a>
+							<div class="custom-menu">
+								<div class="row">
+									<div class="col-md-4">
+										<ul class="list-links">
+												<li>
+												<h3 class="list-links-title">PLAYSTATION</h3></li>
+											<li><a href="#">PS4</a></li>
+											<li><a href="#">PS3</a></li>
+											<li><a href="#">PS2</a></li>
+											<li><a href="#">PS1</a></li>
+											</ul>
+											<hr class="hidden-md hidden-lg">
+											
+											<br>
+											<ul class="list-links">
+												<li>
+												<h3 class="list-links-title">XBOX</h3></li>
+											<li><a href="#">XBOX ONE S</a></li>
+											<li><a href="#">XBOX ONE</a></li>
+											<li><a href="#">XBOX 360</a></li>
+											<li><a href="#">XBOX ARCADE</a></li>
+											</ul>
+											</div>
+											
+											<div class="col-md-4">
+										<ul class="list-links">
+												<li>
+												<h3 class="list-links-title">NINTENDO</h3></li>
+											<li><a href="#">NINTENDO SWITCH</a></li>
+											<li><a href="#">NINTENDO 3DS</a></li>
+											<li><a href="#">NINTENDO DSi</a></li>
+											<li><a href="#">NINTENDO DS lite</a></li>
+											</ul>
+											<hr class="hidden-md hidden-lg">
+											
+										<br>
+										<ul class="list-links">
+												<li>
+												<h3 class="list-links-title">PC</h3></li>
+											<li><a href="#">PORTATILI</a></li>
+											<li><a href="#">FISSO</a></li>
+											<li><a href="#">MAC</a></li>
+											</ul>
+											</div>
+							
 						<li class="dropdown side-dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">ACCESSORI <i class="fa fa-angle-right"></i></a>
 							<div class="custom-menu">
