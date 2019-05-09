@@ -59,11 +59,16 @@ Table OF Contents
 /*----------------------------*\
 	Typography
 \*----------------------------*/
+body.bg {
+  background: url(../img/body_bg.jpg) repeat;
+  /*border: 125px solid #000;*/
+  box-sizing: border-box;
+  width: 100%;
+  height: 200px;
+}
 
 body {
-  background-color: black;
   font-family: 'Hind', sans-serif;
-  color: #4A4E5A;
   overflow-x: hidden;
 }
 
@@ -390,14 +395,20 @@ textarea.input {
 .header-logo {
   display: inline-block;
   margin: 40px;
-
+  
 }
 
 .header-logo .logo>img {
   width: 100%;
-  max-height: 300px;
-
-  
+  /*max-height: 300px;*/
+  margin-left:40px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  backdrop-filter: blur(10px);  
+  -webkit-backdrop-filter: blur(10px);
+  max-width: 100%;
+  max-height: 70%;
+  padding: 10px;  
 }
 
 /*----------------------------*\
@@ -546,11 +557,18 @@ select {
 ===========================================================*/
 
 #navigation {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  backdrop-filter: blur(10px);  
+  -webkit-backdrop-filter: blur(10px);
+  max-width: 100%;
+  max-height: 70%;
+  padding: 10px; 
 }
 
 #navigation .container {
   position: relative;
+
 }
 
 /*----------------------------*\

@@ -40,7 +40,7 @@
 
 </head>
 
-<body>
+<body class="bg">
 	<!-- HEADER -->
 	<header >
 		<!-- top Header -->
@@ -82,7 +82,7 @@
 					<!-- Logo -->
 					<div class="header-logo">
 						<a class="logo" href="#">
-							<img src="./img/logosito.jpg" alt="">
+							<img src="./img/logosito.png"  alt="">
 						</a>
 					</div>
 					<!-- /Logo -->
