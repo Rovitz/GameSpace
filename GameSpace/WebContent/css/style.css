@@ -1011,6 +1011,8 @@ select {
 }
 
 .product.product-single .product-thumb>img {
+  border: 2px solid red;
+  border-radius: 15px;
   width: 100%;
 }
 

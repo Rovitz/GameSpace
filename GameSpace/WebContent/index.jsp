@@ -385,7 +385,7 @@
 										</div>
 									
 									<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Vedi Altro</button>
-									<img src="./img/Mario Kart.jpg"  width="150" height="350" />
+									<img src="./img/switch_mario_kart_deluxe_8.jpg"  width="150" height="350" />
 								
 								</div>
 								<div class="product-body">
@@ -414,7 +414,7 @@
 									</div>
 									
 									<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi Altro</button>
-									<img src="./img/Fifa19.png"  width="150" height="350">
+									<img src="./img/ps4_fifa19.jpg"  width="150" height="350">
 								</div>
 								<div class="product-body">
 									<h3 class="product-price">$30.00</h3>
@@ -441,7 +441,7 @@
 										<span>New</span>
 									</div>
 									<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-									<img src="./img/ARK.jpg" width="150" height="350">
+									<img src="./img/one_ark_survival.jpg" width="150" height="350">
 								</div>
 								<div class="product-body">
 									<h3 class="product-price">$50.00</h3>
@@ -468,7 +468,7 @@
 										<span>New</span>
 									</div>
 									<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-									<img src="./img/Kh3.jpg"  width="150" height="350">
+									<img src="./img/ps4_kingdom_hearts_3.jpg"  width="150" height="350">
 								</div>
 								<div class="product-body">
 									<h3 class="product-price">$80.00</h3>
@@ -526,7 +526,7 @@
 							<div class="product product-single">
 								<div class="product-thumb">
 									<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-									<img src="./img/Mario Odissey.jpg"  width="150" height="350">
+									<img src="./img/switch_mario_odyssey.jpg"  width="150" height="350">
 								</div>
 								<div class="product-body">
 									<h3 class="product-price">$70.00</h3>
@@ -551,7 +551,7 @@
 							<div class="product product-single">
 								<div class="product-thumb">
 									<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-									<img src="./img/WOW.jpg" width="150" height="350">
+									<img src="./img/pc_wow.jpg" width="150" height="350">
 								</div>
 								<div class="product-body">
 									<h3 class="product-price">$35.00</h3>
@@ -576,7 +576,7 @@
 							<div class="product product-single">
 								<div class="product-thumb">
 									<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-									<img src="./img/Halo5.png" width="150" height="350">
+									<img src="./img/one_halo5.png" width="150" height="350">
 								</div>
 								<div class="product-body">
 									<h3 class="product-price">$60.00</h3>
@@ -603,7 +603,7 @@
 									<div class="product-label">
 									</div>
 									<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-									<img src="./img/Red dead.jpg" width="150" height="350">
+									<img src="./img/ps4_red_dead.jpg" width="150" height="350">
 								</div>
 								<div class="product-body">
 									<h3 class="product-price">$50.00</h3>
@@ -662,7 +662,7 @@
 								<span class="sale">-30%</span>
 							</div>
 							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-							<img src="./img/cod.jpg" width="150" height="350">
+							<img src="./img/ps4_cod_bo3.jpg" width="150" height="350">
 						</div>
 						<div class="product-body">
 							<h3 class="product-price">$21.00 <del class="product-old-price"> $30.00</del></h3>
@@ -673,7 +673,7 @@
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star-o empty"></i>
 							</div>
-							<h2 class="product-name"><a href="#">Call Of Duty Black Ops II</a></h2>
+							<h2 class="product-name"><a href="#">Call Of Duty Black Ops III</a></h2>
 							<h4 class="product-console"><a href="#">Console: PS4</a></h4>
 
 							<div class="product-btns">
@@ -692,7 +692,7 @@
 								<span class="sale">-20%</span>
 							</div>
 							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-							<img src="./img/bordelans.jpg" width="150" height="350">
+							<img src="./img/one_borderlands_3.jpg" width="150" height="350">
 						</div>
 						<div class="product-body">
 							<h3 class="product-price">$32.00<del class="product-old-price">$40.00</del></h3>
@@ -722,7 +722,7 @@
 								<span class="sale">-50%</span>
 							</div>
 							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-							<img src="./img/pokemon.jpg" height="350" width="150">
+							<img src="./img/switch_pokemon_dx.jpg" height="350" width="150">
 						</div>
 						<div class="product-body">
 							<h3 class="product-price">$30.00<del class="product-old-price">$60.00</del></h3>
@@ -733,7 +733,7 @@
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star-o empty"></i>
 							</div>
-							<h2 class="product-name"><a href="#">Pokken Tournament DX</a></h2>
+							<h2 class="product-name"><a href="#">Pokemon Tournament DX</a></h2>
 							<h4 class="product-console"><a href="#">Console: Nintendo Switch</a></h4>
 
 							<div class="product-btns">
@@ -752,7 +752,7 @@
 								<span class="sale">-40%</span>
 							</div>
 							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-							<img src="./img/skyrim.jpg" width="150" height="350">
+							<img src="./img/pc_the_witcher.png" width="150" height="350">
 						</div>
 						<div class="product-body">
 							<h3 class="product-price">$60.00<del class="product-old-price">$80.00</del></h3>
@@ -763,7 +763,7 @@
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star-o empty"></i>
 							</div>
-							<h2 class="product-name"><a href="#"></a>Skyrim</h2>
+							<h2 class="product-name"><a href="#"></a>The Witcher 3</h2>
 							<h4 class="product-console"><a href="#">Console: PC</a></h4>
 
 							<div class="product-btns">
