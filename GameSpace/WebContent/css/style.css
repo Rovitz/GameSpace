@@ -97,7 +97,6 @@ input.contact {
 	color: black;
 	margin-right:800px;
 	float:right;
-	
 }
 
 a#ancora{
@@ -121,23 +120,26 @@ right:20px;
 }
 
 strong {
-  color: lightgray;
+  color: white;
 }
 
 .submit{
-	color:black;
-	font: 100% arial;
-	border: 1px solid;
+	text-transform: uppercase;
+	border-radius: 20px;
+	background-color: rgba(0,0,0,0.75);
+	color:white;
+	font: 90% arial;
+	border: 1px solid red;
 	width: 99px;
-	margin: 0 0 0 212px;
 	height: 33px;
-	padding: 2px 0 3px 0
 }
+
 ul, ol {
   margin: 0;
   padding: 0;
   list-style: none
 }
+
 .footer-icons{
     color: white;
 }

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 	<!-- FOOTER -->
 	<footer id="footer" class="bg">
-	<div class="navigation glass">
+	<div class="navigation">
 		<!-- container -->
 		<div class="container">
 			<!-- row -->
