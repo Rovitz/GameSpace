@@ -198,26 +198,30 @@ footer.bg {
 }
 
 .main-btn {
-  color: #30323A;
+  color: white;
   background-color: red;
+  border: 1px solid white;
+  border-radius: 15px;
   -webkit-box-shadow: 0px 0px 0px 1px white inset, 0px 0px 0px 6px transparent;
   box-shadow: 0px 0px 0px 1px white inset, 0px 0px 0px 6px transparent;
 }
 
 .main-btn:hover, .main-btn:focus {
-  color: #F8694A;
-  -webkit-box-shadow: 0px 0px 0px 1px #F8694A inset, 0px 0px 0px 0px #F8694A;
-  box-shadow: 0px 0px 0px 1px #F8694A inset, 0px 0px 0px 0px #F8694A;
+  background-color: darkgray;
+  -webkit-box-shadow: 0px 0px 0px 1px white inset, 0px 0px 0px 0px white;
+  box-shadow: 0px 0px 0px 1px white inset, 0px 0px 0px 0px white;
 }
 
 .primary-btn {
-  color: black;
-  background-color: #F8694A;
+  border: 1px solid white;
+  border-radius: 15px;
+  color: white;
+  background-color: red;
 }
 
 .primary-btn:hover, .primary-btn:focus {
-  color: #FFF;
-  background-color: #30323A;
+  color: white;
+  background-color: darkgrey;
 }
 
 /*----------------------------*\
@@ -1017,7 +1021,7 @@ select {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #FFF;
+  background-color: black;
   opacity: 0;
   visibility: hidden;
   z-index: 0;
@@ -1026,7 +1030,7 @@ select {
 }
 
 .product.product-single:hover .product-thumb:after {
-  opacity: 0.7;
+  opacity: 0.5;
   visibility: visible;
 }
 
