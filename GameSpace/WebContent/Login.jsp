@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-	<title>Entra su GAMESPACE</title>
+	<title>ENTRA SU GAMESPACE</title>
 	<link rel="icon" href="https://img.icons8.com/dusk/64/000000/controller.png" />
+	
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
-
+    
 	<!-- Bootstrap -->
 	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
 
@@ -20,7 +21,7 @@
 
 	<!-- Font Awesome Icon -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
-
+	
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
@@ -44,22 +45,12 @@
 						</p>
 						<br> 
 							<input class="submit submit-center" type="submit" name="contact_submitted" value="Entra" />
-						</p>
 					</form>
 		</div>
 	</div>
 	 
 	<!-- FOOTER -->
 	<jsp:include page="footer.jsp" />
-	 
-	<!-- jQuery Plugins -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/slick.min.js"></script>
-	<script src="js/nouislider.min.js"></script>
-	<script src="js/jquery.zoom.min.js"></script>
-	<script src="js/main.js"></script>
-
 </body>
 
 </html>

@@ -3,7 +3,8 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-	<title>Registrati su GAMESPACE</title>
+	<title>REGISTRATI SU GAMESPACE</title>
+	<link rel="icon" href="https://img.icons8.com/dusk/64/000000/controller.png" />
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">

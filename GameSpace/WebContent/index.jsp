@@ -6,6 +6,7 @@
 
 <head>
 	<title>GAMESPACE</title>
+	<link rel="icon" href="https://img.icons8.com/dusk/64/000000/controller.png" />
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
@@ -40,10 +41,10 @@
 			<div id="responsive-nav">
 				<!-- category nav -->
 				<div class="category-nav">
-					<span class="category-header">Categorie <i class="fa fa-list"></i></span>
+					<span class="category-header">CATALOGO<i class="fa fa-list"></i></span>
 					<ul class="category-list">
 						<li class="dropdown side-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">PS4 <i class="fa fa-angle-right"></i></a>
+							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">PS4<i class="fa fa-angle-right"></i></a>
 								<div class="custom-menu">
 									<div class="row">
 										<div class="col-md-4">
@@ -61,7 +62,7 @@
 										<div class="col-md-4">
 											<ul class="list-links">
 												<li>
-												<h3 class="list-links-title"> PS4 </h3></li>
+												<h3 class="list-links-title">ALTRO</h3></li>
 												<li><a href="#">Strategici</a></li>
 												<li><a href="#">Picchiaduro</a></li>
 												<li><a href="#">Survival Horror</a></li>
@@ -73,7 +74,7 @@
 								</div>
 							</li>
 					
-						<li class="dropdown side-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">PC <i class="fa fa-angle-right"></i></a>
+						<li class="dropdown side-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">PC<i class="fa fa-angle-right"></i></a>
 							<div class="custom-menu">
 								<div class="row">
 									<div class="col-md-4">
@@ -91,7 +92,7 @@
 									<div class="col-md-4">
 										<ul class="list-links">
 											<li>
-											<h3 class="list-links-title"> PC </h3></li>
+											<h3 class="list-links-title">ALTRO</h3></li>
 											<li><a href="#">Strategici</a></li>
 											<li><a href="#">Picchiaduro</a></li>
 											<li><a href="#">Survival Horror</a></li>
@@ -105,7 +106,7 @@
 						</li>
 											
 						<li class="dropdown side-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">XBOX <i class="fa fa-angle-right"></i></a>
+							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">XBOX<i class="fa fa-angle-right"></i></a>
 								<div class="custom-menu">
 									<div class="row">
 										<div class="col-md-4">
@@ -123,7 +124,7 @@
 										<div class="col-md-4">
 											<ul class="list-links">
 												<li>
-												<h3 class="list-links-title"> XBOX </h3></li>
+												<h3 class="list-links-title">ALTRO</h3></li>
 												<li><a href="#">Strategici</a></li>
 												<li><a href="#">Picchiaduro</a></li>
 												<li><a href="#">Survival Horror</a></li>
@@ -137,7 +138,7 @@
 												
 							
 						<li class="dropdown side-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">SWITCH <i class="fa fa-angle-right"></i></a>
+							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">SWITCH<i class="fa fa-angle-right"></i></a>
 								<div class="custom-menu">
 									<div class="row">
 										<div class="col-md-4">
@@ -155,7 +156,7 @@
 										<div class="col-md-4">
 											<ul class="list-links">
 												<li>
-												<h3 class="list-links-title"> SWITCH </h3></li>
+												<h3 class="list-links-title">ALTRO</h3></li>
 												<li><a href="#">Strategici</a></li>
 												<li><a href="#">Picchiaduro</a></li>
 												<li><a href="#">Survival Horror</a></li>
@@ -168,7 +169,7 @@
 							</li>
 							
 							<li class="dropdown side-dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">CONSOLE <i class="fa fa-angle-right"></i></a>
+								<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">CONSOLE<i class="fa fa-angle-right"></i></a>
 									<div class="custom-menu">
 										<div class="row">
 											<div class="col-md-4">
@@ -215,7 +216,7 @@
 								</li>
 							
 						<li class="dropdown side-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">ACCESSORI <i class="fa fa-angle-right"></i></a>
+							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">ACCESSORI<i class="fa fa-angle-right"></i></a>
 								<div class="custom-menu">
 									<div class="row">
 										<div class="col-md-4">
@@ -231,7 +232,7 @@
 										<div class="col-md-4">
 											<ul class="list-links">
 												<li>
-												<h3 class="list-links-title"> PERIFERICHE </h3></li>
+												<h3 class="list-links-title">PERIFERICHE</h3></li>
 												<li><a href="#">Cuffie</a></li>
 												<li><a href="#">Tastiera</a></li>
 												<li><a href="#">Mouse</a></li>
@@ -317,9 +318,6 @@
 				<div class="col-md-4 col-sm-6">
 					<a class="banner banner-1" href="#">
 						<img src="./img/PS4.jpg" alt="">
-						<div class="banner-caption text-center">
-							<h2 class="white-color">PS4</h2>
-						</div>
 					</a>
 				</div>
 				<!-- /banner -->
@@ -328,9 +326,6 @@
 				<div class="col-md-4 col-sm-6">
 					<a class="banner banner-1" href="#">
 						<img src="./img/xboxone.jpg" width="100" height="200" >
-						<div class="banner-caption text-center">
-							<h2 class="white-color">Xbox One</h2>
-						</div>
 					</a>
 				</div>
 				<!-- /banner -->
@@ -339,9 +334,6 @@
 				<div class="col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-3">
 					<a class="banner banner-1" href="#">
 						<img src="./img/switch.jpg" width="100" height="200">
-						<div class="banner-caption text-center">
-							<h2 class="white-color">Switch</h2>
-						</div>
 					</a>
 				</div>
 				<!-- /banner -->
