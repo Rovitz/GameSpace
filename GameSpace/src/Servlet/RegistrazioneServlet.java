@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -61,8 +62,9 @@ public class RegistrazioneServlet extends HttpServlet {
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			request.getRequestDispatcher("errorreg.jsp").forward(request, response);
-			e.printStackTrace();
+			request.setAttribute("error", e.getLocalizedMessage());
+			request.getRequestDispatcher("register.jsp").forward(request, response);
+			//e.printStackTrace();
 		}
 		
 	}

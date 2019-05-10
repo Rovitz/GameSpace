@@ -24,6 +24,8 @@
 
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	
+	<% String error = (String) request.getAttribute("error"); %>
 </head>
 
 <body class="bg">
@@ -34,7 +36,7 @@
 	<div class="navigation">
 		<div class="register-login">
 				<h1>Registrati</h1>
-						<form action="/RegistrazioneServlet" method="post">
+						<form action="RegistrazioneServlet" method="post">
 						<p>
 							<strong><font color="white">Email</font></strong>
 							<input class="contact" required name="user_email" value="" />
@@ -63,6 +65,9 @@
 							<input class="checkbox" type="radio" name="user_sesso" value="d" style="left:100px;"/>
 						</section>
 							<input class="submit submit-center" type="submit" name="contact_submitted" value="Registrati" />
+							<% if(error != null) {%>
+ 								<div style="color: red; margin-top: 5px;"><%= error %></div>
+						    <%} %>
 						</form>
 		</div>
 	</div>
