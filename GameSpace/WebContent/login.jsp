@@ -34,7 +34,6 @@
 	<div class="navigation">
 		<div class="register-login">
 				<h1>Login</h1>
-
 					<form action="LoginServlet" method="post" id="form">		
 						<p>
 							<strong><font color="white">Email</font></strong>

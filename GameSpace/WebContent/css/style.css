@@ -134,6 +134,10 @@ strong {
 	height: 33px;
 }
 
+.submit:hover{
+	background-color: darkgray;
+}
+
 .submit-center{
 	position: relative;
 	left: 15%;
