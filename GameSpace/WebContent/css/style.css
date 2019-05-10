@@ -139,7 +139,7 @@ ul, ol {
   list-style: none
 }
 .footer-icons{
-    color: black;
+    color: white;
 }
 hr {
   margin-top: 15px;
@@ -156,6 +156,14 @@ section#footerprova{
 section#footerprova2{
 	position:relative;
 	left: 170px;
+}
+
+footer.bg {
+  background: url(../img/body_bg.jpg) repeat;
+  /*border: 125px solid #000;*/
+  box-sizing: border-box;
+  width: 100%;
+  height: 200px;
 }
 
 
@@ -385,34 +393,24 @@ textarea.input {
 .header-logo {
   display: inline-block;
   margin: 40px;
-  
 }
 
 .header-logo .logo>img {
   width: 100%;
-  /*max-height: 300px;*/
   margin-left:40px;
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 5px;
-  backdrop-filter: blur(10px);  
-  -webkit-backdrop-filter: blur(10px);
-  max-width: 100%;
-  max-height: 70%;
-  padding: 10px;  
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 50px;
 }
 
 /*----------------------------*\
 	Search header
 \*----------------------------*/
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: black;
-  opacity: 1; /* Firefox */
+::placeholder {
+  color: white;
+  opacity: 1; 
 }
-::selection{
-	background: black;
-	color: black;
-}
+
 select {
     color: black;
     background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
@@ -546,19 +544,19 @@ select {
 	03 -> NAVIGATION
 ===========================================================*/
 
-#navigation {
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 5px;
-  backdrop-filter: blur(10px);  
-  -webkit-backdrop-filter: blur(10px);
-  max-width: 100%;
-  max-height: 70%;
-  padding: 10px; 
+.navigation {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 15px;
+  padding: 20px; 
+  margin-left: 70px;
+  margin-right: 70px;
+  margin-bottom: 70px;
 }
 
-#navigation .container {
-  position: relative;
 
+
+.navigation .container {
+  position: relative;
 }
 
 /*----------------------------*\
@@ -662,7 +660,7 @@ select {
 }
 
 .menu-nav .menu-list>li>a:hover, .menu-nav .menu-list>li>a:focus, .menu-nav .menu-list>li.dropdown.open>a {
-  color: #F8694A;
+  color: red;
 }
 
 /*----------------------------*\
@@ -1683,17 +1681,16 @@ select {
 ===========================================================*/
 
 .footer {
-  margin: 15px 0px;
 }
 
 .footer .footer-header {
   font-size: 18px;
   text-transform: uppercase;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .footer-logo {
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .footer-logo .logo {

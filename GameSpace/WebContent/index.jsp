@@ -33,7 +33,7 @@
 	<jsp:include page="header.jsp" />
 
 	<!-- NAVIGATION -->
-	<div id="navigation">
+	<div class="navigation">
 		<!-- container -->
 		<div class="container">
 			<!-- responsive nav -->
@@ -259,8 +259,6 @@
 			<!--  /responsive nav -->
 		</div>
 		<!-- /container -->
-	</div>	
-	<!-- /NAVIGATION -->
 
 	<!-- HOME -->
 	<div id="home">
@@ -913,6 +911,9 @@
 		<!-- /container -->
 	</div>
 	<!-- /section -->
+	
+	</div>	
+	<!-- /NAVIGATION -->
 
 	<!-- FOOTER -->
 	<jsp:include page="footer.jsp" />

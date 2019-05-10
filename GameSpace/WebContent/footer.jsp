@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 	<!-- FOOTER -->
-	<footer id="footer" class="section section-grey">
+	<footer id="footer" class="bg">
+	<div class="navigation glass">
 		<!-- container -->
 		<div class="container">
 			<!-- row -->
@@ -18,7 +19,7 @@
 						</div>
 						<!-- /footer logo -->
 
-						<em>" La vita e' come un videogioco scegli tu quale controller prendere... "</em>
+						<em style="color: white;">"La vita e' come un videogioco scegli tu quale controller prendere..."</em>
                         <br>
 
 						<!-- footer social -->
@@ -52,7 +53,7 @@
 				<div class="col-md-3 col-sm-6 col-xs-6">
 					<div class="footer">
 						<h3 class="footer-header">Stay Connected</h3>
-						<p>Per ricevere notizie sulle ultime uscite, sconti e offerte. </p>
+						<p style="color: white;">Per ricevere notizie sulle ultime uscite, sconti e offerte. </p>
 						<form>
 							<div class="form-group">
 								<input class="input" placeholder="Inserisci email">
@@ -70,7 +71,7 @@
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center">
 					<!-- footer copyright -->
-					<div class="footer-copyright">
+					<div class="footer-copyright" style="color: white;">
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
 						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -81,5 +82,6 @@
 			<!-- /row -->
 		</div>
 		<!-- /container -->
+		</div>
 	</footer>
 	<!-- /FOOTER -->
