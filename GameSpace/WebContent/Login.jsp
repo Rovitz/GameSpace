@@ -30,29 +30,24 @@
 	<jsp:include page="header.jsp" />
 
 	<!-- NAVIGATION -->
-	<section id="prova" align="center">
-				
+	<div class="navigation">
+		<div class="register-login">
 				<h1>Login</h1>
 
-				<!--/  <form action="RegistrazioneServlet" method="post" id="form">
-					<section class="form_settings"> 
-					-->
-						<br>
+					<form action="LoginServlet" method="post" id="form">		
 						<p>
-							<strong><font color="white"> Email </font></strong>
+							<strong><font color="white">Email</font></strong>
 							<input class="contact" required name="user_email" value="" />
-						</p>
-						<br>
-						<p>
-							<strong><font color="white"> Password</font></strong>
+							<br><br>
+							<strong><font color="white">Password</font></strong>
 							<input class="contact" type="password" name="user_password" id="user_password" value="" />
 						</p>
 						<br> 
-	
-						<p>
-							<input class="submit" style="margin-top: 20px; align: center;" type="submit" name="contact_submitted" value="Entra" />
+							<input class="submit submit-center" type="submit" name="contact_submitted" value="Entra" />
 						</p>
-					</section>
+					</form>
+		</div>
+	</div>
 	 
 	<!-- FOOTER -->
 	<jsp:include page="footer.jsp" />

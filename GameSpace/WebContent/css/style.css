@@ -54,7 +54,7 @@ body.bg {
   /*border: 125px solid #000;*/
   box-sizing: border-box;
   width: 100%;
-  height: 200px;
+  height: 100%;
 }
 
 body {
@@ -132,6 +132,11 @@ strong {
 	border: 1px solid red;
 	width: 99px;
 	height: 33px;
+}
+
+.submit-center{
+	position: relative;
+	left: 15%;
 }
 
 ul, ol {
@@ -541,6 +546,14 @@ select {
 #shopping-cart .shopping-cart-btns>button {
   width: calc(50% - 2px);
 }
+/*=========================================================
+	03 -> REGISTER
+===========================================================*/
+.register-login{
+  position: relative;
+  left: 30%;
+}
+
 
 /*=========================================================
 	03 -> NAVIGATION

@@ -30,7 +30,8 @@
 	<jsp:include page="header.jsp" />
 	
 	<!-- NAVIGATION -->
-	<section id="prova">
+	<div class="navigation">
+		<div class="register-login">
 				<h1>Registrati</h1>
 						<form action="RegistrazioneServlet" method="post" id="form">
 						<p>
@@ -60,23 +61,13 @@
 							<input class="checkbox" type="radio" name="user_sesso" value="u" style="left:60px;"/>
 							<input class="checkbox" type="radio" name="user_sesso" value="d" style="left:100px;"/>
 						</section>
-						<p style="margin-top: 20px; align:center;">
-							<input class="submit" type="submit" name="contact_submitted" value="Registrati" />
-						</p>
+							<input class="submit submit-center" type="submit" name="contact_submitted" value="Registrati" />
 						</form>
-	</section>
+		</div>
+	</div>
 	 
     <!-- FOOTER -->
 	<jsp:include page="footer.jsp" />
-
-	<!-- jQuery Plugins -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/slick.min.js"></script>
-	<script src="js/nouislider.min.js"></script>
-	<script src="js/jquery.zoom.min.js"></script>
-	<script src="js/main.js"></script>
-
 </body>
 
 </html>
