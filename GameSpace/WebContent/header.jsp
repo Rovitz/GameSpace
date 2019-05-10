@@ -42,7 +42,7 @@
 					<!-- Logo -->
 					<div class="header-logo">
 						<a class="logo" href="index.jsp">
-							<img src="./img/logosito.png" alt="">
+							<img src="./img/logosito2.jpg" alt="">
 						</a>
 					</div>
 					<!-- /Logo -->
