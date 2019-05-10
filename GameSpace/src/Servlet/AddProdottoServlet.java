@@ -49,9 +49,9 @@ public class AddProdottoServlet extends HttpServlet {
 		String Descrizione = request.getParameter("prodotto_descrizione");
 		System.out.println(Descrizione);
 		
-		String quantità = request.getParameter("prodotto_quantita");
-		int Quantità = Integer.parseInt(quantità);
-		System.out.println(Quantità);
+		String quantita = request.getParameter("prodotto_quantita");
+		int Quantita = Integer.parseInt(quantita);
+		System.out.println(Quantita);
 		
 		String prezzo = request.getParameter("prodotto_prezzo");
 		Double price = Double.parseDouble(prezzo);
@@ -64,7 +64,7 @@ public class AddProdottoServlet extends HttpServlet {
 		String Path = request.getParameter("prodotto_path");
 		System.out.println(Path);	
 		
-		Prodotto prodotto = new Prodotto(0, Descrizione, Quantità, Prezzo, Tipo, Condizione, Nome, Path, null);
+		Prodotto prodotto = new Prodotto(0, Descrizione, Quantita, Prezzo, Tipo, Condizione, Nome, Path, null);
 		System.out.println(prodotto);
 		
 		try {

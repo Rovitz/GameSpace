@@ -34,7 +34,7 @@
 	<div class="navigation">
 		<div class="register-login">
 				<h1>Registrati</h1>
-						<form action="RegistrazioneServlet" method="post">
+						<form action="/RegistrazioneServlet" method="post">
 						<p>
 							<strong><font color="white">Email</font></strong>
 							<input class="contact" required name="user_email" value="" />

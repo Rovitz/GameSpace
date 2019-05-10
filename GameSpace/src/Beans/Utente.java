@@ -9,18 +9,16 @@ public class Utente {
 	private String Cognome;
 	private String Password;
 	private String Sesso;
-	private String Foto;
 
 	public Utente () {}
 	
-	public Utente(String mail, String nome, String cognome, String pass, String sesso, String foto) {
+	public Utente(String mail, String nome, String cognome, String pass, String sesso) {
 		super();
 		this.email = mail;
 		this.Nome = nome;
 		this.Cognome = cognome;
 		this.Password = pass;
 		this.Sesso = sesso;
-		this.Foto = foto;
 	}
 
 
@@ -63,8 +61,7 @@ public class Utente {
 
 	@Override
 	public String toString() {
-		return "Utente [email=" + email + ", Nome=" + Nome + ", Cognome=" + Cognome + ", Password=" + Password
-				+ ", Sesso=" + Sesso + "]";
+		return "Utente [email=" + email + ", Nome=" + Nome + ", Cognome=" + Cognome + ", Password=" + Password + "]";
 	}
 
 	public String getEmail() {
@@ -106,13 +103,4 @@ public class Utente {
 	public void setSesso(String sesso) {
 		Sesso = sesso;
 	}
-	
-	public String getFoto(){
-		return Foto;
-	}
-	
-	public void setFoto(String foto){
-		this.Foto = foto;
-	}
-	
 }

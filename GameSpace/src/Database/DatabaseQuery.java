@@ -78,7 +78,6 @@ public class DatabaseQuery {
 			psAddUtente.setString(3, utente.getCognome());
 			psAddUtente.setString(4, utente.getPassword());
 			psAddUtente.setString(5, utente.getSesso());
-			psAddUtente.setString(6, utente.getFoto());
 
 			System.out.println(psAddUtente.toString());
 
@@ -178,7 +177,6 @@ public class DatabaseQuery {
 				utente.setCognome(rs.getString("Cognome"));
 				utente.setPassword(rs.getString("Password"));
 				utente.setSesso(rs.getString("Sesso"));
-				utente.setFoto(rs.getString("Foto"));
 			}
 		} finally {
 			try {
@@ -216,7 +214,6 @@ public class DatabaseQuery {
 				utente.setCognome(rs.getString("Cognome"));
 				utente.setPassword(rs.getString("Password"));
 				utente.setSesso(rs.getString("Sesso"));
-				utente.setFoto(rs.getString("Foto"));
 				
 				utenti.add(utente);
 			}
@@ -283,7 +280,7 @@ public class DatabaseQuery {
 
 			psAddProdotto.setInt(1, prodotto.getIdProdotto());
 			psAddProdotto.setString(2, prodotto.getDescrizione());
-			psAddProdotto.setInt(3, prodotto.getQuantità());
+			psAddProdotto.setInt(3, prodotto.getQuantita());
 			psAddProdotto.setBigDecimal(4, prodotto.getPrezzo());
 			psAddProdotto.setString(5, prodotto.getTipo());
 			psAddProdotto.setString(6, prodotto.getCondizione());
@@ -393,7 +390,7 @@ public class DatabaseQuery {
 				Prodotto pr = new Prodotto();
 				pr.setIdProdotto(rs.getInt("idProdotto"));
 				pr.setDescrizione(rs.getString("Descrizione"));
-				pr.setQuantità(rs.getInt("Quantità"));
+				pr.setQuantita(rs.getInt("Quantita"));
 				pr.setPrezzo(rs.getBigDecimal("PrezzoSingolo"));
 				pr.setTipo(rs.getString("Tipo"));
 				pr.setCondizione(rs.getString("Condizione"));
@@ -441,7 +438,7 @@ public class DatabaseQuery {
 				Prodotto pr = new Prodotto();
 				pr.setIdProdotto(rs.getInt("idProdotto"));
 				pr.setDescrizione(rs.getString("Descrizione"));
-				pr.setQuantità(rs.getInt("Quantità"));
+				pr.setQuantita(rs.getInt("Quantita"));
 				pr.setPrezzo(rs.getBigDecimal("PrezzoSingolo"));
 				pr.setTipo(rs.getString("Tipo"));
 				pr.setCondizione(rs.getString("Condizione"));
@@ -536,7 +533,7 @@ public class DatabaseQuery {
 				Prodotto pr = new Prodotto();
 				pr.setIdProdotto(rs.getInt("idProdotto"));
 				pr.setDescrizione(rs.getString("Descrizione"));
-				pr.setQuantità(rs.getInt("Quantità"));
+				pr.setQuantita(rs.getInt("Quantita"));
 				pr.setPrezzo(rs.getBigDecimal("PrezzoSingolo"));
 				pr.setTipo(rs.getString("Tipo"));
 				pr.setCondizione(rs.getString("Condizione"));
@@ -584,7 +581,7 @@ public class DatabaseQuery {
 			while(rs.next()){
 				pr.setIdProdotto(rs.getInt("idProdotto"));
 				pr.setDescrizione(rs.getString("Descrizione"));
-				pr.setQuantità(rs.getInt("Quantità"));
+				pr.setQuantita(rs.getInt("Quantita"));
 				pr.setPrezzo(rs.getBigDecimal("PrezzoSingolo"));
 				pr.setTipo(rs.getString("Tipo"));
 				pr.setCondizione(rs.getString("Condizione"));

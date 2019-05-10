@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 public class Prodotto {
 	private int idProdotto;
 	private String descrizione;
-	private int quantità;
+	private int quantita;
 	private BigDecimal prezzo;
 	private String tipo;
 	private String condizione;
@@ -16,11 +16,11 @@ public class Prodotto {
 	
 	public Prodotto() {}
 
-	public Prodotto(int idProdotto, String descrizione, int quantità, BigDecimal prezzo, String tipo, String condizione, String nome, String path, String utente) {
+	public Prodotto(int idProdotto, String descrizione, int quantita, BigDecimal prezzo, String tipo, String condizione, String nome, String path, String utente) {
 		super();
 		this.idProdotto = idProdotto;
 		this.descrizione = descrizione;
-		this.quantità = quantità;
+		this.quantita = quantita;
 		this.prezzo = prezzo;
 		this.tipo = tipo;
 		this.condizione = condizione;
@@ -45,12 +45,12 @@ public class Prodotto {
 		this.descrizione = descrizione;
 	}
 
-	public int getQuantità() {
-		return quantità;
+	public int getQuantita() {
+		return quantita;
 	}
 
-	public void setQuantità(int quantità) {
-		this.quantità = quantità;
+	public void setQuantita(int quantita) {
+		this.quantita = quantita;
 	}
 
 	public BigDecimal getPrezzo() {
@@ -104,7 +104,7 @@ public class Prodotto {
 
 	@Override
 	public String toString() {
-		return "Prodotto [idProdotto=" + idProdotto + ", descrizione=" + descrizione + ", quantità=" + quantità
+		return "Prodotto [idProdotto=" + idProdotto + ", descrizione=" + descrizione + ", quantita =" + quantita
 				+ ", prezzo=" + prezzo + ", tipo=" + tipo + ", condizione=" + condizione + "]";
 	}
 	

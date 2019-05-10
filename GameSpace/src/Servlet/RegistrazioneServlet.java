@@ -51,16 +51,14 @@ public class RegistrazioneServlet extends HttpServlet {
 		String Sesso = request.getParameter("user_sesso");
 		System.out.println(Sesso);
 		
-		String Foto = request.getParameter("user_foto");
-		System.out.println(Foto);
 		
 		
-		Utente u = new Utente(Email, Nome, Cognome, Password, Sesso, Foto);
+		Utente u = new Utente(Email, Nome, Cognome, Password, Sesso);
 		System.out.println(u);
 		
 		try {
 			DatabaseQuery.addUser(u);
-			request.getRequestDispatcher("Login.jsp").forward(request, response);
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			request.getRequestDispatcher("errorreg.jsp").forward(request, response);
