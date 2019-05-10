@@ -49,7 +49,7 @@
 				</div>
 					</section>
 
-				<section id="footerprova"><!-- footer subscribe -->
+				<section id="footer-section"><!-- footer subscribe -->
 				<div class="col-md-3 col-sm-6 col-xs-6">
 					<div class="footer">
 						<h3 class="footer-header">Stay Connected</h3>

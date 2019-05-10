@@ -156,13 +156,13 @@ hr {
 section#contenuto{
 	color:white;
 }
-section#footerprova{
+section#footer-section{
 	position:relative;
-	left:250px;
+	left: 25%;
 }
 section#footerprova2{
 	position:relative;
-	left: 170px;
+	left: 15%;
 }
 
 footer.bg {
@@ -563,9 +563,9 @@ select {
   background-color: rgba(0, 0, 0, 0.75);
   border-radius: 15px;
   padding: 20px; 
-  margin-left: 70px;
-  margin-right: 70px;
-  margin-bottom: 70px;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 10%;
 }
 
 
