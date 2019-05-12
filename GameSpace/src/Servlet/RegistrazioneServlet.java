@@ -40,10 +40,13 @@ public class RegistrazioneServlet extends HttpServlet {
 			request.setAttribute("success", "Registrazione avvenuta correttamente, ora puoi effettuare il login!");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		} catch (SQLException e) {
-			//request.setAttribute("error", e.getLocalizedMessage());
-			request.setAttribute("error", "Si è verificato un errore con il database!");
+			if(e.getLocalizedMessage().startsWith("Duplicate entry")) {
+				request.setAttribute("error", "eMail già presente nel database!");
+			}
+			else {
+				request.setAttribute("error", "Si è verificato un errore con il database!");
+			}
 			request.getRequestDispatcher("register.jsp").forward(request, response);
 		}
-
 	}
 }

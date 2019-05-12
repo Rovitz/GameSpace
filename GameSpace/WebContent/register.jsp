@@ -48,7 +48,7 @@
 							<strong><font color="white">Password</font></strong>
 							<input class="contact" type="password" name="user_password" id="user_password" value="" />
 							<br><br>
-							<strong><font color="white">Conferma Password</font></strong>
+							<strong><font color="white">Conferma</font></strong>
 							<input class="contact" type="password" name="user_confpassword" value="" />
 						</p>	
 						<br>					
@@ -59,8 +59,8 @@
 							&nbsp; &nbsp;
 							<strong><font color="white">Donna</font></strong>
 							<br>
-							<input class="checkbox" type="radio" name="user_sesso" value="u" style="left:60px;"/>
-							<input class="checkbox" type="radio" name="user_sesso" value="d" style="left:100px;"/>
+							<input class="checkbox" type="radio" name="user_sesso" value="uomo" style="left:60px;"/>
+							<input class="checkbox" type="radio" name="user_sesso" value="donna" style="left:100px;"/>
 						</section>
 							<input class="submit submit-center" type="submit" name="contact_submitted" value="Registrati" />
 							<% String error = (String) request.getAttribute("error");
