@@ -10,17 +10,13 @@ import java.util.Properties;
 
 
 public class Database {
-	
-	
 	//Connection pool 
-
-	
 	private static List<Connection> freeDbConnections;
 
 	static {
 		freeDbConnections = new LinkedList<Connection>();
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 			System.out.println("DB driver not found:"+ e.getMessage());
 		} 
@@ -32,12 +28,13 @@ public class Database {
 		
 		String ip = "localhost";
 		String port = "3306";
-		String db = "commerce1";
+		String db = "gamespace";
 		String username = "root";
-		String password = "Fisciano96";
+		String password = "root";
 		
 		
-		newConnection = DriverManager.getConnection("jdbc:mysql://"+ ip+":"+ port+"/"+db, username, password);
+		newConnection = DriverManager.getConnection("jdbc:mysql://"+ ip + ":" + port + "/" + db + 
+													"?zeroDateTimeBehavior=convertToNull&serverTimezone=GMT" , username, password);
 		newConnection.setAutoCommit(false);
 		return newConnection;
 	}

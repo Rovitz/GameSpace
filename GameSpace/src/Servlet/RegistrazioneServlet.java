@@ -13,68 +13,35 @@ import javax.servlet.http.HttpServletResponse;
 import Beans.Utente;
 import Database.DatabaseQuery;
 
-
 /**
  * Servlet per la registrazione degli utenti
  */
+
 @WebServlet("/RegistrazioneServlet")
 public class RegistrazioneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RegistrazioneServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String Email = request.getParameter("user_email");
-		System.out.println(Email);
-		
 		String Nome = request.getParameter("user_nome"); 
-		System.out.print(Nome);
-		
 		String Cognome = request.getParameter("user_cognome");
-		System.out.println(Cognome);
-		
 		String Password = request.getParameter("user_password");
-		System.out.println(Password);
-		
 		String confPassword = request.getParameter("user_confpassword");
-		System.out.println(confPassword);
-		
 		String Sesso = request.getParameter("user_sesso");
-		System.out.println(Sesso);
 		
-		
-		
+		// Crea utente
 		Utente u = new Utente(Email, Nome, Cognome, Password, Sesso);
+		
+		// Stampa utente creato
 		System.out.println(u);
 		
 		try {
 			DatabaseQuery.addUser(u);
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			request.setAttribute("error", e.getLocalizedMessage());
 			request.getRequestDispatcher("register.jsp").forward(request, response);
-			//e.printStackTrace();
 		}
 		
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }

@@ -61,7 +61,7 @@ public class Utente {
 
 	@Override
 	public String toString() {
-		return "Utente [email=" + email + ", Nome=" + Nome + ", Cognome=" + Cognome + ", Password=" + Password + "]";
+		return "Utente [email=" + email + ", Nome=" + Nome + ", Cognome=" + Cognome + ", Password=" + Password + ", Sesso=" + Sesso + "]";
 	}
 
 	public String getEmail() {
