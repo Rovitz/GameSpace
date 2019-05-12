@@ -24,8 +24,6 @@
 	
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
-	
-	<% String error = (String) request.getAttribute("error"); %>
 </head>
 
 <body class="bg">
@@ -46,15 +44,21 @@
 						</p>
 						<br> 
 							<input class="submit submit-center" type="submit" name="contact_submitted" value="Entra" />
-							<% if(error != null) {%>
- 								<div style="margin-top: 5px;"><strong style="color: red;"><%= error %></strong></div>
-						    <%} %>
+							<%
+	                        String error = (String) request.getAttribute("error");
+							String success = (String) request.getAttribute("success");
+							if(error != null) { %>
+ 								<div style="margin-top: 10px;"><strong style="color: red;"><%= error %></strong></div>
+						    <% } else if(success != null) { %>
+ 									<div style="margin-top: 10px;"><strong style="color: green;"><%= success %></strong></div>
+ 							<% } %>
 					</form>
 		</div>
 	</div>
 	 
 	<!-- FOOTER -->
 	<jsp:include page="footer.jsp" />
+	
 </body>
 
 </html>

@@ -24,8 +24,6 @@
 
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
-	
-	<% String error = (String) request.getAttribute("error"); %>
 </head>
 
 <body class="bg">
@@ -65,9 +63,10 @@
 							<input class="checkbox" type="radio" name="user_sesso" value="d" style="left:100px;"/>
 						</section>
 							<input class="submit submit-center" type="submit" name="contact_submitted" value="Registrati" />
-							<% if(error != null) {%>
- 								<div style="margin-top: 5px;"><strong style="color: red;"><%= error %></strong></div>
-						    <%} %>
+							<% String error = (String) request.getAttribute("error");
+							if(error != null) { %>
+ 								<div style="margin-top: 10px;"><strong style="color: red;"><%= error %></strong></div>
+						    <% } %>
 						</form>
 		</div>
 	</div>
