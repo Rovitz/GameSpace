@@ -66,7 +66,7 @@
 						</section>
 							<input class="submit submit-center" type="submit" name="contact_submitted" value="Registrati" />
 							<% if(error != null) {%>
- 								<div style="color: red; margin-top: 5px;"><%= error %></div>
+ 								<div style="margin-top: 5px;"><strong style="color: red;"><%= error %></strong></div>
 						    <%} %>
 						</form>
 		</div>

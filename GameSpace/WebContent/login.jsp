@@ -24,6 +24,8 @@
 	
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	
+	<% String error = (String) request.getAttribute("error"); %>
 </head>
 
 <body class="bg">
@@ -34,7 +36,7 @@
 	<div class="navigation">
 		<div class="register-login">
 				<h1>Login</h1>
-					<form action="LoginServlet" method="post" id="form">		
+					<form action="LoginServlet" method="post">		
 						<p>
 							<strong><font color="white">Email</font></strong>
 							<input class="contact" required name="user_email" value="" />
@@ -44,6 +46,9 @@
 						</p>
 						<br> 
 							<input class="submit submit-center" type="submit" name="contact_submitted" value="Entra" />
+							<% if(error != null) {%>
+ 								<div style="margin-top: 5px;"><strong style="color: red;"><%= error %></strong></div>
+						    <%} %>
 					</form>
 		</div>
 	</div>

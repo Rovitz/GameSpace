@@ -39,7 +39,8 @@ public class RegistrazioneServlet extends HttpServlet {
 			DatabaseQuery.addUser(u);
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		} catch (SQLException e) {
-			request.setAttribute("error", e.getLocalizedMessage());
+			//request.setAttribute("error", e.getLocalizedMessage());
+			request.setAttribute("error", "Si è verificato un errore con il database!");
 			request.getRequestDispatcher("register.jsp").forward(request, response);
 		}
 		

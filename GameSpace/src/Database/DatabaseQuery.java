@@ -172,7 +172,7 @@ public class DatabaseQuery {
 			connection.commit();
 
 			while (rs.next()) {
-				utente.setEmail(rs.getString("email"));
+				utente.setEmail(rs.getString("eMail"));
 				utente.setNome(rs.getString("Nome"));
 				utente.setCognome(rs.getString("Cognome"));
 				utente.setPassword(rs.getString("Password"));
@@ -757,8 +757,8 @@ public class DatabaseQuery {
 	
 	static {
 		queryAddUtente = "INSERT INTO gamespace.utente (eMail, Nome, Cognome, Password, Sesso) VALUES (?,?,?,?,?);";
-		queryEliminaUtente = "DELETE FROM gamespace.utente WHERE email = ?";
-		queryGetUtente = "SELECT * FROM gamespace.utente WHERE email=?";
+		queryEliminaUtente = "DELETE FROM gamespace.utente WHERE eMail = ?";
+		queryGetUtente = "SELECT * FROM gamespace.utente WHERE eMail=?";
 		queryAddProdotto = "INSERT INTO commerce1.prodotto (idProdotto, Descrizione, Quantità, PrezzoSingolo, Tipo, Condizione, Nome, idUtente, Path) VALUES (?,?,?,?,?,?,?,?,?);";
 		queryEliminaProdotto = "DELETE FROM commerce1.prodotto WHERE idProdotto = ?";
 		queryGetProdotti = "SELECT * FROM commerce1.prodotto";
@@ -772,7 +772,7 @@ public class DatabaseQuery {
 		queryEliminaCarrello = "DELETE FROM commerce1.carrello WHERE idUtente = ?";
 		queryGetNumeroProdotto = "SELECT * FROM commerce1.carrello WHERE idUtente = ?";
 		queryGetUtenti = "SELECT * FROM gamespace.utente";
-		queryGetAdmin = "SELECT * FROM commerce1.admin WHERE Email = ?";
+		queryGetAdmin = "SELECT * FROM commerce1.admin WHERE eMail = ?";
 	}
 	
 }

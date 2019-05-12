@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java"  import="Beans.Utente" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 	<!-- HEADER -->
 	<header >
 		<!-- top Header -->
@@ -50,8 +49,23 @@
 				</div>
 				<div class="pull-right">
 					<ul class="header-btns">
-						<!-- Account -->
+							<!-- Account -->
+					    
 						<li class="header-account dropdown default-dropdown">
+						    <% Utente u = (Utente) session.getAttribute("user");
+						    if (u != null) {%>
+							<div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
+								<div class="header-btns-icon">
+									<i class="fa fa-user-o"></i>
+								</div>
+								<strong class="text-uppercase marginright">BENVENUTO, <%= u.getNome() %>!</strong><i class="fa fa-caret-down"></i>
+							</div>
+							<a href="LogoutServlet" class="text-uppercase">LOGOUT</a>
+							<ul class="custom-menu">
+								<li><a href="#"><i class="fa fa-user-o"></i>IL MIO ACCOUNT</a></li>
+								<li><a href="#"><i class="fa fa-unlock-alt"></i>LOGIN</a></li>
+							</ul>
+							<% } else { %>
 							<div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
 								<div class="header-btns-icon">
 									<i class="fa fa-user-o"></i>
@@ -63,6 +77,7 @@
 								<li><a href="#"><i class="fa fa-user-o"></i>IL MIO ACCOUNT</a></li>
 								<li><a href="#"><i class="fa fa-unlock-alt"></i>LOGIN</a></li>
 							</ul>
+							<% } %>
 						</li>
 						<!-- /Account -->
 
