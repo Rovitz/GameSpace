@@ -136,6 +136,8 @@ strong {
 
 .submit:hover{
 	background-color: darkgray;
+	-webkit-transition: 0.3s all;
+ 	transition: 0.3s all;
 }
 
 .submit-center{
@@ -495,6 +497,7 @@ select {
 }
 
 .header-btns>li .header-btns-icon {
+  border-radius: 20px;
   position: relative;
   float: left;
   margin-right: 15px;
@@ -595,6 +598,7 @@ select {
 }
 
 .category-nav .category-header {
+  margin-bottom: 2px;
   padding: 15px;
   border-radius: 15px;
   border: 1px solid white;
@@ -614,9 +618,9 @@ select {
   position: absolute;
   width: 270px;
   border-radius: 15px;
-  border-left: 2px solid white;
-  border-right: 2px solid white;
-  border-bottom: 2px solid white;
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
   z-index: 50;
   -webkit-transition: 0.3s all;
   transition: 0.3s all;
@@ -638,9 +642,16 @@ select {
   transform: translate(0px, 0px);
 }
 
-.category-nav .category-list>li+li {
-  border-top: 1px solid white;
+.category-nav .category-list>li{
+  z-index: 51;
   border-radius: 15px;
+}
+
+.category-nav .category-list>li:hover{
+  background-color: rgba(255, 255, 255, 0.2);
+  border-top: 1px solid red;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
 }
 
 .category-nav .category-list>li.dropdown>.dropdown-toggle>i {
@@ -678,16 +689,24 @@ select {
 }
 
 .menu-nav .menu-list>li>a {
+  border: 1px solid rgba(0, 0, 0, 0.625);
+  border-radius: 15px;
   display: inline-block;
-  padding: 10px;
-  color: #FFF;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: white;
   text-transform: uppercase;
 }
 
 .menu-nav .menu-list>li>a:hover, .menu-nav .menu-list>li>a:focus, .menu-nav .menu-list>li.dropdown.open>a {
   color: red;
+  background-color: rgba(255, 255, 255, 0.2);
   border: 1px solid red;
   border-radius: 15px;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
 }
 
 /*----------------------------*\

@@ -334,7 +334,7 @@
 				<!-- /banner -->
 
 				<!-- banner -->
-				<div class="col-md-4 col-sm-6" style="margin-top: 50px;">
+				<div class="col-md-4 col-sm-6" style="margin-top: 70px;">
 					<a class="banner banner-1" href="#">
 						<img src="./img/xboxone.png">
 					</a>
