@@ -20,20 +20,37 @@ CREATE TABLE Gioco(
 						CHECK(Rating>=1 AND Rating<=5),
 	Piattaforma VARCHAR(20) NOT NULL,
 	Genere VARCHAR(20) NOT NULL,
-	Titolo VARCHAR(20) NOT NULL,
+	Titolo VARCHAR(50) NOT NULL,
 	Descrizione VARCHAR(100),
 	DataRilascio DATE ,
 	Cover VARCHAR(30)
 	);
-     
-     
+    
+CREATE TABLE Carrello(
+	eMail INTEGER REFERENCES Utente(eMail)
+									ON UPDATE CASCADE
+                                    ON DELETE CASCADE,
+	IDGioco INTEGER REFERENCES Gioco(IDGioco)
+									ON UPDATE CASCADE
+                                    ON DELETE CASCADE
+	);
+	
+CREATE TABLE Vetrina(
+	IDGioco INTEGER REFERENCES Gioco(IDGioco)
+									ON UPDATE CASCADE
+                                    ON DELETE CASCADE,
+	Sezione VARCHAR(20) NOT NULL
+							CHECK(VALUE='piu_venduti' OR VALUE='top_5' OR VALUE='scontati')
+	);
+	
+ 
 CREATE TABLE Ordine(
 	IDOrdine INTEGER PRIMARY KEY NOT NULL,
 	DataRicevuta DATE NOT NULL,
 	Prezzo DOUBLE NOT NULL,
 	Stato VARCHAR(20) NOT NULL DEFAULT 'inoltrato'
 						CHECK(VALUE='inoltrato' OR VALUE='completato'),
-	IDUtente INTEGER REFERENCES Utente(IDUtente)
+	eMail INTEGER REFERENCES Utente(eMail)
 									ON UPDATE CASCADE
                                     ON DELETE CASCADE,
 	IDGioco INTEGER REFERENCES Gioco(IDGioco)
