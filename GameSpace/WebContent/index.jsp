@@ -2,10 +2,8 @@
 	import="Database.*"
 	import="Beans.*"
 	import="java.sql.*"%>
-
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
 	<title>GAMESPACE</title>
 	<link rel="icon" href="https://img.icons8.com/dusk/64/000000/controller.png" />
@@ -28,10 +26,14 @@
 
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
+	
+	<% Connection connection = null;
+	ResultSet rs = null;
+	Statement stmt = null;
+	Gioco g = null; %>
 </head>
 
 <body class="bg">
-
 	<!-- HEADER -->
 	<jsp:include page="header.jsp" />
 
@@ -379,11 +381,7 @@
 					<div class="row">
 						<div id="product-slick-1" class="product-slick">
 							<!-- Product Single -->
-							<% Connection connection = null;
-							ResultSet rs = null;
-							Statement stmt = null;
-							Gioco g = null;
-
+							<%
 							try{
 								connection = Database.getConnection();
 								stmt = connection.createStatement();
@@ -691,7 +689,5 @@
 	<script src="js/nouislider.min.js"></script>
 	<script src="js/jquery.zoom.min.js"></script>
 	<script src="js/main.js"></script>
-
 </body>
-
 </html>
