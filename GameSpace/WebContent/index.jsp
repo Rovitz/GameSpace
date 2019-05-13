@@ -568,7 +568,7 @@
 					<div class="product product-single">
 						<div class="product-thumb">
 							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-							<img src="./img/vr2.jpg" width="100" height="200">
+							<img src="./img/vr.png" width="200" height="200">
 						</div>
 						<div class="product-body">
 							<h3 class="product-price">$250.00</h3>
@@ -596,7 +596,7 @@
 								<span>New</span>
 							</div>
 							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-							<img src="./img/controller.jpeg" height="200" width="100">
+							<img src="./img/controller.png" height="200" width="200">
 						</div>
 						<div class="product-body">
 							<h3 class="product-price">$50.00</h3>
@@ -607,7 +607,7 @@
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star-o empty"></i>
 							</div>
-							<h2 class="product-name"><a href="#">Controller PS4</a></h2>
+							<h2 class="product-name"><a href="#">Controller XBOX</a></h2>
 							<div class="product-btns">
 								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
 							</div>
@@ -625,7 +625,7 @@
 								<span class="sale">-10%</span>
 							</div>
 							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-							<img src="./img/custodia2.jpg" width="100" height="200">
+							<img src="./img/custodia.png" width="200" height="200">
 						</div>
 						<div class="product-body">
 							<h3 class="product-price">$27.00<del class="product-old-price">$30.00</del></h3>
@@ -650,7 +650,7 @@
 					<div class="product product-single">
 						<div class="product-thumb">
 							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-							<img src="./img/mouse.jpg" width="100" height="200">
+							<img src="./img/mouse.png" width="200" height="200">
 						</div>
 						<div class="product-body">
 							<h3 class="product-price">$10.00</h3>

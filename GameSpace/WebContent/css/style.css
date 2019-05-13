@@ -197,7 +197,7 @@ footer.bg {
 
 .main-btn {
   color: white;
-  background-color: red;
+  background-color: rgba(0, 0, 0, 0.625);
   border: 1px solid white;
   border-radius: 15px;
   -webkit-box-shadow: 0px 0px 0px 1px white inset, 0px 0px 0px 6px transparent;
@@ -214,7 +214,7 @@ footer.bg {
   border: 1px solid white;
   border-radius: 15px;
   color: white;
-  background-color: red;
+  background-color: rgba(0, 0, 0, 0.625);
 }
 
 .primary-btn:hover, .primary-btn:focus {
@@ -1008,7 +1008,7 @@ textarea.input {
 }
 
 .product.product-single .product-thumb>img {
-  border: 2px solid red;
+  border: 2px solid white;
   border-radius: 15px;
   width: 100%;
 }
