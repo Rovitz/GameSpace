@@ -597,10 +597,11 @@ select {
 .category-nav .category-header {
   padding: 15px;
   border-radius: 15px;
+  border: 1px solid white;
   display: block;
   text-transform: uppercase;
   background: red;
-  color: #FFF;
+  color: white;
   font-weight: 700;
 }
 
@@ -613,9 +614,9 @@ select {
   position: absolute;
   width: 270px;
   border-radius: 15px;
-  border-left: 1px solid red;
-  border-right: 1px solid red;
-  border-bottom: 1px solid red;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
   z-index: 50;
   -webkit-transition: 0.3s all;
   transition: 0.3s all;
@@ -638,7 +639,8 @@ select {
 }
 
 .category-nav .category-list>li+li {
-  border-top: 1px solid red;
+  border-top: 1px solid white;
+  border-radius: 15px;
 }
 
 .category-nav .category-list>li.dropdown>.dropdown-toggle>i {
@@ -695,7 +697,7 @@ select {
 .custom-menu {
   position: absolute;
   padding: 15px;
-  background: #696969;
+  background: rgba(0,0,0,0.7);
   -webkit-box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.175);
   z-index: 100;
@@ -715,7 +717,7 @@ select {
 /*-- Default Dropdown --*/
 
 .dropdown.default-dropdown>.custom-menu {
-  border-top: 2px solid #F8694A;
+  border-top: 2px solid red;
   left: 50%;
   -webkit-transform: translateX(-50%) translateY(15px);
   -ms-transform: translateX(-50%) translateY(15px);
@@ -764,7 +766,7 @@ select {
 /*-- Side Dropdown --*/
 
 .dropdown.side-dropdown>.custom-menu {
-  border-left: 2px solid #F8694A;
+  border-left: 2px solid red;
   left: 100%;
   top: 0;
   width: 450px;
