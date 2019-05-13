@@ -27,6 +27,9 @@
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
 	
+	<!-- Popup Login -->
+	<link type="text/css" rel="stylesheet" href="css/popup_login.css">
+	
 	<% Connection connection = null;
 	ResultSet rs = null;
 	Statement stmt = null;

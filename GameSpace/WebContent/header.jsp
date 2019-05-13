@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!-- HEADER -->
 <header>
+	<jsp:include page="popup_login.jsp" />
 	<!-- top Header -->
 	<div id="top-header">
 		<div class="container">
@@ -77,7 +78,8 @@
 							</div>
 							<strong class="text-uppercase marginright">IL MIO ACCOUNT</strong><i class="fa fa-caret-down"></i>
 						</div>
-							<a href="login.jsp" class="text-uppercase">LOGIN</a> / <a href="register.jsp" class="text-uppercase">REGISTRATI</a>
+							<a onclick="document.getElementById('modal-wrapper').style.display='block'" class="text-uppercase" style="cursor: pointer;">LOGIN</a>
+							<span style="color: white;"> / </span><a href="register.jsp" class="text-uppercase">REGISTRATI</a>
 							<ul class="custom-menu">
 								<li><a href="#"><i class="fa fa-user-o"></i>IL MIO ACCOUNT</a></li>
 								<li><a href="#"><i class="fa fa-unlock-alt"></i>LOGIN</a></li>
