@@ -420,37 +420,21 @@ textarea.input {
   opacity: 1; 
 }
 
-select {
-    color: black;
-    background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
-    -webkit-appearance:none;
-    appearance:none;
-    background-repeat: no-repeat;
-    background-position-x: 100%;
-    background-position-y: 7px;
-    border: 1px solid #dfdfdf;
-    border-radius: 2px;
-    margin-right: 2rem;
-    padding: 1rem;
-    padding-right: 2rem;
-}
-
-
 .header-search {
   display: inline-block;
   padding: 15px 0px;
-  max-width: 400px;
+  max-width: 200px;
 }
 
 .header-search>form {
-  background-color: #696969;
+  background-color: rgba(0, 0, 0, 0.625);
   position: relative;
   border-radius: 20px;
+  border: 1px solid red;
 }
 
 .header-search>form .search-input {
   color: white;
-  padding-left: 170px;
   padding-right: 30px;
 }
 
@@ -468,6 +452,7 @@ select {
   width: 40px;
   height: 40px;
   background-color: transparent;
+  color: white;
   border: none;
 }
 

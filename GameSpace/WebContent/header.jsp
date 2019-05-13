@@ -43,6 +43,15 @@
 					</a>
 				</div>
 				<!-- /Logo -->
+				
+				<!-- Search -->
+					<div class="header-search">
+						<form>
+							<input class="input search-input" type="text" placeholder="Cerca nel sito">
+							<button class="search-btn"><i class="fa fa-search"></i></button>
+						</form>
+					</div>
+					<!-- /Search -->
 			</div>
 			<div class="pull-right">
 				<ul class="header-btns">
