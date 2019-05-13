@@ -13,7 +13,7 @@
 						<!-- footer logo -->
 						<div class="footer-logo">
 							<a class="logo" href="#">
-		            <img src="./img/logosito2.jpg" alt="">
+		            <img src="./img/logosito.png" alt="">
 		          </a>
 						</div>
 						<!-- /footer logo -->

@@ -414,9 +414,10 @@ textarea.input {
 .header-logo .logo>img {
   width: 100%;
   margin-left:40px;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.625);
   border: 1px solid red;
-  border-radius: 50px;
+  padding: 30px;
+  border-radius: 15px;
 }
 
 /*----------------------------*\
@@ -570,7 +571,7 @@ select {
 ===========================================================*/
 
 .navigation {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.625);
   border-radius: 15px;
   border: 1px solid red;
   padding: 20px; 
