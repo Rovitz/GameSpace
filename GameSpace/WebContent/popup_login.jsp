@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<!-- Popup Login -->
+<link type="text/css" rel="stylesheet" href="css/popup_login.css">
+
+
 <div id="modal-wrapper" class="modal">
   <form class="modal-content animate" action="LoginServlet" method="post">
   
