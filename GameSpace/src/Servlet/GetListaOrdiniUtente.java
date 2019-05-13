@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Beans.Ordine;
-import Beans.Prodotto;
+import Beans.Gioco;
 import Beans.Utente;
 import Database.DatabaseQuery;
 

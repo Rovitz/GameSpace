@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 import Beans.Admin;
 import Beans.Carrello;
+import Beans.Gioco;
 import Beans.Ordine;
-import Beans.Prodotto;
 import Beans.Utente;
 
 
@@ -22,18 +22,18 @@ public class DatabaseQuery {
 	private static String queryEliminaUtente;
 	private static String queryGetUtente;
 	private static String queryCambiaPassword;
-	
+
 	/*
-	 * Query gestione Prodotti 
+	 * Query gestione Prodotti
 	 */
 	private static String queryAddProdotto;
 	private static String queryEliminaProdotto;
 	private static String queryGetProdotti;
 	private static String queryCercaProdotto;
-	private static String queryGetProdottoById;
+	private static String queryGetGiocoById;
 	private static String queryGetProdottoByUser;
 	private static String queryGetNumeroProdotto;
-	
+
 	/*
 	 * Query gestione Ordini e Carrello
 	 */
@@ -50,12 +50,12 @@ public class DatabaseQuery {
 	 */
 	private static String queryGetUtenti;
 	private static String queryGetAdmin;
-	
+
 	/*
 	 * ArrayList per le query
 	 */
 	private static ArrayList listProdotti;
-	private static ArrayList<Prodotto> cercaProdotti;
+	private static ArrayList<Gioco> cercaProdotti;
 	private static ArrayList listCarrello;
 	private static ArrayList listProdCarrello;
 	private static ArrayList listOrdini;
@@ -191,9 +191,9 @@ public class DatabaseQuery {
 		else
 			return utente;
 	}
-	
+
 	/**
-	 * Restituisce ,se esiste, tutti gli Utenti 
+	 * Restituisce ,se esiste, tutti gli Utenti
 	 */
 
 	public synchronized static ArrayList getUtentiAll() throws SQLException {
@@ -214,7 +214,7 @@ public class DatabaseQuery {
 				utente.setCognome(rs.getString("Cognome"));
 				utente.setPassword(rs.getString("Password"));
 				utente.setSesso(rs.getString("Sesso"));
-				
+
 				utenti.add(utente);
 			}
 		} finally {
@@ -227,11 +227,11 @@ public class DatabaseQuery {
 		}
 		return utenti;
 	}
-	
+
 	/**
 	 * Recupera un admin dal DB
 	 */
-	
+
 	public synchronized static Admin getAdmin(String email) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -269,8 +269,8 @@ public class DatabaseQuery {
 	/**
 	 * Registra un prodotto nel database
 	 */
-	
-	public synchronized static boolean addProdotto(Prodotto prodotto, String idUtente) throws SQLException{
+
+	/*	public synchronized static boolean addProdotto(Gioco prodotto, String idUtente) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psAddProdotto = null;
 
@@ -305,12 +305,12 @@ public class DatabaseQuery {
 		}
 
 		return true;
-	}
+	} */
 
 	/**
 	 * Elimina un prodotto nel database
 	 */
-	
+
 	public synchronized static boolean delProdotto(int idProdotto) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psDelProdotto = null;
@@ -338,7 +338,7 @@ public class DatabaseQuery {
 	/**
 	 * Inserisce un ordine nella lista ordini dell'utente
 	 */
-	
+
 	public synchronized static boolean addOrdine(Ordine ordine) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psAddOrdine = null;
@@ -346,7 +346,7 @@ public class DatabaseQuery {
 		try{
 			connection = Database.getConnection();
 			psAddOrdine = connection.prepareStatement(queryAddOrdine);
-			
+
 			psAddOrdine.setInt(1, ordine.getIdOrdine());
 			psAddOrdine.setInt(2, ordine.getIdProdotto());
 			psAddOrdine.setString(3, ordine.getIdUtente());
@@ -375,8 +375,8 @@ public class DatabaseQuery {
 	/**
 	 * Ritorna la lista di tutti i prodotti presenti nel DB
 	 */
-	
-	public synchronized static ArrayList getProdotti() throws SQLException{
+
+	/*	public synchronized static ArrayList getProdotti() throws SQLException{
 		Connection connection = null;
 		PreparedStatement psListProdotti= null;
 		listProdotti = new ArrayList<>();
@@ -387,7 +387,7 @@ public class DatabaseQuery {
 			ResultSet rs = psListProdotti.executeQuery();
 
 			while(rs.next()){
-				Prodotto pr = new Prodotto();
+				Gioco pr = new Gioco();
 				pr.setIdProdotto(rs.getInt("idProdotto"));
 				pr.setDescrizione(rs.getString("Descrizione"));
 				pr.setQuantita(rs.getInt("Quantita"));
@@ -417,13 +417,13 @@ public class DatabaseQuery {
 			}
 		}
 		return listProdotti;
-	}
-	
+	} */
+
 	/**
 	 * Ritorna la lista di tutti i prodotti di un utente nel DB
 	 */
-	
-	public synchronized static ArrayList getProdottiUtente(String email) throws SQLException{
+
+	/*	public synchronized static ArrayList getProdottiUtente(String email) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psListProdotti= null;
 		listProdotti = new ArrayList<>();
@@ -435,7 +435,7 @@ public class DatabaseQuery {
 			ResultSet rs = psListProdotti.executeQuery();
 
 			while(rs.next()){
-				Prodotto pr = new Prodotto();
+				Gioco pr = new Gioco();
 				pr.setIdProdotto(rs.getInt("idProdotto"));
 				pr.setDescrizione(rs.getString("Descrizione"));
 				pr.setQuantita(rs.getInt("Quantita"));
@@ -465,12 +465,12 @@ public class DatabaseQuery {
 			}
 		}
 		return listProdotti;
-	}
-	
+	} */
+
 	/**
 	 * Ritorna la lista di tutti gli ordini di un utente nel DB
 	 */
-	
+
 	public synchronized static ArrayList getOrdiniUtente(String email) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psListProdotti= null;
@@ -517,11 +517,11 @@ public class DatabaseQuery {
 	/**
 	 * Ritorna una lista di prodotti dal database data una keyword
 	 */
-	
-	public synchronized static ArrayList cercaProdotti(String nomeProdotto) throws SQLException{
+
+	/*	public synchronized static ArrayList cercaProdotti(String nomeProdotto) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psListProdotti= null;
-		cercaProdotti = new ArrayList<Prodotto>();
+		cercaProdotti = new ArrayList<Gioco>();
 		try{
 			connection = Database.getConnection();
 			psListProdotti = connection.prepareStatement(queryCercaProdotto);
@@ -530,7 +530,7 @@ public class DatabaseQuery {
 			ResultSet rs = psListProdotti.executeQuery();
 
 			while(rs.next()){
-				Prodotto pr = new Prodotto();
+				Gioco pr = new Gioco();
 				pr.setIdProdotto(rs.getInt("idProdotto"));
 				pr.setDescrizione(rs.getString("Descrizione"));
 				pr.setQuantita(rs.getInt("Quantita"));
@@ -560,43 +560,41 @@ public class DatabaseQuery {
 			}
 		}
 		return cercaProdotti;
-	}
+	} */
 
 	/**
-	 * Ritorna un prodotto dato un id
+	 * Ritorna un gioco dato un id
 	 */
-	
-	public synchronized static Prodotto getProdotto(int idProdotto) throws SQLException{
+	public synchronized static Gioco getGioco(int idGioco) throws SQLException{
 		Connection connection = null;
-		PreparedStatement psGetProdotto= null;
-		Prodotto pr = new Prodotto();
+		PreparedStatement psGetGioco= null;
+		Gioco g = new Gioco();
 
 		try{
 			connection = Database.getConnection();
-			psGetProdotto = connection.prepareStatement(queryGetProdottoById);
+			psGetGioco = connection.prepareStatement(queryGetGiocoById);
 
-			psGetProdotto.setInt(1, idProdotto);
-			ResultSet rs = psGetProdotto.executeQuery();
+			psGetGioco.setInt(1, idGioco);
+			ResultSet rs = psGetGioco.executeQuery();
 
 			while(rs.next()){
-				pr.setIdProdotto(rs.getInt("idProdotto"));
-				pr.setDescrizione(rs.getString("Descrizione"));
-				pr.setQuantita(rs.getInt("Quantita"));
-				pr.setPrezzo(rs.getBigDecimal("PrezzoSingolo"));
-				pr.setTipo(rs.getString("Tipo"));
-				pr.setCondizione(rs.getString("Condizione"));
-				pr.setNome(rs.getString("Nome"));
-				pr.setIdUtente(rs.getString("idUtente"));
-				pr.setPath(rs.getString("Path"));
+				g.setIDGioco(rs.getInt("IDGioco"));
+				g.setDescrizione(rs.getString("Descrizione"));
+				g.setDisponibilita(rs.getInt("Disponibilita"));
+				g.setPrezzo(rs.getDouble("Prezzo"));
+				g.setTitolo(rs.getString("Titolo"));
+				g.setRating(rs.getInt("Rating"));
+				g.setPiattaforma(rs.getString("Piattaforma"));
+				g.setGenere(rs.getString("Genere"));
+				g.setCover(rs.getString("Cover"));
+				g.setDataRilascio(rs.getDate("DataRilascio"));
 
 			}
 		}
 		finally {
 			try {
-				if(psGetProdotto != null)
-					psGetProdotto.close();
-				if(psGetProdotto !=null)
-					psGetProdotto.close();
+				if(psGetGioco != null)
+					psGetGioco.close();
 			} catch(SQLException e) {
 				e.printStackTrace();
 			}
@@ -605,13 +603,13 @@ public class DatabaseQuery {
 				Database.releaseConnection(connection);
 			}
 		}
-		return pr;
+		return g;
 	}
-	
+
 	/**
 	 * Inserisce un prodotto nel carrello dell'utente
 	 */
-	
+
 	public synchronized static boolean addCarrello(int idProdotto, String idUtente) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psAddCarrello = null;
@@ -622,7 +620,7 @@ public class DatabaseQuery {
 
 			psAddCarrello.setString(1, idUtente);
 			psAddCarrello.setInt(2, idProdotto);
-			
+
 			psAddCarrello.executeUpdate();
 
 			connection.commit();
@@ -638,17 +636,17 @@ public class DatabaseQuery {
 
 		return true;
 	}
-	
+
 	/**
 	 * Ritorna il carrello di un utente dato un idUtente
 	 */
-	
+
 	public synchronized static ArrayList getCarrello(String idUtente) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psListCarrello= null;
 		listCarrello = new ArrayList<>();
-		
-		
+
+
 		try{
 			connection = Database.getConnection();
 			psListCarrello = connection.prepareStatement(queryGetCarrello);
@@ -660,7 +658,7 @@ public class DatabaseQuery {
 				Carrello cr = new Carrello();
 				cr.setIdUtente(rs.getString("idUtente"));
 				cr.setIdProdotto(rs.getInt("idProdotto"));
-				
+
 				listCarrello.add(cr);
 				cr = null;
 			}
@@ -682,26 +680,26 @@ public class DatabaseQuery {
 		}
 		return listCarrello;
 	}
-	
+
 	/**
 	 * Ritorna il numero di prodotti che un utente ha nel carrello
 	 */
-	
+
 	public synchronized static int getCountCarrello(String idUtente) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psGetNumCarrello= null;
-		
+
 		int valore = 0;
-		
+
 		try{
 			connection = Database.getConnection();
 			psGetNumCarrello = connection.prepareStatement(queryGetCarrello);
 
 			psGetNumCarrello.setString(1, idUtente);
 			ResultSet rs = psGetNumCarrello.executeQuery();
-			
+
 			while(rs.next()){
-				
+
 				valore++;
 			}
 
@@ -722,11 +720,11 @@ public class DatabaseQuery {
 		}
 		return valore;
 	}
-	
+
 	/**
 	 * Elimina il carrello di un utente dal database
 	 */
-	
+
 	public synchronized static boolean delCarrello(String email) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psDelCarrello = null;
@@ -754,7 +752,7 @@ public class DatabaseQuery {
 	/**
 	 * Query per il Database
 	 */
-	
+
 	static {
 		queryAddUtente = "INSERT INTO gamespace.utente (eMail, Nome, Cognome, Password, Sesso) VALUES (?,?,?,?,?);";
 		queryEliminaUtente = "DELETE FROM gamespace.utente WHERE eMail = ?";
@@ -764,15 +762,15 @@ public class DatabaseQuery {
 		queryGetProdotti = "SELECT * FROM commerce1.prodotto";
 		queryGetMieiOrdini = "SELECT * FROM commerce1.ordine WHERE idUtente = ?";
 		queryCercaProdotto = "SELECT * FROM commerce1.prodotto WHERE Nome = ?";
-		queryGetProdottoById ="SELECT * FROM commerce1.prodotto WHERE idProdotto = ?";
+		queryGetGiocoById ="SELECT * FROM gamespace.gioco WHERE IDGioco = ?";
 		queryGetProdottoByUser ="SELECT * FROM commerce1.prodotto WHERE idUtente = ?";
-		queryAddCarrello = "INSERT INTO commerce1.carrello (idUtente, idProdotto) VALUES (?, ?)";
+		queryAddCarrello = "INSERT INTO gamespace.carrello (IDUtente, IDGioco) VALUES (?, ?)";
 		queryAddOrdine = "INSERT INTO commerce1.ordine (idOrdine, idProdotto, idUtente, Data, Pagamento, Indirizzo, Note, Prezzo) VALUES (?,?,?,?,?,?,?,?)";
-		queryGetCarrello = "SELECT * FROM commerce1.carrello WHERE idUtente = ?";
+		queryGetCarrello = "SELECT * FROM gamespace.carrello WHERE IDUtente = ?";
 		queryEliminaCarrello = "DELETE FROM commerce1.carrello WHERE idUtente = ?";
 		queryGetNumeroProdotto = "SELECT * FROM commerce1.carrello WHERE idUtente = ?";
 		queryGetUtenti = "SELECT * FROM gamespace.utente";
 		queryGetAdmin = "SELECT * FROM commerce1.admin WHERE eMail = ?";
 	}
-	
+
 }

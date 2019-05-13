@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Beans.Prodotto;
+import Beans.Gioco;
 import Database.DatabaseQuery;
 
 /**
@@ -33,7 +33,7 @@ public class GetListaProdottiLog extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ArrayList<Prodotto> lista = new ArrayList<>();
+		ArrayList<Gioco> lista = new ArrayList<>();
 		
 		try {
 			

@@ -385,7 +385,8 @@ textarea.input {
   background-color: black;
   padding-top: 5px;
   padding-bottom: 3px;
-  border-bottom: 1px solid #DADADA;
+  border-bottom: 1px solid red;
+  border-radius: 15px;
 }
 
 .header-top-links>li {
@@ -414,6 +415,7 @@ textarea.input {
   width: 100%;
   margin-left:40px;
   background-color: rgba(0, 0, 0, 0.75);
+  border: 1px solid red;
   border-radius: 50px;
 }
 
@@ -570,13 +572,12 @@ select {
 .navigation {
   background-color: rgba(0, 0, 0, 0.75);
   border-radius: 15px;
+  border: 1px solid red;
   padding: 20px; 
   margin-left: 10%;
   margin-right: 10%;
   margin-bottom: 10%;
 }
-
-
 
 .navigation .container {
   position: relative;
@@ -594,6 +595,7 @@ select {
 
 .category-nav .category-header {
   padding: 15px;
+  border-radius: 15px;
   display: block;
   text-transform: uppercase;
   background: red;
@@ -609,7 +611,7 @@ select {
 .category-nav .category-list {
   position: absolute;
   width: 270px;
-  background-color: black;
+  border-radius: 15px;
   border-left: 1px solid red;
   border-right: 1px solid red;
   border-bottom: 1px solid red;
@@ -659,11 +661,8 @@ select {
 
 .menu-nav .menu-header {
   display: none;
-  padding: 15px;
   text-transform: uppercase;
-  background: #30323A;
   color: #FFF;
-  font-weight: 700;
 }
 
 .menu-nav .menu-header>i {
@@ -676,14 +675,16 @@ select {
 }
 
 .menu-nav .menu-list>li>a {
-  display: block;
-  padding: 15px;
+  display: inline-block;
+  padding: 10px;
   color: #FFF;
   text-transform: uppercase;
 }
 
 .menu-nav .menu-list>li>a:hover, .menu-nav .menu-list>li>a:focus, .menu-nav .menu-list>li.dropdown.open>a {
   color: red;
+  border: 1px solid red;
+  border-radius: 15px;
 }
 
 /*----------------------------*\
@@ -856,10 +857,8 @@ select {
     display: block;
   }
   .menu-nav .menu-list {
-    float: none;
-    border-left: 1px solid #DADADA;
-    border-right: 1px solid #DADADA;
-    border-bottom: 1px solid #DADADA;
+ 	margin-bottom: 10px;
+    
   }
   .menu-nav .menu-list>li {
     display: block;
@@ -889,8 +888,6 @@ select {
 .banner {
   display: block;
   position: relative;
-  margin-top: 15px;
-  margin-bottom: 15px;
 }
 
 .banner>img {

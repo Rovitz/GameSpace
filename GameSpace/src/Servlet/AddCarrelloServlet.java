@@ -18,18 +18,10 @@ import Database.DatabaseQuery;
 public class AddCarrelloServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public AddCarrelloServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Utente u = (Utente) session.getAttribute("user");
-
 
 		String user = u.getEmail();
 
@@ -41,7 +33,7 @@ public class AddCarrelloServlet extends HttpServlet {
 		} else {
 			System.out.println("Servlet: ricevuta richiesta inserimento");
 			int idProdotto = Integer.parseInt(Prodotto);
-			
+
 			try {
 				DatabaseQuery.addCarrello(idProdotto, user);
 				System.out.println("Servlet: Aggiungo al carrello " +user+ " id: " +idProdotto);
@@ -54,13 +46,6 @@ public class AddCarrelloServlet extends HttpServlet {
 				request.getRequestDispatcher("CarrelloLog.jsp").forward(request, response);
 
 			}
-		}	
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		}
 	}
 }

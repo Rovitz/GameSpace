@@ -11,14 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import Beans.Prodotto;
+import Beans.Gioco;
 import Beans.Utente;
 import Database.DatabaseQuery;
 
 
 @WebServlet("/CercaProdottiServlet")
 public class CercaProdottiServlet extends HttpServlet {
-	static ArrayList<Prodotto>listProdotti;
+	static ArrayList<Gioco>listProdotti;
 	private static final long serialVersionUID = 1L;
 	
        
@@ -27,7 +27,7 @@ public class CercaProdottiServlet extends HttpServlet {
      */
     public CercaProdottiServlet() {
         super();
-        listProdotti = new ArrayList<Prodotto>();
+        listProdotti = new ArrayList<Gioco>();
         // TODO Auto-generated constructor stub
     }
 

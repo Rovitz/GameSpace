@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
+	import="Database.*"
+	import="Beans.*"
+	import="java.sql.*"%>
 
 <!DOCTYPE html>
 <html lang="it">
@@ -247,7 +249,6 @@
 
 				<!-- menu nav -->
 				<div class="menu-nav">
-					<span class="menu-header">Menu <i class="fa fa-bars"></i></span>
 					<ul class="menu-list">
 						<li><a href="#">Home</a></li>
 						<li><a href="#">Usato</a></li>
@@ -317,23 +318,23 @@
 				<!-- banner -->
 				<div class="col-md-4 col-sm-6">
 					<a class="banner banner-1" href="#">
-						<img src="./img/PS4.jpg" alt="">
+						<img src="./img/ps4.png">
 					</a>
 				</div>
 				<!-- /banner -->
 
 				<!-- banner -->
-				<div class="col-md-4 col-sm-6">
+				<div class="col-md-4 col-sm-6" style="margin-top: 70px;">
 					<a class="banner banner-1" href="#">
-						<img src="./img/xboxone.jpg" width="100" height="200" >
+						<img src="./img/switch.png">
 					</a>
 				</div>
 				<!-- /banner -->
 
 				<!-- banner -->
-				<div class="col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-3">
+				<div class="col-md-4 col-sm-6" style="margin-top: 50px;">
 					<a class="banner banner-1" href="#">
-						<img src="./img/switch.jpg" width="100" height="200">
+						<img src="./img/xboxone.png">
 					</a>
 				</div>
 				<!-- /banner -->
@@ -378,115 +379,47 @@
 					<div class="row">
 						<div id="product-slick-1" class="product-slick">
 							<!-- Product Single -->
-							<div class="product product-single">
-								<div class="product-thumb">
-									<div class="product-label">
-										<span>New</span>
+							<% Connection connection = null;
+							ResultSet rs = null;
+							Statement stmt = null;
+							Gioco g = null;
+
+							try{
+								connection = Database.getConnection();
+								stmt = connection.createStatement();
+								rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"piu_venduti\"");
+
+								while(rs.next()){ 
+									g = DatabaseQuery.getGioco(rs.getInt("IDGioco")); %>
+									<div class="product product-single">
+										<div class="product-thumb">
+											<div class="product-label">
+												<span>New</span>
+											</div>
+									
+											<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Vedi Altro</button>
+											<img src="./img/<%=g.getCover()%>"  width="150" height="350" />
 										</div>
-									
-									<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Vedi Altro</button>
-									<img src="./img/switch_mario_kart_deluxe_8.jpg"  width="150" height="350" />
-								
-								</div>
-								<div class="product-body">
-									<h3 class="product-price">$80.00</h3>
-									<div class="product-rating">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o empty"></i>
+									<div class="product-body">
+										<h3 class="product-price">€<%=g.getPrezzo() %></h3>
+											<div class="product-rating">
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star-o empty"></i>
+											</div>
+										<h3 class="product-nome"><a href="#"><%=g.getTitolo() %></a></h3>
+										<h4 class="product-console"><a href="#"><%=g.getPiattaforma() %></a></h4>
+										<div class="product-btns">
+											<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Aggiungi al carrello</button>
+										</div>
 									</div>
-									<h3 class="product-nome"><a href="#">Mario Kart Deluxe 8</a></h3>
-									<h4 class="product-console"><a href="#">Console: Nintendo Switch</a></h4>
-									<div class="product-btns">
-										<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Aggiungi al carrello</button>
 									</div>
-								</div>
-							</div>
-							<!-- /Product Single -->
-
-							<!-- Product Single -->
-							<div class="product product-single">
-								<div class="product-thumb">
-									<div class="product-label">
-										<span>New</span>
-									</div>
-									
-									<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi Altro</button>
-									<img src="./img/ps4_fifa19.jpg"  width="150" height="350">
-								</div>
-								<div class="product-body">
-									<h3 class="product-price">$30.00</h3>
-									<div class="product-rating">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o empty"></i>
-									</div>
-									<h1 class="product-name"><a href="#">Fifa 19</a></h1>
-									<h4 class="product-console"><a href="#">Console: PS4</a></h4>
-									<div class="product-btns">
-										<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
-									</div>
-								</div>
-							</div>
-							<!-- /Product Single -->
-
-							<!-- Product Single -->
-							<div class="product product-single">
-								<div class="product-thumb">
-									<div class="product-label">
-										<span>New</span>
-									</div>
-									<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-									<img src="./img/one_ark_survival.jpg" width="150" height="350">
-								</div>
-								<div class="product-body">
-									<h3 class="product-price">$50.00</h3>
-									<div class="product-rating">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o empty"></i>
-									</div>
-									<h2 class="product-name"><a href="#">ARK: Survival Evolved</a></h2>
-									<h4 class="product-console"><a href="#">Console: XBOX ONE</a></h4>
-									<div class="product-btns">
-										<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
-									</div>
-								</div>
-							</div>
-							<!-- /Product Single -->
-
-							<!-- Product Single -->
-							<div class="product product-single">
-								<div class="product-thumb">
-									<div class="product-label">
-										<span>New</span>
-									</div>
-									<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-									<img src="./img/ps4_kingdom_hearts_3.jpg"  width="150" height="350">
-								</div>
-								<div class="product-body">
-									<h3 class="product-price">$80.00</h3>
-									<div class="product-rating">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o empty"></i>
-									</div>
-									<h2 class="product-name"><a href="#">Kingdom Hearts III</a></h2>
-									<h4 class="product-console"><a href="#">Console: PS4</a></h4>
-
-									<div class="product-btns">
-										<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
-									</div>
-								</div>
-							</div>
+								<% }
+							} 
+							catch (SQLException e){
+							}%>
 							<!-- /Product Single -->
 						</div>
 					</div>
@@ -523,126 +456,51 @@
 					<div class="row">
 						<div id="product-slick-2" class="product-slick">
 							<!-- Product Single -->
-							<div class="product product-single">
-								<div class="product-thumb">
-									<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-									<img src="./img/switch_mario_odyssey.jpg"  width="150" height="350">
-								</div>
-								<div class="product-body">
-									<h3 class="product-price">$70.00</h3>
-									<div class="product-rating">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o empty"></i>
-									</div>
-									<h2 class="product-name"><a href="#">Super Mario Odissey</a></h2>
-									<h4 class="product-console"><a href="#">Console: Nintendo Switch</a></h4>
+							<% 
+							try{
+								connection = Database.getConnection();
+								stmt = connection.createStatement();
+								rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"top_5\"");
 
-									<div class="product-btns">
-										<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
+								while(rs.next()){ 
+									g = DatabaseQuery.getGioco(rs.getInt("IDGioco")); %>
+									<div class="product product-single">
+										<div class="product-thumb">
+											<div class="product-label">
+												<span>New</span>
+											</div>
+									
+											<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Vedi Altro</button>
+											<img src="./img/<%=g.getCover()%>"  width="150" height="350" />
+										</div>
+									<div class="product-body">
+										<h3 class="product-price">€<%=g.getPrezzo() %></h3>
+											<div class="product-rating">
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star-o empty"></i>
+											</div>
+										<h3 class="product-nome"><a href="#"><%=g.getTitolo() %></a></h3>
+										<h4 class="product-console"><a href="#"><%=g.getPiattaforma() %></a></h4>
+										<div class="product-btns">
+											<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Aggiungi al carrello</button>
+										</div>
 									</div>
-								</div>
-							</div>
+									</div>
+								<% }
+							} 
+							catch (SQLException e){
+							}%>
 							<!-- /Product Single -->
-
-							<!-- Product Single -->
-							<div class="product product-single">
-								<div class="product-thumb">
-									<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-									<img src="./img/pc_wow.jpg" width="150" height="350">
-								</div>
-								<div class="product-body">
-									<h3 class="product-price">$35.00</h3>
-									<div class="product-rating">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o empty"></i>
-									</div>
-									<h2 class="product-name"><a href="#"></a>World Of Warcraft Battle Of Azeroth</h2>
-									<h4 class="product-console"><a href="#">Console: PC</a></h4>
-
-									<div class="product-btns">
-										<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
-									</div>
-								</div>
-							</div>
-							<!-- /Product Single -->
-
-							<!-- Product Single -->
-							<div class="product product-single">
-								<div class="product-thumb">
-									<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-									<img src="./img/one_halo5.png" width="150" height="350">
-								</div>
-								<div class="product-body">
-									<h3 class="product-price">$60.00</h3>
-									<div class="product-rating">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o empty"></i>
-									</div>
-									<h2 class="product-name"><a href="#">HALO 5</a></h2>
-									<h4 class="product-console"><a href="#">Console: XBOX ONE</a></h4>
-
-									<div class="product-btns">
-										<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
-									</div>
-								</div>
-							</div>
-							<!-- /Product Single -->
-
-							<!-- Product Single -->
-							<div class="product product-single">
-								<div class="product-thumb">
-									<div class="product-label">
-									</div>
-									<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-									<img src="./img/ps4_red_dead.jpg" width="150" height="350">
-								</div>
-								<div class="product-body">
-									<h3 class="product-price">$50.00</h3>
-									<div class="product-rating">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-o empty"></i>
-									</div>
-									<h2 class="product-name"><a href="#">Red Dead Redemption II</a></h2>
-									<h4 class="product-console"><a href="#">Console: PS4</a></h4>
-
-									<div class="product-btns">
-										<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
-									</div>
-								</div>
-							</div>
-							<!-- /Product Single -->
-
 						</div>
 					</div>
 				</div>
 				<!-- /Product Slick -->
 			</div>
 			<!-- /row -->
-		</div>
-		<!-- /container -->
-	</div>
-	<!-- /section -->
 
-	<!-- section -->
-	
-	<!-- /section -->
-
-	<!-- section -->
-	<div class="section">
-		<!-- container -->
-		<div class="container">
 			<!-- row -->
 			<div class="row">
 				<!-- section title -->
@@ -651,9 +509,17 @@
 						<h2 class="title">Scontati</h2>
 					</div>
 				</div>
-				<!-- section title -->
+			</div>
+				
+			<!-- Product Single -->
+			<% 
+			try{
+				connection = Database.getConnection();
+				stmt = connection.createStatement();
+				rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"scontati\"");
 
-				<!-- Product Single -->
+				while(rs.next()){ 
+				g = DatabaseQuery.getGioco(rs.getInt("IDGioco")); %>
 				<div class="col-md-3 col-sm-6 col-xs-6">
 					<div class="product product-single">
 						<div class="product-thumb">
@@ -661,11 +527,12 @@
 								<span>New</span>
 								<span class="sale">-30%</span>
 							</div>
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-							<img src="./img/ps4_cod_bo3.jpg" width="150" height="350">
+									
+							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Vedi Altro</button>
+							<img src="./img/<%=g.getCover()%>"  width="150" height="350" />
 						</div>
 						<div class="product-body">
-							<h3 class="product-price">$21.00 <del class="product-old-price"> $30.00</del></h3>
+							<h3 class="product-price">€<%=g.getPrezzo() %><del class="product-old-price">€40.00</del></h3>
 							<div class="product-rating">
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star"></i>
@@ -673,112 +540,19 @@
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star-o empty"></i>
 							</div>
-							<h2 class="product-name"><a href="#">Call Of Duty Black Ops III</a></h2>
-							<h4 class="product-console"><a href="#">Console: PS4</a></h4>
-
-							<div class="product-btns">
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
-							</div>
+								<h2 class="product-nome"><a href="#"><%=g.getTitolo() %></a></h2>
+								<h4 class="product-console"><a href="#"><%=g.getPiattaforma() %></a></h4>
+								<div class="product-btns">
+									<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Aggiungi al carrello</button>
+								</div>
 						</div>
 					</div>
 				</div>
-				<!-- /Product Single -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span class="sale">-20%</span>
-							</div>
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-							<img src="./img/one_borderlands_3.jpg" width="150" height="350">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$32.00<del class="product-old-price">$40.00</del></h3>
-							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
-							</div>
-							<h2 class="product-name"><a href="#">Bordelands III</a></h2>
-							<h4 class="product-console"><a href="#">Console: XBOX ONE</a></h4>
-
-							<div class="product-btns">
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span class="sale">-50%</span>
-							</div>
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-							<img src="./img/switch_pokemon_dx.jpg" height="350" width="150">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$30.00<del class="product-old-price">$60.00</del></h3>
-							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
-							</div>
-							<h2 class="product-name"><a href="#">Pokemon Tournament DX</a></h2>
-							<h4 class="product-console"><a href="#">Console: Nintendo Switch</a></h4>
-
-							<div class="product-btns">
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi il carrello</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span class="sale">-40%</span>
-							</div>
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-							<img src="./img/pc_the_witcher.png" width="150" height="350">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">$60.00<del class="product-old-price">$80.00</del></h3>
-							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
-							</div>
-							<h2 class="product-name"><a href="#"></a>The Witcher 3</h2>
-							<h4 class="product-console"><a href="#">Console: PC</a></h4>
-
-							<div class="product-btns">
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
+				<% }
+				} 
+				catch (SQLException e){}%>
+			<!-- /Product Single -->
 			</div>
-			<!-- /row -->
-
-			
-
-				
 			<!-- /row -->
 
 			<!-- row -->
@@ -853,7 +627,7 @@
 								<span class="sale">-10%</span>
 							</div>
 							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-							<img src="./img/custodia2.jpg" weight="100" height="200">
+							<img src="./img/custodia2.jpg" width="100" height="200">
 						</div>
 						<div class="product-body">
 							<h3 class="product-price">$27.00<del class="product-old-price">$30.00</del></h3>

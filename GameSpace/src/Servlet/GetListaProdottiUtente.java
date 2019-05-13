@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import Beans.Prodotto;
+import Beans.Gioco;
 import Beans.Utente;
 import Database.DatabaseQuery;
 
@@ -35,7 +35,7 @@ public class GetListaProdottiUtente extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ArrayList<Prodotto> lista = new ArrayList<>();
+		ArrayList<Gioco> lista = new ArrayList<>();
 		
 		HttpSession session = request.getSession();
 		Utente u = (Utente) session.getAttribute("user");
