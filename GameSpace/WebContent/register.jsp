@@ -48,7 +48,7 @@
 							<strong><font color="white">Password</font></strong>
 							<input class="contact" type="password" name="user_password" id="user_password" value="" />
 							<br><br>
-							<strong><font color="white">Conferma</font></strong>
+							<strong><font color="white">Conferma Password</font></strong>
 							<input class="contact" type="password" name="user_confpassword" value="" />
 						</p>	
 						<br>					

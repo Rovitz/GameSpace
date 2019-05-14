@@ -85,15 +85,14 @@ a:hover, a:focus {
 }
 
 input.contact {
+	width: 100%;
 	padding: 2px;
-	width: 300px;
 	font: 100% arial;
 	border: 1px solid #E5E5DB;
 	border-radius: 5px;
 	background:white;
 	color: black;
-	margin-right:800px;
-	float:right;
+	float: right;
 }
 
 a#ancora{
@@ -124,7 +123,7 @@ strong {
 	color:white;
 	font: 90% arial;
 	border: 1px solid red;
-	width: 99px;
+	width: 30%;
 	height: 33px;
 }
 
@@ -136,7 +135,7 @@ strong {
 
 .submit-center{
 	position: relative;
-	left: 15%;
+	left: 30%;
 }
 
 ul, ol {
@@ -538,8 +537,10 @@ textarea.input {
 	03 -> REGISTER
 ===========================================================*/
 .register-login{
+  display: inline-block;
   position: relative;
-  left: 30%;
+  left: 35%;
+  width: 30%;
 }
 
 

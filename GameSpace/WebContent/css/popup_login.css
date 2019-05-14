@@ -1,12 +1,16 @@
 .popup-align-center {
 	display: inline-block;
 	position: relative;
-	left: 10%;
+	margin-left: 10%;
+    width: 80%;
 }
 
-.popup-align-center>input[type=submit]{
-	position: relative;
-	left: 9%;
+.popup-align-center input[type=submit]{
+  	margin: 0;
+  	position: absolute;
+  	bottom: 1%;
+  	left: 50%;
+  	transform: translate(-50%, 100%);
 }
 
 .popup-h1 {
@@ -22,6 +26,7 @@
     z-index: 52;
     left: 0;
     top: 0;
+    overflow: auto;
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.75);
@@ -34,7 +39,7 @@
     margin: 4% auto 15% auto;
     border: 1px solid red;
     width: 25%; 
-	padding-bottom: 30px;
+	padding-bottom: 50px;
 }
 
 /* Add Zoom Animation */
