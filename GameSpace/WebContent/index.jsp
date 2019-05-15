@@ -410,7 +410,9 @@
 										<h3 class="product-nome"><a href="#"><%=g.getTitolo() %></a></h3>
 										<h4 class="product-console"><a href="#"><%=g.getPiattaforma() %></a></h4>
 										<div class="product-btns">
-											<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Aggiungi al carrello</button>
+											<form action="LoginServlet" method="post">
+												<input type="submit" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Aggiungi al carrello</input>
+											</form>
 										</div>
 									</div>
 									</div>
