@@ -46,7 +46,7 @@
 	   			</div>
 	   			<br>
 	    		<h3 style="margin-top: 2%;">Prezzo: </h3>
-				<h4 class="product-nome"><a href="#">€<%=g1.getPrezzo() %></a></h4></h4>
+				<h4 class="product-nome"><a href="#">€<%=g1.getPrezzo() %></a></h4>
 			</div>
 		</div>
 		<% } %>

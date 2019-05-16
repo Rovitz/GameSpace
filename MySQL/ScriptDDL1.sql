@@ -20,10 +20,10 @@ CREATE TABLE Gioco(
 						CHECK(Rating>=1 AND Rating<=5),
 	Piattaforma VARCHAR(20) NOT NULL,
 	Genere VARCHAR(20) NOT NULL,
-	Titolo VARCHAR(50) NOT NULL,
+	Titolo VARCHAR(100) NOT NULL,
 	Descrizione VARCHAR(100),
 	DataRilascio DATE ,
-	Cover VARCHAR(30)
+	Cover VARCHAR(100)
 	);
     
 CREATE TABLE Carrello(
@@ -40,7 +40,7 @@ CREATE TABLE Vetrina(
 									ON UPDATE CASCADE
                                     ON DELETE CASCADE,
 	Sezione VARCHAR(20) NOT NULL
-							CHECK(VALUE='piu_venduti' OR VALUE='top_5' OR VALUE='scontati')
+							CHECK(VALUE='piu_venduti' OR VALUE='top_5' OR VALUE='scontati' OR VALUE='usato' OR VALUE='ultime_uscite')
 	);
 	
  

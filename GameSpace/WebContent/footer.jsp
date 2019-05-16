@@ -12,7 +12,7 @@
 					<div class="footer">
 						<!-- footer logo -->
 						<div class="footer-logo">
-							<a class="logo" href="#">
+							<a class="logo" href="index.jsp">
 		            <img src="./img/logosito.png" alt="">
 		          </a>
 						</div>
@@ -40,7 +40,7 @@
 						<h3 class="footer-header">Il mio account:</h3>
 						<ul class="list-links">
 							<li><a href="#" class="footer-icons">My Account</a></li>
-							<li><a href="#" class="footer-icons">Login</a></li>
+							<li><a href="popup_login.jsp" class="footer-icons">Login</a></li>
 							<li><a href="#" class="footer-icons">Logout</a></li>
 
 						</ul>
@@ -71,9 +71,7 @@
 				<div class="col-md-8 col-md-offset-2 text-center">
 					<!-- footer copyright -->
 					<div class="footer-copyright" style="color: white;">
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 						Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 					</div>
 					<!-- /footer copyright -->
 				</div>

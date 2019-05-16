@@ -25,8 +25,8 @@
 					<li class="dropdown default-dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">USD <i class="fa fa-caret-down"></i></a>
 						<ul class="custom-menu">
-							<li><a href="#">USD ()</a></li>
-							<li><a href="#">EUR ()</a></li>
+							<li><a href="#">USD ($)</a></li>
+							<li><a href="#">EUR (€)</a></li>
 						</ul>
 					</li>
 				</ul>
