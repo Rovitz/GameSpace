@@ -421,8 +421,9 @@ textarea.input {
 
 .header-search {
   display: inline-block;
-  padding: 15px 0px;
-  max-width: 200px;
+  margin-top: 2%;
+  margin-left: 5%;
+  max-width: 70%;
 }
 
 .header-search>form {
@@ -478,9 +479,9 @@ textarea.input {
   height: 40px;
   line-height: 40px;
   text-align: center;
-  color: #30323A;
-  background-color: #FFF;
-  border: 1px solid #DADADA;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.625);
+  border: 1px solid white;
 }
 
 .header-btns .dropdown-toggle {
@@ -573,14 +574,13 @@ textarea.input {
 }
 
 .category-nav .category-header {
-  margin-bottom: 2px;
+  margin-bottom: 2%;
   padding: 15px;
   border-radius: 15px;
-  border: 1px solid white;
+  border: 1px solid red;
   display: block;
   text-transform: uppercase;
-  background: red;
-  color: white;
+  color: red;
   font-weight: 700;
 }
 
@@ -676,9 +676,7 @@ textarea.input {
 }
 
 .menu-nav .menu-list>li>a:hover, .menu-nav .menu-list>li>a:focus, .menu-nav .menu-list>li.dropdown.open>a {
-  color: red;
-  background-color: rgba(255, 255, 255, 0.2);
-  border: 1px solid red;
+  border: 1px solid white;
   border-radius: 15px;
   -webkit-transition: 0.3s all;
   transition: 0.3s all;
@@ -1748,12 +1746,13 @@ textarea.input {
 .slick-prev, .slick-next {
   width: 40px;
   height: 40px;
-  background: #30323A;
+  background: black;
+  border: 1px solid white;
   z-index: 22;
 }
 
 .slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus {
-  background: #F8694A;
+  background: red;
 }
 
 .slick-prev:before, .slick-next:before {
@@ -1788,12 +1787,12 @@ textarea.input {
 .slick-dots li button:before {
   content: "";
   opacity: 1;
-  background: #DADADA;
+  background: white;
   border-radius: 50%;
 }
 
 .slick-dots li.slick-active button:before {
-  background-color: #F8694A;
+  background-color: red;
 }
 
 .custom-dots .slick-dots {

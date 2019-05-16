@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-	<title>GAMESPACE/USATO</title>
+	<title>GAMESPACE</title>
 	<link rel="icon" href="https://img.icons8.com/dusk/64/000000/controller.png" />
 	
 	<!-- Google font -->
