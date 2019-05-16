@@ -49,9 +49,9 @@
 				
 				<!-- Search -->
 					<div class="header-search">
-						<form>
-							<input class="input search-input" type="text" placeholder="Cerca nel sito">
-							<button class="search-btn"><i class="fa fa-search"></i></button>
+						<form action="result.jsp" method="get">
+							<input class="input search-input" type="text" placeholder="Cerca nel sito" name="search">
+							<button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
 						</form>
 					</div>
 					<!-- /Search -->

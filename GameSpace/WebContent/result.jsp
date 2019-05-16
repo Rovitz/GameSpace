@@ -60,8 +60,14 @@
 						try{
 							connection = Database.getConnection();
 							stmt = connection.createStatement();
-							rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"" + request.getParameter("section") + "\"");
-							int i=0;
+							System.out.println(request.getParameter("search"));
+							
+							if(request.getParameter("search") == null && request.getParameter("section") != null)
+								rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"" + request.getParameter("section") + "\"");
+							else
+								rs = stmt.executeQuery("SELECT * FROM GIOCO WHERE Titolo LIKE \"%" + request.getParameter("search") + "%\"");
+							
+							int i=0; 
 							
 							while(rs.next()){
 							if((i>0) && (i%4 == 0)){
