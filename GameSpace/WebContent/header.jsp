@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <!-- HEADER -->
 <header>
+	<!-- POPUP LOGIN -->
 	<jsp:include page="popup_login.jsp" />
+	
 	<!-- top Header -->
 	<div id="top-header">
 		<div class="container">

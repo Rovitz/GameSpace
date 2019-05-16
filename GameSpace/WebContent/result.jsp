@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"
     import="Database.*"
 	import="Beans.*"
-	import="java.sql.*"%>
+	import="java.sql.*"
+	import="java.util.*"%>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -31,13 +32,26 @@
 	<% Connection connection = null;
 		ResultSet rs = null;
 		Statement stmt = null;
-		Gioco g = null; %>
+		Gioco g = null; 
+		ArrayList<Gioco> list = new ArrayList<>(); %>
 </head>
 
 <body class="bg">
 	<!-- HEADER -->
-	<header>
-		<jsp:include page="header.jsp"/>
+	<jsp:include page="header.jsp"/>
+	
+	<%
+		if(request.getParameter("showDetails")!=null && request.getParameter("idField")!=null)
+		{
+			request.setAttribute("gioco", DatabaseQuery.getGioco(Integer.parseInt(request.getParameter("idField"))));
+		%>
+			<jsp:include page="details.jsp"/>
+			<script>
+				document.getElementById("details").style.display="block";
+			</script>
+		<%
+		}
+	%>
 		
 	<!-- Product Single -->
 	<div class="navigation">	
@@ -46,7 +60,7 @@
 						try{
 							connection = Database.getConnection();
 							stmt = connection.createStatement();
-							rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"usato\"");
+							rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"" + request.getParameter("section") + "\"");
 							int i=0;
 							
 							while(rs.next()){
@@ -57,6 +71,7 @@
 							<div class="row">
 							<% do{ 
 								g = DatabaseQuery.getGioco(rs.getInt("IDGioco")); 
+								list.add(g);
 								i++; %>
 								<div class="col-md-3 col-sm-6 col-xs-6">
 									<div class="product product-single">
@@ -64,7 +79,10 @@
 											<div class="product-label">
 												<span>Usato</span>
 											</div>	
-											<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi Altro</button>
+											<form method="post">
+											<input name="idField" value="<%=g.getIDGioco()%>" style="display: none;">
+											<input type="submit" name="showDetails" id="showDetails" class="main-btn quick-view" value="DETTAGLI"/>
+											</form>
 											<img src="./img/<%=g.getCover()%>" width="150" height="350"/>
 										</div>
 										<div class="product-body">
@@ -95,7 +113,6 @@
 										
 		<!-- FOOTER -->								
 		<jsp:include page="footer.jsp"/>
-	
-		</header>					
+					
 	</body>
 </html>

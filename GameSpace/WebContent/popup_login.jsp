@@ -5,8 +5,8 @@
 <link type="text/css" rel="stylesheet" href="css/popup_login.css">
 
 
-<div id="modal-wrapper" class="modal">
-  <form class="modal-content animate" action="LoginServlet" method="post">
+<div id="modal-wrapper" class="modal-1">
+  <form class="modal-content-1 animate" action="LoginServlet" method="post">
   
 	<h1 class="popup-h1">LOGIN</h1>
 	

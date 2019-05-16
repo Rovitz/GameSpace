@@ -5,41 +5,66 @@
     width: 80%;
 }
 
-.popup-align-center input[type=submit]{
-  	margin: 0;
-  	position: absolute;
-  	bottom: 1%;
-  	left: 50%;
-  	transform: translate(-50%, 100%);
-}
-
 .popup-h1 {
 	text-align: center; 
-	margin: 3%;
+	margin: 1%;
 	color: white;
 }
 
+
+.product-modal-left {
+	position: absolute;
+	left: 2%;
+	width: 40%;
+	margin-left: 5%;
+	margin-bottom: 1%;
+}
+
+.product-modal-right {
+	position: absolute;
+	right: 2%;
+	width: 45%;
+	margin-top: 3%;
+	margin-bottom: 1%;
+}
+
+.product-details-left {
+	position: absolute;
+	left: 0%;
+	margin-right: 3%;
+	width: 45%;
+}
+
+.product-details-right {
+	position: absolute;
+	right: 0%;
+	margin-right: 2%;
+	width: 45%;
+}
+
 /* The Modal (background) */
-.modal-1 {
-	display:none;
+.modal {
+	display: none;
     position: fixed;
     z-index: 52;
     left: 0;
     top: 0;
-    overflow: auto;
+    overflow: hidden;
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.75);
 }
 
 /* Modal Content Box */
-.modal-content-1 {
+.modal-content {
     background-color: rgba(0,0,0,0.625);;
     color:white;
     margin: 4% auto 15% auto;
     border: 1px solid red;
-    width: 25%; 
-	padding-bottom: 50px;
+    border-radius: 15px;
+    width: 45%; 
+    height: 70%;
+    padding: 1%;
 }
 
 /* Add Zoom Animation */
