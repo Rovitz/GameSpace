@@ -17,15 +17,19 @@
 	    		<div class="product product-single">
     				<div class="product-thumb">
 						<div class="product-label">
-						<% if (request.getParameter("section").equals("usato")){ %>
-							<span class="used">USATO</span>
-						<% } else if (request.getParameter("section").equals("ultime_uscite")){ %>
-							<span class="new">NUOVO</span>
-						<% } else if (request.getParameter("section").equals("scontati")){ %>
-							<span class="sale">SCONTO</span>
-						<% } else { %>
-							<span></span>
-						<% } %>
+						<% 
+						if(request.getParameter("section") != null){
+							if (request.getParameter("section").equals("usato")){ %>
+								<span class="used">USATO</span>
+						<%	} else if (request.getParameter("section").equals("ultime_uscite")){ %>
+								<span class="new">NUOVO</span>
+						<%	} else if (request.getParameter("section").equals("scontati")){ %>
+								<span class="sale">OFFERTA</span>
+						<% 	} else { %>
+								<span></span>
+						<%	}
+						}
+						%>
 						</div>	
 						<img src="./img/<%=g1.getCover()%>" width="150" height="350"/>
 					</div>
