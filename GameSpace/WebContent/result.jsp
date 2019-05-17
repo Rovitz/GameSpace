@@ -87,15 +87,19 @@
 									<div class="product product-single">
 										<div class="product-thumb">
 											<div class="product-label">
-											<% if (request.getParameter("section").equals("usato")){ %>
-												<span class="used">USATO</span>
-											<% } else if (request.getParameter("section").equals("ultime_uscite")){ %>
-												<span class="new">NUOVO</span>
-											<% } else if (request.getParameter("section").equals("scontati")){ %>
-												<span class="sale">OFFERTA</span>
-											<% } else { %>
-												<span></span>
-											<% } %>
+											<% 
+											if(request.getParameter("section") != null){
+												if (request.getParameter("section").equals("usato")){ %>
+													<span class="used">USATO</span>
+											<%	} else if (request.getParameter("section").equals("ultime_uscite")){ %>
+													<span class="new">NUOVO</span>
+											<%	} else if (request.getParameter("section").equals("scontati")){ %>
+													<span class="sale">OFFERTA</span>
+											<% 	} else { %>
+													<span></span>
+											<%	}
+											}
+											%>
 											</div>	
 											<form method="post">
 												<input name="idField" value="<%=g.getIDGioco()%>" style="display: none;">
@@ -131,6 +135,14 @@
 										
 		<!-- FOOTER -->								
 		<jsp:include page="footer.jsp"/>
+		
+		<!-- jQuery Plugins -->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/slick.min.js"></script>
+		<script src="js/nouislider.min.js"></script>
+		<script src="js/jquery.zoom.min.js"></script>
+		<script src="js/main.js"></script>
 					
 	</body>
 </html>
