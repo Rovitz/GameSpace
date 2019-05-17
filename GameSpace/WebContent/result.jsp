@@ -32,8 +32,7 @@
 	<% Connection connection = null;
 		ResultSet rs = null;
 		Statement stmt = null;
-		Gioco g = null; 
-		ArrayList<Gioco> list = new ArrayList<>(); %>
+		Gioco g = null; %>
 </head>
 
 <body class="bg">
@@ -60,7 +59,7 @@
 					<ul class="menu-list">
 						<li><a href="index.jsp">Home</a></li>
 						<li><a href="result.jsp?section=usato">Usato</a></li>
-						<li><a href="#">Sconti</a></li>
+						<li><a href="result.jsp?section=scontati">Sconti</a></li>
 						<li><a href="result.jsp?section=ultime_uscite">Ultime Uscite</a></li>
 					</ul>
 				</div>
@@ -68,8 +67,6 @@
 						try{
 							connection = Database.getConnection();
 							stmt = connection.createStatement();
-							System.out.println(request.getParameter("search"));
-							
 							if(request.getParameter("search") == null && request.getParameter("section") != null)
 								rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"" + request.getParameter("section") + "\"");
 							else
@@ -85,17 +82,24 @@
 							<div class="row">
 							<% do{ 
 								g = DatabaseQuery.getGioco(rs.getInt("IDGioco")); 
-								list.add(g);
 								i++; %>
 								<div class="col-md-3 col-sm-6 col-xs-6">
 									<div class="product product-single">
 										<div class="product-thumb">
 											<div class="product-label">
-												<span>Usato</span>
+											<% if (request.getParameter("section").equals("usato")){ %>
+												<span class="used">USATO</span>
+											<% } else if (request.getParameter("section").equals("ultime_uscite")){ %>
+												<span class="new">NUOVO</span>
+											<% } else if (request.getParameter("section").equals("scontati")){ %>
+												<span class="sale">OFFERTA</span>
+											<% } else { %>
+												<span></span>
+											<% } %>
 											</div>	
 											<form method="post">
-											<input name="idField" value="<%=g.getIDGioco()%>" style="display: none;">
-											<input type="submit" name="showDetails" id="showDetails" class="main-btn quick-view" value="DETTAGLI"/>
+												<input name="idField" value="<%=g.getIDGioco()%>" style="display: none;">
+												<input type="submit" name="showDetails" id="showDetails" class="main-btn quick-view" value="DETTAGLI"/>
 											</form>
 											<img src="./img/<%=g.getCover()%>" width="150" height="350"/>
 										</div>

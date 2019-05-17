@@ -951,11 +951,22 @@ textarea.input {
   font-weight: 700;
   color: #FFF;
   background-color: #30323A;
+  border-top-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border: 1px solid white;
   z-index: 22;
 }
 
 .product .product-label>span.sale {
-  background-color: #F8694A;
+  background-color: green;
+}
+
+.product .product-label>span.new {
+  background-color: red;
+}
+
+.product .product-label>span.used {
+  background-color: orange;
 }
 
 .product .product-countdown {

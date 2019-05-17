@@ -254,7 +254,7 @@
 					<ul class="menu-list">
 						<li><a href="#">Home</a></li>
 						<li><a href="result.jsp?section=usato">Usato</a></li>
-						<li><a href="#">Sconti</a></li>
+						<li><a href="result.jsp?section=scontati">Sconti</a></li>
 						<li><a href="result.jsp?section=ultime_uscite">Ultime Uscite</a></li>
 					</ul>
 				</div>
