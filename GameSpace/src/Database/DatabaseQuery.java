@@ -721,6 +721,42 @@ public class DatabaseQuery {
 		return valore;
 	}
 
+	public synchronized static double getTotalCarrello(String idUtente) throws SQLException{
+		Connection connection = null;
+		PreparedStatement psGetTotCarrello= null;
+		Gioco g = null;
+		double valore = 0;
+
+		try{
+			connection = Database.getConnection();
+			psGetTotCarrello = connection.prepareStatement(queryGetCarrello);
+
+			psGetTotCarrello.setString(1, idUtente);
+			ResultSet rs = psGetTotCarrello.executeQuery();
+
+			while(rs.next()){
+				g = getGioco(Integer.parseInt(rs.getString("IDGioco")));
+				valore += g.getPrezzo();
+			}
+
+		}
+		finally {
+			try {
+				if(psGetTotCarrello != null)
+					psGetTotCarrello.close();
+				if(psGetTotCarrello !=null)
+					psGetTotCarrello.close();
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+			finally {
+				connection.close();
+				Database.releaseConnection(connection);
+			}
+		}
+		return valore;
+	}
+
 	/**
 	 * Elimina il carrello di un utente dal database
 	 */
@@ -764,9 +800,9 @@ public class DatabaseQuery {
 		queryCercaProdotto = "SELECT * FROM commerce1.prodotto WHERE Nome = ?";
 		queryGetGiocoById ="SELECT * FROM gamespace.gioco WHERE IDGioco = ?";
 		queryGetProdottoByUser ="SELECT * FROM commerce1.prodotto WHERE idUtente = ?";
-		queryAddCarrello = "INSERT INTO gamespace.carrello (IDUtente, IDGioco) VALUES (?, ?)";
+		queryAddCarrello = "INSERT INTO gamespace.carrello (eMail, IDGioco) VALUES (?, ?)";
 		queryAddOrdine = "INSERT INTO commerce1.ordine (idOrdine, idProdotto, idUtente, Data, Pagamento, Indirizzo, Note, Prezzo) VALUES (?,?,?,?,?,?,?,?)";
-		queryGetCarrello = "SELECT * FROM gamespace.carrello WHERE IDUtente = ?";
+		queryGetCarrello = "SELECT * FROM gamespace.carrello WHERE eMail = ?";
 		queryEliminaCarrello = "DELETE FROM commerce1.carrello WHERE idUtente = ?";
 		queryGetNumeroProdotto = "SELECT * FROM commerce1.carrello WHERE idUtente = ?";
 		queryGetUtenti = "SELECT * FROM gamespace.utente";

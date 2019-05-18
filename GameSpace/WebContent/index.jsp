@@ -691,5 +691,19 @@
 	<script src="js/nouislider.min.js"></script>
 	<script src="js/jquery.zoom.min.js"></script>
 	<script src="js/main.js"></script>
+	
+	<script>
+		$(document).ready(function() {
+			$("[id='addToCartForm']").submit(function(e) {
+				e.preventDefault();
+				$(this).ajaxSubmit({
+					target: function(){
+						$("#user_cart").load(location.href + " #user_cart");
+						}
+				});
+			});
+		});
+		</script>	
+	
 </body>
 </html>

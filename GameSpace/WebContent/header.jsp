@@ -56,7 +56,7 @@
 					</div>
 					<!-- /Search -->
 			</div>
-			<div class="pull-right">
+			<div id="user_cart" class="pull-right">
 				<ul class="header-btns">
 					<!-- Account -->
 					<li class="header-account dropdown default-dropdown">

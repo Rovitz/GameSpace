@@ -5,10 +5,18 @@
 	<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 		<div class="header-btns-icon">
 			<i class="fa fa-shopping-cart"></i>
-				<span class="qty">3</span>
+				<%if (session.getAttribute("cart_count") != null) { %>
+				<span class="qty"><%= session.getAttribute("cart_count") %></span>
+				<%} else {%>
+				<span class="qty">0</span>
+				<% } %>
 		</div>
 		<strong class="text-uppercase">IL MIO CARRELLO&nbsp;<i class="fa fa-caret-down"></i></strong><br>
-		<span>TOTALE: $35.20</span>
+		<%if (session.getAttribute("cart_total") != null) { %>
+				<span>TOTALE: EUR&nbsp;<%=session.getAttribute("cart_total")%></span>
+				<%} else {%>
+				<span>TOTALE: EUR 0</span>
+				<% } %>
 	</a>
 	<div class="custom-menu">
 		<div id="shopping-cart">
