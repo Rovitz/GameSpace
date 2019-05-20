@@ -68,10 +68,10 @@
 							</div>
 							<strong class="text-uppercase marginright">BENVENUTO, <%= u.getNome() %>!</strong><i class="fa fa-caret-down"></i>
 						</div>
-							<a href="LogoutServlet" class="text-uppercase">LOGOUT</a>
+							<a id="logoutBtn" class="text-uppercase" style="cursor: pointer;">LOGOUT</a>
 							<ul class="custom-menu">
 								<li><a href="#"><i class="fa fa-user-o"></i>IL MIO ACCOUNT</a></li>
-								<li><a href="LogoutServlet"><i class="fa fa-unlock-alt"></i>&nbsp;LOGOUT</a></li>
+								<li><a id="logoutBtn" style="cursor: pointer;"><i class="fa fa-unlock-alt"></i>&nbsp;LOGOUT</a></li>
 							</ul>
 					<% } else { %>
 						<div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">

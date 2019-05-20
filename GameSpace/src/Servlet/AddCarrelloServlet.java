@@ -23,34 +23,30 @@ public class AddCarrelloServlet extends HttpServlet {
 		response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 
 		HttpSession session = request.getSession();
+		Utente u = (Utente) session.getAttribute("user");
 
 		// Controlla che ci sia un utente nella sessione
-		if(session.getAttribute("user") == null) {
-			request.setAttribute("error", "Devi effettuare prima il login!");
-			request.getRequestDispatcher("login.jsp").forward(request, response);
+		if(u == null) {
+			response.setHeader("error", "DEVI EFFETTUARE PRIMA IL LOGIN!");
 		}
+		else {
+			String user = u.getEmail();
+			String Prodotto = request.getParameter("idProduct");
 
-		Utente u = (Utente) session.getAttribute("user");
-		String user = u.getEmail();
+			if(Prodotto == null){
+				System.out.println("Servlet: Valore null ricevuto dalla jsp");
+			} else {
+				int idProdotto = Integer.parseInt(Prodotto);
 
-		String Prodotto = request.getParameter("idProduct");
-		System.out.println(Prodotto);
-
-		if(Prodotto == null){
-			System.out.println("Servlet: Valore null ricevuto dalla jsp");
-		} else {
-			System.out.println("Servlet: ricevuta richiesta inserimento");
-			int idProdotto = Integer.parseInt(Prodotto);
-
-			try {
-				DatabaseQuery.addCarrello(idProdotto, user);
-				int cart_count = DatabaseQuery.getCountCarrello(user);
-				session.setAttribute("cart_count", cart_count);
-				double cart_total = DatabaseQuery.getTotalCarrello(user);
-				session.setAttribute("cart_total", cart_total);
-			} catch (SQLException e) {
-				System.out.println("Impossibile aggiungere al carrello...");
-				System.out.println(e.getLocalizedMessage());
+				try {
+					DatabaseQuery.addCarrello(idProdotto, user);
+					int cart_count = DatabaseQuery.getCountCarrello(user);
+					session.setAttribute("cart_count", cart_count);
+					double cart_total = DatabaseQuery.getTotalCarrello(user);
+					session.setAttribute("cart_total", cart_total);
+				} catch (SQLException e) {
+					System.out.println(e.getLocalizedMessage());
+				}
 			}
 		}
 	}

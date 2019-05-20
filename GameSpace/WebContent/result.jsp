@@ -40,17 +40,16 @@
 	<!-- HEADER -->
 	<jsp:include page="header.jsp"/>
 	
-	<% 
-		if(request.getParameter("showDetails")!=null && request.getParameter("idField")!=null)
-		{
-			request.setAttribute("gioco", DatabaseQuery.getGioco(Integer.parseInt(request.getParameter("idField"))));
-		%>
-			<jsp:include page="details.jsp"/>
-			<script>
-				document.getElementById("details").style.display="block";
-			</script>
-		<%
-		}
+	<% 	
+	if(request.getParameter("showDetails")!=null && request.getParameter("idField")!=null){
+		request.setAttribute("gioco", DatabaseQuery.getGioco(Integer.parseInt(request.getParameter("idField"))));
+	%>
+		<jsp:include page="details.jsp"/>
+		<script>
+			document.getElementById("details").style.display="block";
+		</script>
+	<%
+	}
 	%>
 		
 	<!-- Product Single -->
@@ -118,11 +117,10 @@
 											<h3 class="product-nome"><a href="#"><%=g.getTitolo() %></a></h3>
 											<h4 class="product-console"><a href="#"><%=g.getPiattaforma() %></a></h4>
 											
-											<form id="addToCartForm" action="AddCarrelloServlet" method="post">
+											<form class="addToCartForm">
 												<div class="product-btns">
 													<input type="hidden" name="idProduct" value="<%=g.getIDGioco()%>">
-													<input type="hidden" name="curPage" value="<%=request.getServletPath() + "?" + request.getQueryString()%>">
-													<button type="submit" name="addToCart" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
+													<button type="submit" name="addToCartBtn" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
 												</div>
 											</form>
 										</div>
@@ -150,18 +148,8 @@
 		<script src="js/nouislider.min.js"></script>
 		<script src="js/jquery.zoom.min.js"></script>
 		<script src="js/main.js"></script>
+		<script src="js/user_cart.js"></script>
+		<!-- /jQuery Plugins -->
 		
-		<script>
-		$(document).ready(function() {
-			$("[id='addToCartForm']").submit(function(e) {
-				e.preventDefault();
-				$(this).ajaxSubmit({
-					target: function(){
-						$("#user_cart").load(location.href + " #user_cart");
-						}
-				});
-			});
-		});
-		</script>	
 </body>
 </html>

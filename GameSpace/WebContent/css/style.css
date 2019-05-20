@@ -520,7 +520,7 @@ textarea.input {
 #shopping-cart .shopping-cart-list {
   max-height: 260px;
   margin-bottom: 15px;
-  overflow-y: hidden;
+  overflow-y: scroll;
 }
 
 #shopping-cart .shopping-cart-list .product.product-widget:first-child {
