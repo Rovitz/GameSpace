@@ -1844,3 +1844,22 @@ textarea.input {
     width: 100%;
   }
 }
+
+.ok {
+    display: none; 
+    top: 35%; 
+    left: 45%; 
+    width: 10%; 
+    height: 20%;
+    position: fixed; 
+    z-index: 10000;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.ok img{
+	position: relative;
+	width: 100%; 
+    height: 100%; 
+    padding: 2%;
+}

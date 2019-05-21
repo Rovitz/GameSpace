@@ -29,6 +29,9 @@
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
 	
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="css/loading.css" />
+	
 	<% Connection connection = null;
 		ResultSet rs = null;
 		Statement stmt = null;
@@ -136,6 +139,11 @@
 			</div>
 		</div>
 		<!-- /Product Single -->
+		
+		<!-- OK POPUP -->
+		<div id="ok" class="ok">
+			<img src="./img/ok.png"/>
+		</div>
 										
 		<!-- FOOTER -->								
 		<jsp:include page="footer.jsp"/>		

@@ -33,15 +33,18 @@ public class AddCarrelloServlet extends HttpServlet {
 			String user = u.getEmail();
 			String Prodotto = request.getParameter("idProduct");
 
-			if(Prodotto == null){
-				System.out.println("Servlet: Valore null ricevuto dalla jsp");
-			} else {
+			if(Prodotto != null) {
 				int idProdotto = Integer.parseInt(Prodotto);
 
 				try {
+					// Inserimento prodotto nel carrello
 					DatabaseQuery.addCarrello(idProdotto, user);
+
+					// Carica numero elementi nel carrello
 					int cart_count = DatabaseQuery.getCountCarrello(user);
 					session.setAttribute("cart_count", cart_count);
+
+					// Carica totale elementi nel carrello
 					double cart_total = DatabaseQuery.getTotalCarrello(user);
 					session.setAttribute("cart_total", cart_total);
 				} catch (SQLException e) {
@@ -52,8 +55,7 @@ public class AddCarrelloServlet extends HttpServlet {
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(req, resp);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
 	}
 }

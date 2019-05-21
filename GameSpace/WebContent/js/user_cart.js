@@ -11,11 +11,14 @@ $(document).ready(function() {
 			url: "AddCarrelloServlet",
 			data: form_data,
 			success: function(data, status, xhr){
-				if (xhr.getResponseHeader("error") != null)
+				if(xhr.getResponseHeader("error") != null){ 
 						alert(xhr.getResponseHeader("error"));
-				else
+				}
+				else{
+					$('#ok').fadeIn(600).delay(600).fadeOut(600);
 					$("#user_cart").load(location.href + " #user_cart>*","");
 				}
+			}
 		 });
 	});
 	
@@ -48,4 +51,7 @@ $(document).ready(function() {
 				}
 		});
 	});
+	
+	 //$(document).ajaxStart(function () {
+	 //   });
 });

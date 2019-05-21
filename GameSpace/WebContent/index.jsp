@@ -680,6 +680,11 @@
 	
 	</div>	
 	<!-- /NAVIGATION -->
+	
+	<!-- OK POPUP -->
+	<div id="ok" class="ok">
+		<img src="./img/ok.png"/>
+	</div>
 
 	<!-- FOOTER -->
 	<jsp:include page="footer.jsp" />

@@ -624,7 +624,6 @@ public class DatabaseQuery {
 			psAddCarrello.executeUpdate();
 
 			connection.commit();
-			System.out.println("Inserimento nel carrello Connessione...: da " +idUtente);
 		} finally {
 			try{
 				if(psAddCarrello != null)
