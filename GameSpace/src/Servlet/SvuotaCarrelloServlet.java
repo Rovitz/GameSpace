@@ -13,46 +13,43 @@ import javax.servlet.http.HttpSession;
 import Beans.Utente;
 import Database.DatabaseQuery;
 
-/**
- * Servlet che permette di svuotare il carrello dell'utente
- */
 @WebServlet("/SvuotaCarrelloServlet")
 public class SvuotaCarrelloServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SvuotaCarrelloServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// Serve a rimanere nella pagina che effettua la richiesta
+		response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+
 		HttpSession session = request.getSession();
 		Utente u = (Utente) session.getAttribute("user");
-		String email = u.getEmail();
-		try {
-			DatabaseQuery.delCarrello(email);
-			System.out.println("Servlet: Pulisco il carrello dell'user: "+email);
-			int c = DatabaseQuery.getCountCarrello(email);
-			session.setAttribute("carrello", c);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+		// Controlla che ci sia un utente nella sessione
+		if(u == null) {
+			response.setHeader("error", "DEVI EFFETTUARE PRIMA IL LOGIN!");
 		}
-		request.getRequestDispatcher("CarrelloLog.jsp").forward(request, response);
+		else {
+			String user = u.getEmail();
+			try {
+				// Inserimento prodotto nel carrello
+				DatabaseQuery.delCarrello(user);
+
+				// Carica numero elementi nel carrello
+				int cart_count = DatabaseQuery.getCountCarrello(user);
+				session.setAttribute("cart_count", cart_count);
+
+				// Carica totale elementi nel carrello
+				double cart_total = DatabaseQuery.getTotalCarrello(user);
+				session.setAttribute("cart_total", cart_total);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }

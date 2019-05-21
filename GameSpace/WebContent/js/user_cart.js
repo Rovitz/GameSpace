@@ -15,7 +15,7 @@ $(document).ready(function() {
 						alert(xhr.getResponseHeader("error"));
 				}
 				else{
-					$('#ok').fadeIn(600).delay(600).fadeOut(600);
+					$('#ok').fadeIn("fast").delay(500).fadeOut("fast");
 					$("#user_cart").load(location.href + " #user_cart>*","");
 				}
 			}
@@ -42,16 +42,30 @@ $(document).ready(function() {
 				}
 		 });
 	});
+	
+	$(document).on('click' , '[id="emptyCartBtn"]' , function(e) {
+		e.preventDefault();
+		$.ajax({
+			type: "get",
+			url: "SvuotaCarrelloServlet",
+			success: function(data, status, xhr){
+				if(xhr.getResponseHeader("error") != null){ 
+					alert(xhr.getResponseHeader("error"));
+				}
+				else{
+					$('#ok').fadeIn(200).fadeOut(1000);
+					$("#user_cart").load(location.href + " #user_cart>*","");
+				}
+			}
+		 });
+	});
 		
 	$(document).on('submit' , '.removeItemForm' , function(e) {
 		e.preventDefault();
 		$(this).ajaxSubmit({
 			target: function(){
 				$("#user_cart").load(location.href + " #user_cart>*","");
-				}
+			}
 		});
 	});
-	
-	 //$(document).ajaxStart(function () {
-	 //   });
 });

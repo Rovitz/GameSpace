@@ -802,7 +802,7 @@ public class DatabaseQuery {
 		queryAddCarrello = "INSERT INTO gamespace.carrello (eMail, IDGioco) VALUES (?, ?)";
 		queryAddOrdine = "INSERT INTO commerce1.ordine (idOrdine, idProdotto, idUtente, Data, Pagamento, Indirizzo, Note, Prezzo) VALUES (?,?,?,?,?,?,?,?)";
 		queryGetCarrello = "SELECT * FROM gamespace.carrello WHERE eMail = ?";
-		queryEliminaCarrello = "DELETE FROM commerce1.carrello WHERE idUtente = ?";
+		queryEliminaCarrello = "DELETE FROM gamespace.carrello WHERE eMail = ?";
 		queryGetNumeroProdotto = "SELECT * FROM commerce1.carrello WHERE idUtente = ?";
 		queryGetUtenti = "SELECT * FROM gamespace.utente";
 		queryGetAdmin = "SELECT * FROM commerce1.admin WHERE eMail = ?";

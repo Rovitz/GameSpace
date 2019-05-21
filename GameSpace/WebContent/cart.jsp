@@ -66,7 +66,7 @@
 				<!-- /CART ITEM -->
 			</div>
 			<div class="shopping-cart-btns">
-				<button class="primary-btn">VISUALIZZA</button>
+				<button id="emptyCartBtn" class="primary-btn">SVUOTA</button>
 				<button class="primary-btn">CHECKOUT&nbsp;<i class="fa fa-arrow-circle-right"></i></button>
 			</div>
 		</div>
