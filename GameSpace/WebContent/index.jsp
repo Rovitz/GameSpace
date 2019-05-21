@@ -36,6 +36,18 @@
 <body class="bg">
 	<!-- HEADER -->
 	<jsp:include page="header.jsp" />
+	
+	<% 	
+	if(request.getParameter("showDetails")!=null && request.getParameter("idField")!=null){
+		request.setAttribute("gioco", DatabaseQuery.getGioco(Integer.parseInt(request.getParameter("idField"))));
+	%>
+		<jsp:include page="details.jsp"/>
+		<script>
+			document.getElementById("details").style.display="block";
+		</script>
+	<%
+	}
+	%>
 
 	<!-- NAVIGATION -->
 	<div class="navigation">
@@ -252,7 +264,7 @@
 				<!-- menu nav -->
 				<div class="menu-nav">
 					<ul class="menu-list">
-						<li><a href="#">Home</a></li>
+						<li><a href="index.jsp">Home</a></li>
 						<li><a href="result.jsp?section=usato">Usato</a></li>
 						<li><a href="result.jsp?section=scontati">Sconti</a></li>
 						<li><a href="result.jsp?section=ultime_uscite">Ultime Uscite</a></li>
@@ -394,24 +406,28 @@
 											<div class="product-label">
 												<span>New</span>
 											</div>
-									
-											<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Vedi Altro</button>
+												<form method="post">
+												<input name="idField" value="<%=g.getIDGioco()%>" style="display: none;">
+												<input type="submit" name="showDetails" id="showDetails" class="main-btn quick-view" value="DETTAGLI"/>
+											</form>									
 											<img src="./img/<%=g.getCover()%>"  width="150" height="350" />
 										</div>
 									<div class="product-body">
 										<h3 class="product-price">€<%=g.getPrezzo() %></h3>
 											<div class="product-rating">
+												<% for(int r=1; r<=g.getRating()-1; r++){ %>
 												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
+												<% } %>
 												<i class="fa fa-star-o empty"></i>
 											</div>
 										<h3 class="product-nome"><a href="#"><%=g.getTitolo() %></a></h3>
 										<h4 class="product-console"><a href="#"><%=g.getPiattaforma() %></a></h4>
 										<div class="product-btns">
-											<form action="LoginServlet" method="post">
-												<input type="submit" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Aggiungi al carrello</input>
+											<form class="addToCartForm">
+												<div class="product-btns">
+													<input type="hidden" name="idProduct" value="<%=g.getIDGioco()%>">
+													<button type="submit" name="addToCartBtn" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
+												</div>
 											</form>
 										</div>
 									</div>
@@ -469,24 +485,28 @@
 											<div class="product-label">
 												<span>New</span>
 											</div>
-									
-											<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Vedi Altro</button>
+												<form method="post">
+												<input name="idField" value="<%=g.getIDGioco()%>" style="display: none;">
+												<input type="submit" name="showDetails" id="showDetails" class="main-btn quick-view" value="DETTAGLI"/>
+											</form>
 											<img src="./img/<%=g.getCover()%>"  width="150" height="350" />
 										</div>
 									<div class="product-body">
 										<h3 class="product-price">€<%=g.getPrezzo() %></h3>
 											<div class="product-rating">
+												<% for(int r=1; r<=g.getRating(); r++){ %>
 												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
+												<% } %>
 												<i class="fa fa-star-o empty"></i>
 											</div>
 										<h3 class="product-nome"><a href="#"><%=g.getTitolo() %></a></h3>
 										<h4 class="product-console"><a href="#"><%=g.getPiattaforma() %></a></h4>
-										<div class="product-btns">
-											<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Aggiungi al carrello</button>
-										</div>
+										<form class="addToCartForm">
+												<div class="product-btns">
+													<input type="hidden" name="idProduct" value="<%=g.getIDGioco()%>">
+													<button type="submit" name="addToCartBtn" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
+												</div>
+											</form>
 									</div>
 									</div>
 								<% }
@@ -526,25 +546,29 @@
 							<div class="product-label">
 								<span>New</span>
 								<span class="sale">-30%</span>
-							</div>
-									
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Vedi Altro</button>
+								</div>
+									<form method="post">
+										<input name="idField" value="<%=g.getIDGioco()%>" style="display: none;">
+											<input type="submit" name="showDetails" id="showDetails" class="main-btn quick-view" value="DETTAGLI"/>
+												</form>
 							<img src="./img/<%=g.getCover()%>"  width="150" height="350" />
 						</div>
 						<div class="product-body">
 							<h3 class="product-price">€<%=g.getPrezzo() %><del class="product-old-price">€40.00</del></h3>
 							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
+												<% for(int r=1; r<=g.getRating()-1; r++){ %>
+												<i class="fa fa-star"></i>
+												<% } %>
 								<i class="fa fa-star-o empty"></i>
-							</div>
+								</div>
 								<h2 class="product-nome"><a href="#"><%=g.getTitolo() %></a></h2>
 								<h4 class="product-console"><a href="#"><%=g.getPiattaforma() %></a></h4>
-								<div class="product-btns">
-									<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Aggiungi al carrello</button>
-								</div>
+								<form class="addToCartForm">
+												<div class="product-btns">
+													<input type="hidden" name="idProduct" value="<%=g.getIDGioco()%>">
+													<button type="submit" name="addToCartBtn" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
+												</div>
+											</form>
 						</div>
 					</div>
 				</div>
@@ -573,21 +597,24 @@
 							<img src="./img/vr.png" width="200" height="200">
 						</div>
 						<div class="product-body">
-							<h3 class="product-price">$250.00</h3>
+							<h3 class="product-price">€250.00</h3>
 							<div class="product-rating">
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
+								<i class="fa fa-star-o empty"></i>
 								<i class="fa fa-star-o empty"></i>
 							</div>
 							<h2 class="product-name"><a href="#"></a>PlayStation VR</h2>
-							<div class="product-btns">
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
-							</div>
-						</div>
-					</div>
-				</div>
+							<form class="addToCartForm">
+												<div class="product-btns">
+													<input type="hidden" name="idProduct" value="<%=g.getIDGioco()%>">
+													<button type="submit" name="addToCartBtn" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
 				<!-- /Product Single -->
 
 				<!-- Product Single -->
@@ -601,18 +628,22 @@
 							<img src="./img/controller.png" height="200" width="200">
 						</div>
 						<div class="product-body">
-							<h3 class="product-price">$50.00</h3>
+							<h3 class="product-price">€50.00</h3>
 							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												
 							</div>
 							<h2 class="product-name"><a href="#">Controller XBOX</a></h2>
-							<div class="product-btns">
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
-							</div>
+							<form class="addToCartForm">
+												<div class="product-btns">
+													<input type="hidden" name="idProduct" value="<%=g.getIDGioco()%>">
+													<button type="submit" name="addToCartBtn" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
+									</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -630,18 +661,21 @@
 							<img src="./img/custodia.png" width="200" height="200">
 						</div>
 						<div class="product-body">
-							<h3 class="product-price">$27.00<del class="product-old-price">$30.00</del></h3>
+							<h3 class="product-price">€27.00<del class="product-old-price">€30.00</del></h3>
 							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star-o empty"></i>
 							</div>
 							<h2 class="product-name"><a href="#">Custodia Nintendo Switch</a></h2>
-							<div class="product-btns">
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
-							</div>
+							<form class="addToCartForm">
+												<div class="product-btns">
+													<input type="hidden" name="idProduct" value="<%=g.getIDGioco()%>">
+													<button type="submit" name="addToCartBtn" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
+												</div>
+											</form>
 						</div>
 					</div>
 				</div>
@@ -655,18 +689,21 @@
 							<img src="./img/mouse.png" width="200" height="200">
 						</div>
 						<div class="product-body">
-							<h3 class="product-price">$10.00</h3>
+							<h3 class="product-price">€10.00</h3>
 							<div class="product-rating">
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star"></i>
 								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
+								<i class="fa fa-star-o empty"></i>
 								<i class="fa fa-star-o empty"></i>
 							</div>
 							<h2 class="product-name"><a href="#">Mouse</a></h2>
-							<div class="product-btns">
-								<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
-							</div>
+							<form class="addToCartForm">
+												<div class="product-btns">
+													<input type="hidden" name="idProduct" value="<%=g.getIDGioco()%>">
+													<button type="submit" name="addToCartBtn" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
+												</div>
+											</form>
 						</div>
 					</div>
 				</div>
@@ -678,7 +715,7 @@
 	</div>
 	<!-- /section -->
 	
-	</div>	
+		
 	<!-- /NAVIGATION -->
 	
 	<!-- OK POPUP -->
