@@ -287,31 +287,16 @@
 					<!-- banner -->
 					<div class="banner banner-1">
 						<img src="./img/kingdom.jpg" alt="">
-						<div class="banner-caption text-center">
-							<h1></h1>
-							<h3 class="white-color font-weak"></h3>
-							<button class="primary-btn">Compralo Subito</button>
-						</div>
 					</div>
-					<!-- /banner -->
 
 					<!-- banner -->
 					<div class="banner banner-1">
 						<img src="./img/devi.jpg" alt="">
-						<div class="banner-caption">
-							<h1 class="primary-color"><br><span class="white-color font-weak"></span></h1>
-							<button class="primary-btn">Compralo Subito</button>
-						</div>
 					</div>
-					<!-- /banner -->
 
 					<!-- banner -->
 					<div class="banner banner-1">
 						<img src="./img/mario.jpg" alt="">
-						<div class="banner-caption">
-							<h1 class="white-color"><span></span></h1>
-							<button class="primary-btn">Compralo Subito</button>
-						</div>
 					</div>
 					<!-- /banner -->
 				</div>
