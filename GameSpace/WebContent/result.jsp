@@ -117,9 +117,9 @@
 												<i class="fa fa-star"></i>
 												<% } %>
 											</div>
+											<h4><span style="float:right;">Q.tà:&nbsp;<%=g.getDisponibilita() %></span></h4>
 											<h3 class="product-nome"><a href="#"><%=g.getTitolo() %></a></h3>
 											<h4 class="product-console"><a href="#"><%=g.getPiattaforma() %></a></h4>
-											
 											<form class="addToCartForm">
 												<div class="product-btns">
 													<input type="hidden" name="idProduct" value="<%=g.getIDGioco()%>">

@@ -405,6 +405,7 @@
 												<% } %>
 												<i class="fa fa-star-o empty"></i>
 											</div>
+										<h4><span style="float:right;">Q.tà:&nbsp;<%=g.getDisponibilita() %></span></h4>
 										<h3 class="product-nome"><a href="#"><%=g.getTitolo() %></a></h3>
 										<h4 class="product-console"><a href="#"><%=g.getPiattaforma() %></a></h4>
 										<div class="product-btns">
@@ -484,6 +485,7 @@
 												<% } %>
 												<i class="fa fa-star-o empty"></i>
 											</div>
+										<h4><span style="float:right;">Q.tà:&nbsp;<%=g.getDisponibilita() %></span></h4>
 										<h3 class="product-nome"><a href="#"><%=g.getTitolo() %></a></h3>
 										<h4 class="product-console"><a href="#"><%=g.getPiattaforma() %></a></h4>
 										<form class="addToCartForm">
@@ -538,7 +540,7 @@
 												</form>
 							<img src="./img/<%=g.getCover()%>"  width="150" height="350" />
 						</div>
-						<div class="product-body">
+						<div id="prod" class="product-body">
 							<h3 class="product-price">€<%=g.getPrezzo() %><del class="product-old-price">€40.00</del></h3>
 							<div class="product-rating">
 												<% for(int r=1; r<=g.getRating()-1; r++){ %>
@@ -546,6 +548,7 @@
 												<% } %>
 								<i class="fa fa-star-o empty"></i>
 								</div>
+								<h4><span style="float:right;">Q.tà:&nbsp;<%=g.getDisponibilita() %></span></h4>
 								<h2 class="product-nome"><a href="#"><%=g.getTitolo() %></a></h2>
 								<h4 class="product-console"><a href="#"><%=g.getPiattaforma() %></a></h4>
 								<form class="addToCartForm">

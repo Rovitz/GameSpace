@@ -16,6 +16,7 @@ $(document).ready(function() {
 				}
 				else{
 					$('#ok').fadeIn("fast").delay(500).fadeOut("fast");
+					//$('[id="prod"]').load(location.href + ' [id="prod"]');
 					$("#user_cart").load(location.href + " #user_cart>*","");
 				}
 			}

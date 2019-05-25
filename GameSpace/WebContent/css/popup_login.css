@@ -1,31 +1,12 @@
 .popup-align-center {
 	display: inline-block;
-	position: relative;
-	margin-left: 10%;
-    width: 80%;
-}
-
-.popup-align-center input[type=submit]{
-  	margin: 0;
-  	position: absolute;
-  	bottom: 1%;
-  	left: 50%;
-  	transform: translate(-50%, 100%);
-}
-
-.popup-h1 {
-	text-align: center; 
-	margin: 3%;
-	color: white;
 }
 
 /* The Modal (background) */
 .modal-1 {
 	display:none;
-    position: fixed;
+	position: fixed;
     z-index: 52;
-    left: 0;
-    top: 0;
     overflow: auto;
     width: 100%;
     height: 100%;
@@ -34,12 +15,13 @@
 
 /* Modal Content Box */
 .modal-content-1 {
-    background-color: rgba(0,0,0,0.625);;
-    color:white;
-    margin: 4% auto 15% auto;
+    background-color: rgba(0,0,0,0.625);
+    border-radius: 15px;
     border: 1px solid red;
-    width: 25%; 
-	padding-bottom: 50px;
+    margin: 5% auto;
+    width: 25%;
+    text-align: center;
+    padding: 1%;
 }
 
 /* Add Zoom Animation */

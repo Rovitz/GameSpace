@@ -1,14 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!-- FOOTER -->
-	<footer id="footer" class="bg">
+	<footer>
 	<div class="navigation">
-		<!-- container -->
-		<div class="container">
 			<!-- row -->
-			<div class="row">
+			<div class="row justify-content-md-center">
 				<!-- footer widget -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
+				<div class="col-lg-4">
 					<div class="footer">
 						<!-- footer logo -->
 						<div class="footer-logo">
@@ -32,12 +30,11 @@
 					</div>
 				</div>
 				<!-- /footer widget -->
-
-				<!-- footer widget -->
-				<section id="footerprova2">
-				<div class="col-md-3 col-sm-6 col-xs-6">
+				
+				<!-- footer account -->
+				<div class="col-lg-4">
 					<div class="footer">
-						<h3 class="footer-header">Il mio account:</h3>
+						<h2 class="footer-header">Il mio account</h2>
 						<ul class="list-links">
 							<li><a href="#" class="footer-icons">My Account</a></li>
 							<li><a href="popup_login.jsp" class="footer-icons">Login</a></li>
@@ -46,22 +43,20 @@
 						</ul>
 					</div>
 				</div>
-					</section>
-
-				<section id="footer-section"><!-- footer subscribe -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
+				<!-- /footer account -->
+				
+				<!-- footer subscribe -->
+				<div class="col-lg-4">
 					<div class="footer">
-						<h3 class="footer-header">Stay Connected</h3>
+						<h2 class="footer-header">Stay Connected</h2>
 						<p style="color: white;">Per ricevere notizie sulle ultime uscite, sconti e offerte. </p>
 						<form>
-							<div class="form-group">
-								<input class="input" placeholder="Inserisci email">
-							</div>
-							<button class="primary-btn">Ricevi notizie</button>
+							<input class="contact" placeholder="Inserisci email">
+							<br>
+							<button class="submit" type="submit">Invia</button>
 						</form>
 					</div>
 				</div>
-					</section>
 				<!-- /footer subscribe -->
 			</div>
 			<!-- /row -->
@@ -77,8 +72,6 @@
 				</div>
 			</div>
 			<!-- /row -->
-		</div>
-		<!-- /container -->
 		</div>
 	</footer>
 <!-- /FOOTER -->

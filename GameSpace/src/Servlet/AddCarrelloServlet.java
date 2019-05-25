@@ -40,6 +40,9 @@ public class AddCarrelloServlet extends HttpServlet {
 					// Inserimento prodotto nel carrello
 					DatabaseQuery.addCarrello(idProdotto, user);
 
+					// Decrementa disponibilità prodotto
+					DatabaseQuery.getGioco(idProdotto).setDisponibilita(DatabaseQuery.getGioco(idProdotto).getDisponibilita()-1);
+
 					// Carica numero elementi nel carrello
 					int cart_count = DatabaseQuery.getCountCarrello(user);
 					session.setAttribute("cart_count", cart_count);

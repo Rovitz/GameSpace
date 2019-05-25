@@ -33,6 +33,8 @@ public class DatabaseQuery {
 	private static String queryGetGiocoById;
 	private static String queryGetProdottoByUser;
 	private static String queryGetNumeroProdotto;
+	private static String queryDecrementaQuantita;
+
 
 	/*
 	 * Query gestione Ordini e Carrello
@@ -784,9 +786,30 @@ public class DatabaseQuery {
 		return true;
 	}
 
-	/**
-	 * Query per il Database
-	 */
+	public synchronized static boolean modificaQuantita(int IDGioco, int quantita) throws SQLException{
+		Connection connection = null;
+		PreparedStatement psModificaQuantita = null;
+
+		try{
+			connection = Database.getConnection();
+			psModificaQuantita = connection.prepareStatement(queryDecrementaQuantita);
+			psModificaQuantita.setInt(1, quantita);
+			psModificaQuantita.setInt(2, IDGioco);
+
+			psModificaQuantita.executeUpdate();
+
+			connection.commit();
+		} finally {
+			try{
+				if(psModificaQuantita != null)
+					psModificaQuantita.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+
+		return true;
+	}
 
 	static {
 		queryAddUtente = "INSERT INTO gamespace.utente (eMail, Nome, Cognome, Password, Sesso) VALUES (?,?,?,?,?);";
@@ -806,6 +829,7 @@ public class DatabaseQuery {
 		queryGetNumeroProdotto = "SELECT * FROM commerce1.carrello WHERE idUtente = ?";
 		queryGetUtenti = "SELECT * FROM gamespace.utente";
 		queryGetAdmin = "SELECT * FROM commerce1.admin WHERE eMail = ?";
+		queryDecrementaQuantita = "UPDATE gamespace.gioco SET Disponibilita=? WHERE IDGioco=?";
 	}
 
 }
