@@ -1,6 +1,6 @@
 
 
-package Beans;
+package Model;
 
 public class Utente {
 	

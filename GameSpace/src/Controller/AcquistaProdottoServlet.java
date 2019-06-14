@@ -1,4 +1,4 @@
-package Servlet;
+package Controller;
 
 /*@WebServlet("/AcquistaProdottoServlet")
 public class AcquistaProdottoServlet extends HttpServlet {

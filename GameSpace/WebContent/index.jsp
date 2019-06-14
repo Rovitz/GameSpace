@@ -37,16 +37,16 @@
 	<!-- HEADER -->
 	<jsp:include page="header.jsp" />
 	
-	<% 	
-	if(request.getParameter("showDetails")!=null && request.getParameter("idField")!=null){
-		request.setAttribute("gioco", DatabaseQuery.getGioco(Integer.parseInt(request.getParameter("idField"))));
-	%>
+	<%
+			if(request.getParameter("showDetails")!=null && request.getParameter("idField")!=null){
+				request.setAttribute("gioco", Model.DatabaseQuery.getGioco(Integer.parseInt(request.getParameter("idField"))));
+		%>
 		<jsp:include page="details.jsp"/>
 		<script>
 			document.getElementById("details").style.display="block";
 		</script>
 	<%
-	}
+		}
 	%>
 
 	<!-- NAVIGATION -->
@@ -379,13 +379,14 @@
 						<div id="product-slick-1" class="product-slick">
 							<!-- Product Single -->
 							<%
-							try{
-								connection = Database.getConnection();
-								stmt = connection.createStatement();
-								rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"piu_venduti\"");
+								try{
+																		connection = Model.Database.getConnection();
+																		stmt = connection.createStatement();
+																		rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"piu_venduti\"");
 
-								while(rs.next()){ 
-									g = DatabaseQuery.getGioco(rs.getInt("IDGioco")); %>
+																		while(rs.next()){ 
+																			g = Model.DatabaseQuery.getGioco(rs.getInt("IDGioco"));
+							%>
 									<div class="product product-single">
 										<div class="product-thumb">
 											<div class="product-label">
@@ -398,16 +399,20 @@
 											<img src="./img/<%=g.getCover()%>"  width="150" height="350" />
 										</div>
 									<div class="product-body">
-										<h3 class="product-price">€<%=g.getPrezzo() %></h3>
+										<h3 class="product-price">€<%=g.getPrezzo()%></h3>
 											<div class="product-rating">
-												<% for(int r=1; r<=g.getRating()-1; r++){ %>
+												<%
+													for(int r=1; r<=g.getRating()-1; r++){
+												%>
 												<i class="fa fa-star"></i>
-												<% } %>
+												<%
+													}
+												%>
 												<i class="fa fa-star-o empty"></i>
 											</div>
-										<h4><span style="float:right;">Q.tà:&nbsp;<%=g.getDisponibilita() %></span></h4>
-										<h3 class="product-nome"><a href="#"><%=g.getTitolo() %></a></h3>
-										<h4 class="product-console"><a href="#"><%=g.getPiattaforma() %></a></h4>
+										<h4><span style="float:right;">Q.tà:&nbsp;<%=g.getDisponibilita()%></span></h4>
+										<h3 class="product-nome"><a href="#"><%=g.getTitolo()%></a></h3>
+										<h4 class="product-console"><a href="#"><%=g.getPiattaforma()%></a></h4>
 										<div class="product-btns">
 											<form class="addToCartForm">
 												<div class="product-btns">
@@ -418,10 +423,12 @@
 										</div>
 									</div>
 									</div>
-								<% }
-							} 
-							catch (SQLException e){
-							}%>
+								<%
+									}
+																			} 
+																			catch (SQLException e){
+																			}
+								%>
 							<!-- /Product Single -->
 						</div>
 					</div>
@@ -458,14 +465,15 @@
 					<div class="row">
 						<div id="product-slick-2" class="product-slick">
 							<!-- Product Single -->
-							<% 
-							try{
-								connection = Database.getConnection();
-								stmt = connection.createStatement();
-								rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"top_5\"");
+							<%
+								try{
+																		connection = Model.Database.getConnection();
+																		stmt = connection.createStatement();
+																		rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"top_5\"");
 
-								while(rs.next()){ 
-									g = DatabaseQuery.getGioco(rs.getInt("IDGioco")); %>
+																		while(rs.next()){ 
+																			g = Model.DatabaseQuery.getGioco(rs.getInt("IDGioco"));
+							%>
 									<div class="product product-single">
 										<div class="product-thumb">
 											<div class="product-label">
@@ -478,16 +486,20 @@
 											<img src="./img/<%=g.getCover()%>"  width="150" height="350" />
 										</div>
 									<div class="product-body">
-										<h3 class="product-price">€<%=g.getPrezzo() %></h3>
+										<h3 class="product-price">€<%=g.getPrezzo()%></h3>
 											<div class="product-rating">
-												<% for(int r=1; r<=g.getRating(); r++){ %>
+												<%
+													for(int r=1; r<=g.getRating(); r++){
+												%>
 												<i class="fa fa-star"></i>
-												<% } %>
+												<%
+													}
+												%>
 												<i class="fa fa-star-o empty"></i>
 											</div>
-										<h4><span style="float:right;">Q.tà:&nbsp;<%=g.getDisponibilita() %></span></h4>
-										<h3 class="product-nome"><a href="#"><%=g.getTitolo() %></a></h3>
-										<h4 class="product-console"><a href="#"><%=g.getPiattaforma() %></a></h4>
+										<h4><span style="float:right;">Q.tà:&nbsp;<%=g.getDisponibilita()%></span></h4>
+										<h3 class="product-nome"><a href="#"><%=g.getTitolo()%></a></h3>
+										<h4 class="product-console"><a href="#"><%=g.getPiattaforma()%></a></h4>
 										<form class="addToCartForm">
 												<div class="product-btns">
 													<input type="hidden" name="idProduct" value="<%=g.getIDGioco()%>">
@@ -496,10 +508,12 @@
 											</form>
 									</div>
 									</div>
-								<% }
-							} 
-							catch (SQLException e){
-							}%>
+								<%
+									}
+																			} 
+																			catch (SQLException e){
+																			}
+								%>
 							<!-- /Product Single -->
 						</div>
 					</div>
@@ -519,14 +533,15 @@
 			</div>
 				
 			<!-- Product Single -->
-			<% 
-			try{
-				connection = Database.getConnection();
-				stmt = connection.createStatement();
-				rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"scontati\"");
+			<%
+				try{
+						connection = Model.Database.getConnection();
+						stmt = connection.createStatement();
+						rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"scontati\"");
 
-				while(rs.next()){ 
-				g = DatabaseQuery.getGioco(rs.getInt("IDGioco")); %>
+						while(rs.next()){ 
+						g = Model.DatabaseQuery.getGioco(rs.getInt("IDGioco"));
+			%>
 				<div class="col-md-3 col-sm-6 col-xs-6">
 					<div class="product product-single">
 						<div class="product-thumb">

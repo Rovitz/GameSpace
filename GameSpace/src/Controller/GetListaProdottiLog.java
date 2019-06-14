@@ -1,4 +1,4 @@
-package Servlet;
+package Controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -10,21 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Beans.Gioco;
-import Beans.Utente;
-import Database.DatabaseQuery;
+import Model.DatabaseQuery;
+import Model.Gioco;
 
 /**
- *Mostra la lista degli utenti registrati
+ * Servlet per mostrare i prodotti per loggati
  */
-@WebServlet("/GetListaUtenti")
-public class GetListaUtenti extends HttpServlet {
+@WebServlet("/GetListaProdottiLog")
+public class GetListaProdottiLog extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetListaUtenti() {
+    public GetListaProdottiLog() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,19 +33,14 @@ public class GetListaUtenti extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ArrayList<Utente> lista = new ArrayList<>();
+		ArrayList<Gioco> lista = new ArrayList<>();
 		
-try {
+		try {
 			
-			lista=DatabaseQuery.getUtentiAll();
-			request.setAttribute("lista", lista);
-			request.getRequestDispatcher("AdminUtenti.jsp").forward(request, response);
+			lista=DatabaseQuery.getProdotti();
+			request.setAttribute("listaProdotti", lista);
+			request.getRequestDispatcher("ProdottiLog.jsp").forward(request, response);
 			
-			if(lista.toString() == "[]"){
-				request.setAttribute("vis", "nulla");
-			} else{
-				request.setAttribute("vis", "visible");
-			}
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

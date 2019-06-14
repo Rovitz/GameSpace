@@ -43,16 +43,16 @@
 	<!-- HEADER -->
 	<jsp:include page="header.jsp"/>
 	
-	<% 	
-	if(request.getParameter("showDetails")!=null && request.getParameter("idField")!=null){
-		request.setAttribute("gioco", DatabaseQuery.getGioco(Integer.parseInt(request.getParameter("idField"))));
-	%>
+	<%
+			if(request.getParameter("showDetails")!=null && request.getParameter("idField")!=null){
+				request.setAttribute("gioco", Model.DatabaseQuery.getGioco(Integer.parseInt(request.getParameter("idField"))));
+		%>
 		<jsp:include page="details.jsp"/>
 		<script>
 			document.getElementById("details").style.display="block";
 		</script>
 	<%
-	}
+		}
 	%>
 		
 	<!-- Product Single -->
@@ -67,25 +67,28 @@
 					</ul>
 				</div>
 						<%
-						try{
-							connection = Database.getConnection();
-							stmt = connection.createStatement();
-							if(request.getParameter("search") == null && request.getParameter("section") != null)
-								rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"" + request.getParameter("section") + "\"");
-							else
-								rs = stmt.executeQuery("SELECT * FROM GIOCO WHERE Titolo LIKE \"%" + request.getParameter("search") + "%\"");
-							
-							int i=0; 
-							
-							while(rs.next()){
-							if((i>0) && (i%4 == 0)){
-								i = 0;
-								rs.previous();
-							}%>
+							try{
+															connection = Model.Database.getConnection();
+															stmt = connection.createStatement();
+															if(request.getParameter("search") == null && request.getParameter("section") != null)
+																rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"" + request.getParameter("section") + "\"");
+															else
+																rs = stmt.executeQuery("SELECT * FROM GIOCO WHERE Titolo LIKE \"%" + request.getParameter("search") + "%\"");
+															
+															int i=0; 
+															
+															while(rs.next()){
+															if((i>0) && (i%4 == 0)){
+																i = 0;
+																rs.previous();
+															}
+						%>
 							<div class="row">
-							<% do{ 
-								g = DatabaseQuery.getGioco(rs.getInt("IDGioco")); 
-								i++; %>
+							<%
+								do{ 
+													g = Model.DatabaseQuery.getGioco(rs.getInt("IDGioco")); 
+													i++;
+							%>
 								<div class="col-md-3 col-sm-6 col-xs-6">
 									<div class="product product-single">
 										<div class="product-thumb">

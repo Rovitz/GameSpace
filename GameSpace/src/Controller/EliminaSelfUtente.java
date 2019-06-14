@@ -1,29 +1,29 @@
-package Servlet;
+package Controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import Beans.Gioco;
-import Database.DatabaseQuery;
+import Model.DatabaseQuery;
+import Model.Utente;
 
 /**
- * Mostra la lista dei prodotti
+ * La servlet permette ad un utente di eliminare il proprio account dal suo profilo utente
  */
-@WebServlet("/GetListaProdotti")
-public class GetListaProdotti extends HttpServlet {
+@WebServlet("/EliminaSelfUtente")
+public class EliminaSelfUtente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetListaProdotti() {
+    public EliminaSelfUtente() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,21 +32,22 @@ public class GetListaProdotti extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		ArrayList<Gioco> lista = new ArrayList<>();
-		
-		try {
-			
-			lista=DatabaseQuery.getProdotti();
-			request.setAttribute("listaProdotti", lista);
-			request.getRequestDispatcher("Prodotti.jsp").forward(request, response);
-			
-		
-			
+		HttpSession session = request.getSession();
+		Utente u = (Utente) session.getAttribute("user");
+		String email = u.getEmail();
+        
+        try {
+			DatabaseQuery.delUser(email);
+			System.out.println("Servlet: Elimino account " +email);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			System.out.println("Del non riuscita");
 			e.printStackTrace();
 		}
+        
+        session.invalidate();
+        
+		
 	}
 
 	/**

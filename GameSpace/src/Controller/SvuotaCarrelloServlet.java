@@ -1,4 +1,4 @@
-package Servlet;
+package Controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import Beans.Utente;
-import Database.DatabaseQuery;
+import Model.DatabaseQuery;
+import Model.Utente;
 
 @WebServlet("/SvuotaCarrelloServlet")
 public class SvuotaCarrelloServlet extends HttpServlet {

@@ -34,17 +34,17 @@
 		<div id="shopping-cart">
 			<div class="shopping-cart-list">
 				<!-- CART ITEM -->
-				<% 
-				try{
-					connection = Database.getConnection();
-					stmt = connection.createStatement();
-					u = (Utente) session.getAttribute("user");
-					if(u != null){
-						rs = stmt.executeQuery("SELECT IDGioco FROM CARRELLO WHERE eMail = \"" + u.getEmail() + "\"");
+				<%
+					try{
+									connection = Model.Database.getConnection();
+									stmt = connection.createStatement();
+									u = (Utente) session.getAttribute("user");
+									if(u != null){
+										rs = stmt.executeQuery("SELECT IDGioco FROM CARRELLO WHERE eMail = \"" + u.getEmail() + "\"");
 
-						while(rs.next()){
-							g = DatabaseQuery.getGioco(Integer.parseInt(rs.getString("IDGioco"))); 
-						%>
+										while(rs.next()){
+											g = Model.DatabaseQuery.getGioco(Integer.parseInt(rs.getString("IDGioco")));
+				%>
 						<div class="product product-widget">
 							<div class="product-thumb">
 								<img src="./img/<%= g.getCover() %>" alt="">

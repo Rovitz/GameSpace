@@ -1,16 +1,10 @@
-package Database;
+package Model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-import Beans.Admin;
-import Beans.Carrello;
-import Beans.Gioco;
-import Beans.Ordine;
-import Beans.Utente;
 
 
 public class DatabaseQuery {

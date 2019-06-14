@@ -1,4 +1,4 @@
-<%@ page language="java"  import="Beans.Utente" contentType="text/html; charset=UTF-8"
+<%@ page language="java"  import="Model.Utente" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!-- HEADER -->
 <header>

@@ -1,4 +1,4 @@
-package Servlet;
+package Controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Beans.Utente;
-import Database.DatabaseQuery;
+import Model.DatabaseQuery;
+import Model.Utente;
 
 /**
  * Servlet per la registrazione degli utenti

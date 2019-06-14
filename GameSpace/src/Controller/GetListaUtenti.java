@@ -1,4 +1,4 @@
-package Servlet;
+package Controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -9,23 +9,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import Beans.Gioco;
-import Beans.Utente;
-import Database.DatabaseQuery;
+import Model.DatabaseQuery;
+import Model.Gioco;
+import Model.Utente;
 
 /**
- Permette di vedere i prodotti che abbiamo inserito
+ *Mostra la lista degli utenti registrati
  */
-@WebServlet("/GetListaProdottiUtente")
-public class GetListaProdottiUtente extends HttpServlet {
+@WebServlet("/GetListaUtenti")
+public class GetListaUtenti extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetListaProdottiUtente() {
+    public GetListaUtenti() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,27 +34,24 @@ public class GetListaProdottiUtente extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		ArrayList<Gioco> lista = new ArrayList<>();
+		ArrayList<Utente> lista = new ArrayList<>();
 		
-		HttpSession session = request.getSession();
-		Utente u = (Utente) session.getAttribute("user");
-		String email = u.getEmail();
-		try {	
+try {
 			
-			lista=DatabaseQuery.getProdottiUtente(email);
+			lista=DatabaseQuery.getUtentiAll();
 			request.setAttribute("lista", lista);
+			request.getRequestDispatcher("AdminUtenti.jsp").forward(request, response);
 			
 			if(lista.toString() == "[]"){
 				request.setAttribute("vis", "nulla");
 			} else{
 				request.setAttribute("vis", "visible");
 			}
-			request.getRequestDispatcher("MieiProdotti.jsp").forward(request, response);
-		
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			}
+		}
 	}
 
 	/**

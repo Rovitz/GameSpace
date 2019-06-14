@@ -1,5 +1,5 @@
 
-package Beans;
+package Model;
 
 public class Admin {
 	private String userName;

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-	import="Beans.*"%>
+	import="Model.*"%>
 
 <!-- Popup Details -->
 <link type="text/css" rel="stylesheet" href="css/details.css">

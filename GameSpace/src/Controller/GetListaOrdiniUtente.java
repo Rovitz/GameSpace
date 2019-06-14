@@ -1,4 +1,4 @@
-package Servlet;
+package Controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -9,43 +9,54 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import Beans.Gioco;
-import Database.DatabaseQuery;
+import Model.DatabaseQuery;
+import Model.Gioco;
+import Model.Ordine;
+import Model.Utente;
 
 /**
- * Servlet per mostrare i prodotti per loggati
+ * Permette all'utente di vedere la propria lista degli ordini
  */
-@WebServlet("/GetListaProdottiLog")
-public class GetListaProdottiLog extends HttpServlet {
+@WebServlet("/GetListaOrdiniUtente")
+public class GetListaOrdiniUtente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public GetListaProdottiLog() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public GetListaOrdiniUtente() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		ArrayList<Gioco> lista = new ArrayList<>();
-		
-		try {
-			
-			lista=DatabaseQuery.getProdotti();
-			request.setAttribute("listaProdotti", lista);
-			request.getRequestDispatcher("ProdottiLog.jsp").forward(request, response);
-			
-			
+		ArrayList<Ordine> lista = new ArrayList<>();
+
+		HttpSession session = request.getSession();
+		Utente u = (Utente) session.getAttribute("user");
+		String email = u.getEmail();
+		try {	
+
+			lista=DatabaseQuery.getOrdiniUtente(email);
+			request.setAttribute("lista", lista);
+
+			if(lista.toString() == "[]"){
+				request.setAttribute("vis", "nulla");
+			} else{
+				request.setAttribute("vis", "visible");
+			}
+			request.getRequestDispatcher("MieiOrdini.jsp").forward(request, response);
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 	}
 
 	/**
