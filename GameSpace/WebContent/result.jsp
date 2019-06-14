@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="Database.*"
-	import="Beans.*"
+    import="Model.*"
 	import="java.sql.*"
 	import="java.util.*"%>
+	
 <!DOCTYPE html>
 <html lang="it">
 <head>
