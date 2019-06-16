@@ -82,7 +82,8 @@ $(document).ready(function() {
 		e.preventDefault();
 		$(this).ajaxSubmit({
 			target: function(){
-				$("#user_cart").load(location.href + " #user_cart>*","");
+				$(".shopping-cart-list").load(location.href + " .shopping-cart-list>*","");
+				$(".header-cart").load(location.href + " .header-cart>*","");
 			}
 		});
 	});

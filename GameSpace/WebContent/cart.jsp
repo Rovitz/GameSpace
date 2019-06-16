@@ -2,17 +2,19 @@
     pageEncoding="UTF-8"
     import="Model.*"
 	import="java.sql.*"
-	import="java.util.*"%>
+	import="java.util.*"
+	import="java.util.stream.Collectors"%>
 	
 <!-- Cart -->
 <% Connection connection = null;
 		ResultSet rs = null;
 		Statement stmt = null;
-		Gioco g = null;
+		List<Gioco> gamesList = new ArrayList<>();
+		List<Gioco> listed = new ArrayList<>();
 		Utente u = null;
 		%>
 
-<li id="cart_list" class="header-cart dropdown default-dropdown">
+<li class="header-cart dropdown default-dropdown">
 	<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 		<div class="header-btns-icon">
 			<i class="fa fa-shopping-cart"></i>
@@ -35,33 +37,46 @@
 				<!-- CART ITEM -->
 				<%
 					try{
-									connection = Model.Database.getConnection();
-									stmt = connection.createStatement();
-									u = (Utente) session.getAttribute("user");
-									if(u != null){
-										rs = stmt.executeQuery("SELECT IDGioco FROM CARRELLO WHERE eMail = \"" + u.getEmail() + "\"");
+						connection = Database.getConnection();
+						stmt = connection.createStatement();
+						u = (Utente) session.getAttribute("user");
+						if(u != null){
+						rs = stmt.executeQuery("SELECT IDGioco FROM CARRELLO WHERE eMail = \"" + u.getEmail() + "\"");
 
-										while(rs.next()){
-											g = Model.DatabaseQuery.getGioco(Integer.parseInt(rs.getString("IDGioco")));
+						while(rs.next())
+							gamesList.add(DatabaseQuery.getGioco(Integer.parseInt(rs.getString("IDGioco"))));
+						
+						for(Gioco g : gamesList){
+							// trova il numero di occorrenze uguali --------------------------------------------------------//
+							int gameCount = (int) gamesList.stream().filter(p -> p.getIDGioco() == (g.getIDGioco())).count();
+							//----------------------------------------------------------------------------------------------//
+							
+							// consente di evitare duplicati in lista ----------------------------------------------//
+							if(((int) listed.stream().filter(p -> p.getIDGioco() == (g.getIDGioco())).count()) < 1){
+							listed.add(g);
+							//--------------------------------------------------------------------------------------//	
 				%>
-						<div class="product product-widget">
-							<div class="product-thumb">
-								<img src="./img/<%= g.getCover() %>" alt="">
-							</div>
-							<div class="product-body">
-								<h3 class="product-price">EUR <%= g.getPrezzo() %><span class="qty">x1</span></h3>
-								<h2 class="product-name"><a href="#"><%= g.getTitolo() %></a></h2>
-							</div>
-							<form class="removeItemForm" action="EliminaElementoServlet" method="post">
-								<input type="hidden" name="removeItemId" value="<%= g.getIDGioco()%>"/>
-								<button type="submit" class="cancel-btn"><i class="fa fa-trash"></i></button>
-							</form>
+					<div class="product product-widget">
+						<div class="product-thumb">
+							<img src="./img/<%= g.getCover() %>" alt="">
 						</div>
+						<div class="product-body">
+							<h3 class="product-price">EUR <%= g.getPrezzo() %>
+								<span class="qty">x<%= gameCount %></span></h3>
+							<h2 class="product-name"><a href="#"><%= g.getTitolo() %></a></h2>
+						</div>
+						<form class="removeItemForm" action="EliminaElementoServlet" method="post">
+							<input type="hidden" name="removeItemId" value="<%= g.getIDGioco()%>"/>
+							<button type="submit" class="cancel-btn"><i class="fa fa-trash"></i></button>
+						</form>
+					</div>
 				<% 		}
+					  }
 					}
 				}catch (SQLException e){
-					
-				} %>
+					e.printStackTrace();
+				} 
+				%>
 				<!-- /CART ITEM -->
 			</div>
 			<div class="shopping-cart-btns">

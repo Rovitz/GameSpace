@@ -5,8 +5,6 @@ public class Carrello {
 	private String idUtente;
 	private int idProdotto;
 
-	public Carrello(){}
-	
 	public Carrello(String idUtente, int idProdotto) {
 		super();
 		this.idUtente = idUtente;
@@ -33,5 +31,5 @@ public class Carrello {
 	public String toString() {
 		return "Carrello [idUtente=" + idUtente + ", idProdotto=" + idProdotto + "]";
 	}
-	
+
 }
