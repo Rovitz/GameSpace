@@ -3,58 +3,31 @@
 <!-- HEADER -->
 <header>
 	<!-- POPUP LOGIN -->
-	<jsp:include page="popup_login.jsp" />
+	<jsp:include page="login.jsp" />
 	
-	<!-- top Header -->
-	<div id="top-header">
-		<div class="container">
-			<div class="pull-left"></div>
-			<div class="pull-right">
-				<ul class="header-top-links">
-					<li><a href="#">Store</a></li>
-					<li class="dropdown default-dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">ENG <i class="fa fa-caret-down"></i></a>
-						<ul class="custom-menu">
-							<li><a href="#">English (ENG)</a></li>
-							<li><a href="#">Russian (Ru)</a></li>
-							<li><a href="#">French (FR)</a></li>
-							<li><a href="#">Spanish (Es)</a></li>
-							<li><a href="#">Italian (It)</a></li>
-						</ul>
-					</li>
-					<li class="dropdown default-dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">USD <i class="fa fa-caret-down"></i></a>
-						<ul class="custom-menu">
-							<li><a href="#">USD ($)</a></li>
-							<li><a href="#">EUR (€)</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<!-- /top Header -->
+	<!-- TOP HEADER -->
+	<div id="top-header"></div>
 
-	<!-- header -->
+	<!-- HEADER -->
 	<div id="header">
 		<div class="container">
 			<div class="pull-left">
-				<!-- Logo -->
+				<!-- LOGO -->
 				<div class="header-logo">
 					<a class="logo" href="index.jsp">
-						<img src="./img/logosito.png" alt="">
+						<img src="./img/logosito.png">
 					</a>
 				</div>
-				<!-- /Logo -->
+				<!-- /LOGO -->
 				
-				<!-- Search -->
+				<!-- SEARCH -->
 					<div class="header-search">
 						<form action="result.jsp" method="get">
 							<input class="input search-input" type="text" placeholder="Cerca nel sito" name="search">
 							<button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
 						</form>
 					</div>
-					<!-- /Search -->
+					<!-- /SEARCH -->
 			</div>
 			<div id="user_cart" class="pull-right">
 				<ul class="header-btns">
