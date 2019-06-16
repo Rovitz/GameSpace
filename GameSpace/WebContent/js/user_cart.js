@@ -23,6 +23,23 @@ $(document).ready(function() {
 		 });
 	});
 	
+	$('[id="showDetailsForm"]').submit(function(e) {
+		e.preventDefault();
+		$.ajax({
+			type: "post",
+			data: $(this).serialize(),
+			url: "DetailsServlet",
+			success: function(){
+				$("#details-content").load(location.href + " #details-content>*","");
+				$('[id="details"]').css("display", "block");
+				}
+		});
+	});
+	
+	$('[id="details"]').click(function(){
+		$(this).css("display", "none");
+	});
+	
 	$('[id="popupLoginForm"]').submit(function(e) {
 		e.preventDefault();
 		$(this).ajaxSubmit({

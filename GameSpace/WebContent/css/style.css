@@ -1056,6 +1056,7 @@ textarea.input {
   opacity: 0;
   visibility: hidden;
   z-index: 20;
+  text-align: center;
 }
 
 .product.product-single:hover .quick-view {

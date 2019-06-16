@@ -7,9 +7,8 @@
 
 
 <div id="details" class="modal">
-	<% Gioco g1 = (Gioco) request.getAttribute("gioco");  %>
-	
- 	<div class="modal-content animate">
+ 	<div id="details-content" class="modal-content animate">
+ 		<% Gioco g1 = (Gioco) session.getAttribute("gameDetails"); %>
 		<h1 class="popup-h1">DETTAGLI</h1>
 		<hr>
 	    <% if (g1 != null) {  %>
@@ -63,13 +62,4 @@
 		</div>
 		<% } %>
     </div>
-
-    <script>
-	var modal = document.getElementById('details');
-	window.onclick = function(event) {
-    	if (event.target == modal) {
-        	modal.style.display = "none";
-    	}
-	}
-	</script>
 </div>

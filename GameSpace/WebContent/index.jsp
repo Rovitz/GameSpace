@@ -37,18 +37,8 @@
 	<!-- HEADER -->
 	<jsp:include page="header.jsp" />
 	
-	<%
-			if(request.getParameter("showDetails")!=null && request.getParameter("idField")!=null){
-				request.setAttribute("gioco", Model.DatabaseQuery.getGioco(Integer.parseInt(request.getParameter("idField"))));
-		%>
-		<jsp:include page="details.jsp"/>
-		<script>
-			document.getElementById("details").style.display="block";
-		</script>
-	<%
-		}
-	%>
-
+	<jsp:include page="details.jsp" />
+	
 	<!-- NAVIGATION -->
 	<div class="navigation">
 		<!-- container -->
@@ -380,55 +370,20 @@
 							<!-- Product Single -->
 							<%
 								try{
-																		connection = Model.Database.getConnection();
-																		stmt = connection.createStatement();
-																		rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"piu_venduti\"");
+									connection = Model.Database.getConnection();
+									stmt = connection.createStatement();
+									rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"piu_venduti\"");
 
-																		while(rs.next()){ 
-																			g = Model.DatabaseQuery.getGioco(rs.getInt("IDGioco"));
+									while(rs.next()){ 
+										g = Model.DatabaseQuery.getGioco(rs.getInt("IDGioco"));
+										session.setAttribute("showGame", g);
 							%>
-									<div class="product product-single">
-										<div class="product-thumb">
-											<div class="product-label">
-												<span>New</span>
-											</div>
-												<form method="post">
-												<input name="idField" value="<%=g.getIDGioco()%>" style="display: none;">
-												<input type="submit" name="showDetails" id="showDetails" class="main-btn quick-view" value="DETTAGLI"/>
-											</form>									
-											<img src="./img/<%=g.getCover()%>"  width="150" height="350" />
-										</div>
-									<div class="product-body">
-										<h3 class="product-price">€<%=g.getPrezzo()%></h3>
-											<div class="product-rating">
-												<%
-													for(int r=1; r<=g.getRating()-1; r++){
-												%>
-												<i class="fa fa-star"></i>
-												<%
-													}
-												%>
-												<i class="fa fa-star-o empty"></i>
-											</div>
-										<h4><span style="float:right;">Q.tà:&nbsp;<%=g.getDisponibilita()%></span></h4>
-										<h3 class="product-nome"><a href="#"><%=g.getTitolo()%></a></h3>
-										<h4 class="product-console"><a href="#"><%=g.getPiattaforma()%></a></h4>
-										<div class="product-btns">
-											<form class="addToCartForm">
-												<div class="product-btns">
-													<input type="hidden" name="idProduct" value="<%=g.getIDGioco()%>">
-													<button type="submit" name="addToCartBtn" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
-												</div>
-											</form>
-										</div>
-									</div>
-									</div>
-								<%
-									}
-																			} 
-																			catch (SQLException e){
-																			}
-								%>
+							<jsp:include page="game.jsp"/>
+							<%
+								}
+									}catch (SQLException e){
+								}
+							%>
 							<!-- /Product Single -->
 						</div>
 					</div>
@@ -467,53 +422,20 @@
 							<!-- Product Single -->
 							<%
 								try{
-																		connection = Model.Database.getConnection();
-																		stmt = connection.createStatement();
-																		rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"top_5\"");
+									connection = Model.Database.getConnection();
+									stmt = connection.createStatement();
+									rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"top_5\"");
 
-																		while(rs.next()){ 
-																			g = Model.DatabaseQuery.getGioco(rs.getInt("IDGioco"));
+									while(rs.next()){ 
+										g = Model.DatabaseQuery.getGioco(rs.getInt("IDGioco"));
+										session.setAttribute("showGame", g);
 							%>
-									<div class="product product-single">
-										<div class="product-thumb">
-											<div class="product-label">
-												<span>New</span>
-											</div>
-												<form method="post">
-												<input name="idField" value="<%=g.getIDGioco()%>" style="display: none;">
-												<input type="submit" name="showDetails" id="showDetails" class="main-btn quick-view" value="DETTAGLI"/>
-											</form>
-											<img src="./img/<%=g.getCover()%>"  width="150" height="350" />
-										</div>
-									<div class="product-body">
-										<h3 class="product-price">€<%=g.getPrezzo()%></h3>
-											<div class="product-rating">
-												<%
-													for(int r=1; r<=g.getRating(); r++){
-												%>
-												<i class="fa fa-star"></i>
-												<%
-													}
-												%>
-												<i class="fa fa-star-o empty"></i>
-											</div>
-										<h4><span style="float:right;">Q.tà:&nbsp;<%=g.getDisponibilita()%></span></h4>
-										<h3 class="product-nome"><a href="#"><%=g.getTitolo()%></a></h3>
-										<h4 class="product-console"><a href="#"><%=g.getPiattaforma()%></a></h4>
-										<form class="addToCartForm">
-												<div class="product-btns">
-													<input type="hidden" name="idProduct" value="<%=g.getIDGioco()%>">
-													<button type="submit" name="addToCartBtn" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
-												</div>
-											</form>
-									</div>
-									</div>
-								<%
-									}
-																			} 
-																			catch (SQLException e){
-																			}
-								%>
+							<jsp:include page="game.jsp"/>
+							<%
+								}
+									}catch (SQLException e){
+								}
+							%>
 							<!-- /Product Single -->
 						</div>
 					</div>
@@ -531,54 +453,26 @@
 					</div>
 				</div>
 			</div>
-				
 			<!-- Product Single -->
-			<%
-				try{
-						connection = Model.Database.getConnection();
-						stmt = connection.createStatement();
-						rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"scontati\"");
+							<%
+								try{
+									connection = Model.Database.getConnection();
+									stmt = connection.createStatement();
+									rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"scontati\"");
 
-						while(rs.next()){ 
-						g = Model.DatabaseQuery.getGioco(rs.getInt("IDGioco"));
-			%>
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span>New</span>
-								<span class="sale">-30%</span>
-								</div>
-									<form method="post">
-										<input name="idField" value="<%=g.getIDGioco()%>" style="display: none;">
-											<input type="submit" name="showDetails" id="showDetails" class="main-btn quick-view" value="DETTAGLI"/>
-												</form>
-							<img src="./img/<%=g.getCover()%>"  width="150" height="350" />
-						</div>
-						<div id="prod" class="product-body">
-							<h3 class="product-price">€<%=g.getPrezzo() %><del class="product-old-price">€40.00</del></h3>
-							<div class="product-rating">
-												<% for(int r=1; r<=g.getRating()-1; r++){ %>
-												<i class="fa fa-star"></i>
-												<% } %>
-								<i class="fa fa-star-o empty"></i>
-								</div>
-								<h4><span style="float:right;">Q.tà:&nbsp;<%=g.getDisponibilita() %></span></h4>
-								<h2 class="product-nome"><a href="#"><%=g.getTitolo() %></a></h2>
-								<h4 class="product-console"><a href="#"><%=g.getPiattaforma() %></a></h4>
-								<form class="addToCartForm">
-												<div class="product-btns">
-													<input type="hidden" name="idProduct" value="<%=g.getIDGioco()%>">
-													<button type="submit" name="addToCartBtn" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
-												</div>
-											</form>
-						</div>
-					</div>
-				</div>
-				<% }
-				} 
-				catch (SQLException e){}%>
-			<!-- /Product Single -->
+									while(rs.next()){ 
+										g = Model.DatabaseQuery.getGioco(rs.getInt("IDGioco"));
+										session.setAttribute("showGame", g);
+							%>
+							<div class="col-md-3">
+								<jsp:include page="game.jsp"/>
+							</div>
+							<%
+								}
+									}catch (SQLException e){
+								}
+							%>
+							<!-- /Product Single -->
 			</div>
 			<!-- /row -->
 
