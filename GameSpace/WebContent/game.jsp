@@ -7,7 +7,19 @@
 	<% Gioco g = (Gioco) session.getAttribute("showGame"); %>
 	<div class="product-thumb">
 		<div class="product-label">
-			<span>New</span>
+			<% 
+				if(request.getParameter("section") != null){
+					if (request.getParameter("section").equals("usato")){ %>
+					<span class="used">USATO</span>
+			<%	} else if (request.getParameter("section").equals("ultime_uscite")){ %>
+					<span class="new">NUOVO</span>
+			<%	} else if (request.getParameter("section").equals("scontati")){ %>
+					<span class="sale">OFFERTA</span>
+			<% 	} else { %>
+					<span></span>
+			<%	}
+				}
+			%>
 		</div>
 		<form id="showDetailsForm">
 			<input name="gameId" value="<%=g.getIDGioco()%>" style="display: none;">

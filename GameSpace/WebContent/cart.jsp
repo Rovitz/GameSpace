@@ -2,8 +2,7 @@
     pageEncoding="UTF-8"
     import="Model.*"
 	import="java.sql.*"
-	import="java.util.*"
-	import="java.util.stream.Collectors"%>
+	import="java.util.*" %>
 	
 <!-- Cart -->
 <% Connection connection = null;

@@ -7,24 +7,12 @@
 <head>
 	<title>GAMESPACE</title>
 	<link rel="icon" href="https://img.icons8.com/dusk/64/000000/controller.png" />
-
-	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
-
-	<!-- Bootstrap -->
 	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
-
-	<!-- Slick -->
 	<link type="text/css" rel="stylesheet" href="css/slick.css" />
 	<link type="text/css" rel="stylesheet" href="css/slick-theme.css" />
-
-	<!-- nouislider -->
 	<link type="text/css" rel="stylesheet" href="css/nouislider.min.css" />
-
-	<!-- Font Awesome Icon -->
 	<link rel="stylesheet" href="css/font-awesome.min.css">
-
-	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
 	
 	<% Connection connection = null;
@@ -37,6 +25,7 @@
 	<!-- HEADER -->
 	<jsp:include page="header.jsp" />
 	
+	<!-- DETAILS POPUP -->
 	<jsp:include page="details.jsp" />
 	
 	<!-- NAVIGATION -->
@@ -172,81 +161,7 @@
 										</div>
 									</div>
 								</div>
-							</li>
-							
-							<li class="dropdown side-dropdown">
-								<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">CONSOLE<i class="fa fa-angle-right"></i></a>
-									<div class="custom-menu">
-										<div class="row">
-											<div class="col-md-4">
-												<ul class="list-links">
-													<li>
-													<h3 class="list-links-title">PLAYSTATION</h3></li>
-													<li><a href="#">PS4</a></li>
-													<li><a href="#">PS3</a></li>
-													<li><a href="#">PS2</a></li>
-													<li><a href="#">PS1</a></li>
-												</ul>
-												<hr class="hidden-md hidden-lg">
-												<br>
-												<ul class="list-links">
-													<li>
-													<h3 class="list-links-title">XBOX</h3></li>
-													<li><a href="#">XBOX ONE S</a></li>
-													<li><a href="#">XBOX ONE</a></li>
-													<li><a href="#">XBOX 360</a></li>
-													<li><a href="#">XBOX ARCADE</a></li>
-												</ul>
-											</div>
-											<div class="col-md-4">
-												<ul class="list-links">
-													<li>
-													<h3 class="list-links-title">NINTENDO</h3></li>
-													<li><a href="#">NINTENDO SWITCH</a></li>
-													<li><a href="#">NINTENDO 3DS</a></li>
-													<li><a href="#">NINTENDO DSi</a></li>
-													<li><a href="#">NINTENDO DS lite</a></li>
-												</ul>
-												<hr class="hidden-md hidden-lg">
-												<br>
-												<ul class="list-links">
-													<li>
-													<h3 class="list-links-title">PC</h3></li>
-													<li><a href="#">PORTATILI</a></li>
-													<li><a href="#">FISSO</a></li>
-													<li><a href="#">MAC</a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</li>
-							
-						<li class="dropdown side-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">ACCESSORI<i class="fa fa-angle-right"></i></a>
-								<div class="custom-menu">
-									<div class="row">
-										<div class="col-md-4">
-											<ul class="list-links">
-												<li>
-												<h3 class="list-links-title">ACCESSORI</h3></li>
-												<li><a href="#">Portachiavi</a></li>
-												<li><a href="#">Zaino</a></li>
-												<li><a href="#">Sticker</a></li>
-											</ul>
-											<hr class="hidden-md hidden-lg">
-										</div>
-										<div class="col-md-4">
-											<ul class="list-links">
-												<li>
-												<h3 class="list-links-title">PERIFERICHE</h3></li>
-												<li><a href="#">Cuffie</a></li>
-												<li><a href="#">Tastiera</a></li>
-												<li><a href="#">Mouse</a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</li>
+							</li>						
 						</ul>
 					</div>		
 					<!-- /category nav -->
@@ -408,7 +323,7 @@
 
 				<div class="col-md-3 col-sm-6 col-xs-6">
 					<div class="banner banner-2">
-						<img src="./img/Top5.jpg"  alt="">
+						<img src="./img/top_5.png"  alt="">
 						<div class="banner-caption">
 							<h2 class="white-color"><br></h2>
 						</div>
@@ -475,144 +390,10 @@
 							<!-- /Product Single -->
 			</div>
 			<!-- /row -->
-
-			<!-- row -->
-			<div class="row">
-				<!-- section title -->
-				<div class="col-md-12">
-					<div class="section-title">
-						<h2 class="title">Accessori</h2>
-					</div>
-				</div>
-				<!-- section title -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-							<img src="./img/vr.png" width="200" height="200">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">€250.00</h3>
-							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
-								<i class="fa fa-star-o empty"></i>
-							</div>
-							<h2 class="product-name"><a href="#"></a>PlayStation VR</h2>
-							<form class="addToCartForm">
-												<div class="product-btns">
-													<input type="hidden" name="idProduct" value="<%=g.getIDGioco()%>">
-													<button type="submit" name="addToCartBtn" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
-												</div>
-											</form>
-										</div>
-									</div>
-								</div>
-				<!-- /Product Single -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span>New</span>
-							</div>
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-							<img src="./img/controller.png" height="200" width="200">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">€50.00</h3>
-							<div class="product-rating">
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												
-							</div>
-							<h2 class="product-name"><a href="#">Controller XBOX</a></h2>
-							<form class="addToCartForm">
-												<div class="product-btns">
-													<input type="hidden" name="idProduct" value="<%=g.getIDGioco()%>">
-													<button type="submit" name="addToCartBtn" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
-									</div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<div class="product-label">
-								<span>New</span>
-								<span class="sale">-10%</span>
-							</div>
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-							<img src="./img/custodia.png" width="200" height="200">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">€27.00<del class="product-old-price">€30.00</del></h3>
-							<div class="product-rating">
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star-o empty"></i>
-							</div>
-							<h2 class="product-name"><a href="#">Custodia Nintendo Switch</a></h2>
-							<form class="addToCartForm">
-												<div class="product-btns">
-													<input type="hidden" name="idProduct" value="<%=g.getIDGioco()%>">
-													<button type="submit" name="addToCartBtn" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
-												</div>
-											</form>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-
-				<!-- Product Single -->
-				<div class="col-md-3 col-sm-6 col-xs-6">
-					<div class="product product-single">
-						<div class="product-thumb">
-							<button class="main-btn quick-view"><i class="fa fa-search-plus"></i>Vedi altro</button>
-							<img src="./img/mouse.png" width="200" height="200">
-						</div>
-						<div class="product-body">
-							<h3 class="product-price">€10.00</h3>
-							<div class="product-rating">
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star"></i>
-								<i class="fa fa-star-o empty"></i>
-								<i class="fa fa-star-o empty"></i>
-							</div>
-							<h2 class="product-name"><a href="#">Mouse</a></h2>
-							<form class="addToCartForm">
-												<div class="product-btns">
-													<input type="hidden" name="idProduct" value="<%=g.getIDGioco()%>">
-													<button type="submit" name="addToCartBtn" class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i>Aggiungi al carrello</button>
-												</div>
-											</form>
-						</div>
-					</div>
-				</div>
-				<!-- /Product Single -->
-			</div>
-			<!-- /row -->
 		</div>
 		<!-- /container -->
 	</div>
 	<!-- /section -->
-	
-		
 	<!-- /NAVIGATION -->
 	
 	<!-- OK POPUP -->
