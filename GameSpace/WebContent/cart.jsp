@@ -4,7 +4,7 @@
 	import="java.sql.*"
 	import="java.util.*" %>
 	
-<!-- Cart -->
+<!-- CART -->
 <% Connection connection = null;
 		ResultSet rs = null;
 		Statement stmt = null;
@@ -33,7 +33,7 @@
 	<div class="custom-menu">
 		<div id="shopping-cart">
 			<div class="shopping-cart-list">
-				<!-- CART ITEM -->
+				<!-- CART ITEMS -->
 				<%
 					try{
 						connection = Database.getConnection();
@@ -46,14 +46,14 @@
 							gamesList.add(DatabaseQuery.getGioco(Integer.parseInt(rs.getString("IDGioco"))));
 						
 						for(Gioco g : gamesList){
-							// trova il numero di occorrenze uguali --------------------------------------------------------//
-							int gameCount = (int) gamesList.stream().filter(p -> p.getIDGioco() == (g.getIDGioco())).count();
-							//----------------------------------------------------------------------------------------------//
+							// trova il numero di occorrenze uguali ------------------------------------------------------//
+							int gameCount = (int) gamesList.stream().filter(p -> p.getIDGioco() == g.getIDGioco()).count();
+							//--------------------------------------------------------------------------------------------//
 							
-							// consente di evitare duplicati in lista ----------------------------------------------//
-							if(((int) listed.stream().filter(p -> p.getIDGioco() == (g.getIDGioco())).count()) < 1){
+							// consente di evitare duplicati in lista -----------------------------------//
+							if(listed.stream().filter(p -> p.getIDGioco() == g.getIDGioco()).count() < 1){
 							listed.add(g);
-							//--------------------------------------------------------------------------------------//	
+							//---------------------------------------------------------------------------//	
 				%>
 					<div class="product product-widget">
 						<div class="product-thumb">
@@ -76,13 +76,13 @@
 					e.printStackTrace();
 				} 
 				%>
-				<!-- /CART ITEM -->
+				<!-- /CART ITEMS -->
 			</div>
 			<div class="shopping-cart-btns">
-				<button id="emptyCartBtn" class="primary-btn">SVUOTA</button>
-				<button class="primary-btn">CHECKOUT&nbsp;<i class="fa fa-arrow-circle-right"></i></button>
+				<a id="emptyCartBtn" class="primary-btn">SVUOTA&nbsp;<i class="fa fa-trash"></i></a>
+				<a class="primary-btn" href="checkout.jsp">CHECKOUT&nbsp;<i class="fa fa-arrow-circle-right"></i></a>
 			</div>
 		</div>
 	</div>
 </li>
-<!-- /Cart -->
+<!-- /CART -->
