@@ -21,10 +21,11 @@
 
 						<!-- footer social -->
 						<ul class="footer-social">
+							<li><a href="https://www.instagram.com/gamespace_real/?hl=it" class="footer-icons"><i class="fa fa-instagram"></i></a></li>
 							<li><a href="#" class="footer-icons"><i class="fa fa-facebook"></i></a></li>
 							<li><a href="#" class="footer-icons" ><i class="fa fa-twitter"></i></a></li>
 							<li><a href="#" class="footer-icons"><i class="fa fa-google-plus"></i></a></li>
-							<li><a href="#" class="footer-icons"><i class="fa fa-pinterest"></i></a></li>
+							
 						</ul>
 						<!-- /footer social -->
 					</div>
@@ -37,8 +38,8 @@
 						<h2 class="footer-header">Il mio account</h2>
 						<ul class="list-links">
 							<li><a href="#" class="footer-icons">My Account</a></li>
-							<li><a href="popup_login.jsp" class="footer-icons">Login</a></li>
-							<li><a href="#" class="footer-icons">Logout</a></li>
+							<li><a onclick="document.getElementById('modal-wrapper').style.display='block'" class="footer-icons" style="cursor: pointer;">LOGIN</a></li>
+							<li><a id="logoutBtn" class="footer-icons">Logout</a></li>
 
 						</ul>
 					</div>

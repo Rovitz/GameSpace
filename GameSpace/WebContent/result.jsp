@@ -46,10 +46,12 @@
 				try{
 					connection = Database.getConnection();
 					stmt = connection.createStatement();
-					if(request.getParameter("search") == null && request.getParameter("section") != null)
+					if (request.getParameter("section") != null)
 						rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"" + request.getParameter("section") + "\"");
-					else
+					else if (request.getParameter("search") != null)
 						rs = stmt.executeQuery("SELECT * FROM GIOCO WHERE Titolo LIKE \"%" + request.getParameter("search") + "%\"");
+					else if (request.getParameter("platform") != null)
+						rs = stmt.executeQuery("SELECT * FROM GIOCO WHERE Piattaforma =\"" + request.getParameter("platform") + "\"");
 															
 					int i=0; 
 															
