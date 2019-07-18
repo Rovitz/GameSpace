@@ -20,13 +20,13 @@
 								<li><a id="logoutBtn" style="cursor: pointer;"><i class="fa fa-unlock-alt" style="color: red;"></i>&nbsp;LOGOUT</a></li>
 							</ul>
 					<% } else { %>
-						<div class="dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="true">
+						<div>
 							<div class="header-btns-icon">
 								<i class="fa fa-user-o"></i>
 							</div>
-							
-							<a onclick="document.getElementById('modal-wrapper').style.display='block'" class="text-uppercase" style="cursor: pointer;">ENTRA</a>
-							<span style="color: white;"> / </span><a href="register.jsp" class="text-uppercase">REGISTRATI</a>
+							<a class="list-links" href="register.jsp">REGISTRATI</a>
+							<br>
+							<a class="list-links" onclick="document.getElementById('modal-wrapper').style.display='block'" style="cursor: pointer;">ENTRA</a>
 						</div>
 					<% } %>
 					</li>

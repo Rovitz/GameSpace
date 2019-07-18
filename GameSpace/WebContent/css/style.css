@@ -220,15 +220,16 @@ textarea.input {
   font-size: 16px;
 }
 
-.list-links li>a {
+.list-links {
   position: relative;
   display: inline-block;
   text-transform: uppercase;
+  font-weight: bold;
   padding: 2px 0px;
   transition: 0.3s all;
 }
 
-.list-links li>a:before {
+.list-links:before {
   content: "\f105";
   position: absolute;
   left: 0px;
@@ -240,12 +241,12 @@ textarea.input {
   transition: 0.3s all;
 }
 
-.list-links li>a:hover, .list-links li>a:focus, .list-links li.active>a {
+.list-links:hover, .list-links:focus{
   color: red;
   transform: translateX(10px);
 }
 
-.list-links li>a:hover:before, .list-links li>a:focus:before, .list-links li.active>a:before {
+.list-links:hover:before, .list-links:focus:before {
   opacity: 1;
   visibility: visible;
 }

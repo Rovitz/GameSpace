@@ -36,12 +36,6 @@
 				<div class="col-lg-4">
 					<div class="footer">
 						<h2 class="footer-header">Il mio account</h2>
-						<ul class="list-links">
-							<li><a href="#" class="footer-icons">My Account</a></li>
-							<li><a onclick="document.getElementById('modal-wrapper').style.display='block'" class="footer-icons" style="cursor: pointer;">LOGIN</a></li>
-							<li><a id="logoutBtn" class="footer-icons">Logout</a></li>
-
-						</ul>
 					</div>
 				</div>
 				<!-- /footer account -->
