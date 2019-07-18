@@ -36,20 +36,12 @@
 			<div id="responsive-nav">
 				<!-- category nav -->
 				<div class="category-nav">
-					<span class="category-header">CATALOGO<i class="fa fa-list"></i></span>
+					<span class="category-header">FILTRA<i class="fa fa-list"></i></span>
 					<ul class="category-list">
-						<li class="dropdown side-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">PS4<i class="fa fa-angle-right"></i></a>
-						</li>
-						<li class="dropdown side-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">PC<i class="fa fa-angle-right"></i></a>
-						</li>		
-						<li class="dropdown side-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">XBOX<i class="fa fa-angle-right"></i></a>
-						</li>
-						<li class="dropdown side-dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">SWITCH<i class="fa fa-angle-right"></i></a>
-						</li>						
+						<li class="dropdown side-dropdown"><a href="result.jsp?platform=PS4">PS4</a></li>
+						<li class="dropdown side-dropdown"><a href="result.jsp?platform=PC">PC</a></li>
+						<li class="dropdown side-dropdown"><a href="result.jsp?platform=ONE">XBOX ONE</a></li>
+						<li class="dropdown side-dropdown"><a href="result.jsp?platform=SWITCH">SWITCH</a></li>						
 					</ul>
 				</div>		
 				<!-- /category nav -->
