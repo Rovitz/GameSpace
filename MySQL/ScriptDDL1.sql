@@ -57,6 +57,3 @@ CREATE TABLE Ordine(
 									ON UPDATE CASCADE
                                     ON DELETE CASCADE
 	);
-
-
-     

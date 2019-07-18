@@ -40,131 +40,19 @@
 					<ul class="category-list">
 						<li class="dropdown side-dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">PS4<i class="fa fa-angle-right"></i></a>
-								<div class="custom-menu">
-									<div class="row">
-										<div class="col-md-4">
-											<ul class="list-links">
-												<li>
-												<h3 class="list-links-title">GENERE</h3></li>
-												<li><a href="#">RPG</a></li>
-												<li><a href="#">Arcade</a></li>
-												<li><a href="#">Sport</a></li>
-												<li><a href="#">Platform</a></li>
-												<li><a href="#">Sparatutto</a></li>
-											</ul>
-											<hr class="hidden-md hidden-lg">
-										</div>
-										<div class="col-md-4">
-											<ul class="list-links">
-												<li>
-												<h3 class="list-links-title">ALTRO</h3></li>
-												<li><a href="#">Strategici</a></li>
-												<li><a href="#">Picchiaduro</a></li>
-												<li><a href="#">Survival Horror</a></li>
-												<li><a href="#">Giochi di guida</a></li>
-												<li><a href="#">Rompicapo</a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</li>
-					
-						<li class="dropdown side-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">PC<i class="fa fa-angle-right"></i></a>
-							<div class="custom-menu">
-								<div class="row">
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-											<h3 class="list-links-title">GENERE</h3></li>
-											<li><a href="#">RPG</a></li>
-											<li><a href="#">Arcade</a></li>
-											<li><a href="#">Sport</a></li>
-											<li><a href="#">Platform</a></li>
-											<li><a href="#">Sparatutto</a></li>
-											</ul>
-											<hr class="hidden-md hidden-lg">
-									</div>
-									<div class="col-md-4">
-										<ul class="list-links">
-											<li>
-											<h3 class="list-links-title">ALTRO</h3></li>
-											<li><a href="#">Strategici</a></li>
-											<li><a href="#">Picchiaduro</a></li>
-											<li><a href="#">Survival Horror</a></li>
-											<li><a href="#">Giochi di guida</a></li>
-											<li><a href="#">Rompicapo</a></li>
-											
-										</ul>
-									</div>
-								</div>
-							</div>
 						</li>
-											
+						<li class="dropdown side-dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">PC<i class="fa fa-angle-right"></i></a>
+						</li>		
 						<li class="dropdown side-dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">XBOX<i class="fa fa-angle-right"></i></a>
-								<div class="custom-menu">
-									<div class="row">
-										<div class="col-md-4">
-											<ul class="list-links">
-												<li>
-												<h3 class="list-links-title">GENERE</h3></li>
-												<li><a href="#">RPG</a></li>
-												<li><a href="#">Arcade</a></li>
-												<li><a href="#">Sport</a></li>
-												<li><a href="#">Platform</a></li>
-												<li><a href="#">Sparatutto</a></li>
-											</ul>
-											<hr class="hidden-md hidden-lg">
-										</div>
-										<div class="col-md-4">
-											<ul class="list-links">
-												<li>
-												<h3 class="list-links-title">ALTRO</h3></li>
-												<li><a href="#">Strategici</a></li>
-												<li><a href="#">Picchiaduro</a></li>
-												<li><a href="#">Survival Horror</a></li>
-												<li><a href="#">Giochi di guida</a></li>
-												<li><a href="#">Rompicapo</a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</li>
-												
-							
+						</li>
 						<li class="dropdown side-dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">SWITCH<i class="fa fa-angle-right"></i></a>
-								<div class="custom-menu">
-									<div class="row">
-										<div class="col-md-4">
-											<ul class="list-links">
-												<li>
-												<h3 class="list-links-title">GENERE</h3></li>
-												<li><a href="#">RPG</a></li>
-												<li><a href="#">Arcade</a></li>
-												<li><a href="#">Sport</a></li>
-												<li><a href="#">Platform</a></li>
-												<li><a href="#">Sparatutto</a></li>
-											</ul>
-											<hr class="hidden-md hidden-lg">
-										</div>
-										<div class="col-md-4">
-											<ul class="list-links">
-												<li>
-												<h3 class="list-links-title">ALTRO</h3></li>
-												<li><a href="#">Strategici</a></li>
-												<li><a href="#">Picchiaduro</a></li>
-												<li><a href="#">Survival Horror</a></li>
-												<li><a href="#">Giochi di guida</a></li>
-												<li><a href="#">Rompicapo</a></li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</li>						
-						</ul>
-					</div>		
-					<!-- /category nav -->
+						</li>						
+					</ul>
+				</div>		
+				<!-- /category nav -->
 
 				<!-- menu nav -->
 				<div class="menu-nav">
@@ -413,7 +301,6 @@
 	<script src="js/jquery.zoom.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/user_cart.js"></script>
-	<!-- /jQuery Plugins -->
-			
+	<!-- /jQuery Plugins -->		
 </body>
 </html>

@@ -650,10 +650,7 @@ public class DatabaseQuery {
 			ResultSet rs = psListCarrello.executeQuery();
 
 			while(rs.next()){
-				Carrello cr = new Carrello();
-				cr.setIdUtente(rs.getString("idUtente"));
-				cr.setIdProdotto(rs.getInt("idProdotto"));
-
+				Carrello cr = new Carrello(rs.getString("idUtente"), rs.getInt("idProdotto"));
 				listCarrello.add(cr);
 				cr = null;
 			}
