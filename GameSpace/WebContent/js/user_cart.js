@@ -87,4 +87,16 @@ $(document).ready(function() {
 			}
 		});
 	});
+	
+	$('.removeUserForm').submit(function(e) {
+		e.preventDefault();
+		$.ajax({
+			type: "post",
+			url: "EliminaUtenteServlet",
+			data: $(this).serialize(), 
+			success: function(data, status, xhr){
+					$("#removeUserSelect").load(location.href + " #removeUserSelect>*","");
+			}
+		});
+	});
 });

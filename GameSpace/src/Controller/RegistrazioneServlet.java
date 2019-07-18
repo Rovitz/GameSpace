@@ -32,13 +32,9 @@ public class RegistrazioneServlet extends HttpServlet {
 		// Crea utente
 		Utente u = new Utente(Email, Nome, Cognome, Password, Sesso);
 
-		// Stampa utente creato
-		System.out.println(u);
-
 		try {
 			DatabaseQuery.addUser(u);
-			request.setAttribute("success", "Registrazione avvenuta correttamente, ora puoi effettuare il login!");
-			request.getRequestDispatcher("login.jsp").forward(request, response);
+			this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
 		} catch (SQLException e) {
 			if(e.getLocalizedMessage().startsWith("Duplicate entry")) {
 				request.setAttribute("error", "eMail già presente nel database!");
@@ -46,7 +42,6 @@ public class RegistrazioneServlet extends HttpServlet {
 			else {
 				request.setAttribute("error", "Si è verificato un errore con il database!");
 			}
-			request.getRequestDispatcher("register.jsp").forward(request, response);
 		}
 	}
 }

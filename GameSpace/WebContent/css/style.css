@@ -559,7 +559,7 @@ input::-webkit-inner-spin-button {
   top: -25%;
 }
 
-.checkout .payment select{
+select {
   position: relative;
   display: inline-block;
   outline: none;
@@ -619,6 +619,37 @@ input::-webkit-inner-spin-button {
   display: table-cell;
   position: relative;
   text-align: left;
+  width: 30%;
+}
+
+
+/*=========================================================
+	ADMIN
+===========================================================*/
+
+.admin {
+  margin-top: 2%;
+  position: relative;
+  display: table;
+  text-align: center;
+  width: 100%;
+}
+
+.admin .user{
+  display: table-cell;
+  position: relative;
+  width: 35%;
+}
+
+.admin .product{
+ position: relative;
+ display: table-cell;
+ width: 30%;
+}
+
+.account .order{
+  display: table-cell;
+  position: relative;
   width: 30%;
 }
 

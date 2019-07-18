@@ -17,35 +17,36 @@ import Model.DatabaseQuery;
 @WebServlet("/EliminaUtenteServlet")
 public class EliminaUtenteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public EliminaUtenteServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public EliminaUtenteServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String Utente = request.getParameter("prodott");
+		String Utente = request.getParameter("removeUserSelect");
 
-			
-			try {
-				DatabaseQuery.delUser(Utente);
-				request.getRequestDispatcher("AdminUtenti.jsp").forward(request, response);
-			} catch (SQLException e) {
-				System.out.println("Impossibile del utente.");
-				e.printStackTrace();
-			}
-		}	
+		System.out.println(Utente);
+
+		try {
+			DatabaseQuery.delUser(Utente);
+		} catch (SQLException e) {
+			System.out.println("Impossibile del utente.");
+			e.printStackTrace();
+		}
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

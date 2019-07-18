@@ -52,7 +52,7 @@
 					<input type="text" class="contact" required name="numero_carta" placeholder="Numero carta"  />	
 					<div>
 					<h4>Scadenza:</h4>
-					<select class="expiration">
+					<select>
                             <option value="01">Gennaio</option>
                             <option value="02">Febbraio</option>
                             <option value="03">Marzo</option>
