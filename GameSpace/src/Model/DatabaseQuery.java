@@ -34,6 +34,7 @@ public class DatabaseQuery {
 	 * Query gestione Ordini e Carrello
 	 */
 	private static String queryAddOrdine;
+	private static String queryDelOrdine;
 	private static String queryGetMieiOrdini;
 	private static String queryOrdini;
 	private static String queryAddCarrello;
@@ -369,8 +370,37 @@ public class DatabaseQuery {
 	}
 
 	/**
+	 * Elimina un ordine
+	 */
+
+	public synchronized static boolean delOrdine(int IDOrdine) throws SQLException{
+		Connection connection = null;
+		PreparedStatement psDelProdotto = null;
+
+		try{
+			connection = Database.getConnection();
+			psDelProdotto = connection.prepareStatement(queryDelOrdine);
+			psDelProdotto.setInt(1, IDOrdine);
+
+			psDelProdotto.executeUpdate();
+
+			connection.commit();
+		} finally {
+			try{
+				if(psDelProdotto != null)
+					psDelProdotto.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+
+		return true;
+	}
+
+	/**
 	 * Ritorna la lista di tutti i prodotti presenti nel DB
 	 */
+
 	public synchronized static ArrayList getGiochiAll() throws SQLException{
 		Connection connection = null;
 		PreparedStatement psListGiochi = null;
@@ -807,7 +837,7 @@ public class DatabaseQuery {
 		queryEliminaUtente = "DELETE FROM gamespace.utente WHERE eMail = ?";
 		queryGetUtente = "SELECT * FROM gamespace.utente WHERE eMail=?";
 		queryAddProdotto = "INSERT INTO commerce1.prodotto (idProdotto, Descrizione, Quantità, PrezzoSingolo, Tipo, Condizione, Nome, idUtente, Path) VALUES (?,?,?,?,?,?,?,?,?);";
-		queryEliminaProdotto = "DELETE FROM commerce1.prodotto WHERE idProdotto = ?";
+		queryEliminaProdotto = "DELETE FROM gamespace.gioco WHERE IDGioco = ?";
 		queryGetProdotti = "SELECT * FROM gamespace.gioco";
 		queryGetMieiOrdini = "SELECT * FROM gamespace.ordine WHERE eMail = ?";
 		queryCercaProdotto = "SELECT * FROM commerce1.prodotto WHERE Nome = ?";
@@ -815,6 +845,7 @@ public class DatabaseQuery {
 		queryGetProdottoByUser ="SELECT * FROM commerce1.prodotto WHERE idUtente = ?";
 		queryAddCarrello = "INSERT INTO gamespace.carrello (eMail, IDGioco) VALUES (?, ?)";
 		queryAddOrdine = "INSERT INTO commerce1.ordine (idOrdine, idProdotto, idUtente, Data, Pagamento, Indirizzo, Note, Prezzo) VALUES (?,?,?,?,?,?,?,?)";
+		queryDelOrdine = "DELETE FROM Ordine WHERE IDOrdine = ?";
 		queryGetCarrello = "SELECT * FROM gamespace.carrello WHERE eMail = ?";
 		queryEliminaCarrello = "DELETE FROM gamespace.carrello WHERE eMail = ?";
 		queryGetNumeroProdotto = "SELECT * FROM commerce1.carrello WHERE idUtente = ?";

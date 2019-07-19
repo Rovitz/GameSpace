@@ -88,6 +88,7 @@ $(document).ready(function() {
 		});
 	});
 	
+	// [ADMIN] elimina utente selezionato
 	$('.removeUserForm').submit(function(e) {
 		e.preventDefault();
 		$.ajax({
@@ -100,16 +101,42 @@ $(document).ready(function() {
 		});
 	});
 	
-	$('select.removeOrderSelectUser').click(function(e) {
+	// [ADMIN] elimina prodotto selezionato
+	$('.removeProductForm').submit(function(e) {
 		e.preventDefault();
 		$.ajax({
 			type: "post",
-			url: "Admin_SelectedUserServlet",
+			url: "EliminaProdottoServlet",
 			data: $(this).serialize(), 
 			success: function(data, status, xhr){
-					$(".removeOrderSelect").load(location.href + " .removeOrderSelect>*","");
+					$("#removeProductSelect").load(location.href + " #removeProductSelect>*","");
 			}
 		});
 	});
 	
+	
+	// [ADMIN] selezione utente per ordini da eliminare
+	$('select.removeOrderSelectUser').click(function() {
+		$.ajax({
+			method: "POST",
+			url: "GetSelectedUserServlet",
+			data: $(this).serialize(),
+			success: function(data, status, xhr){
+				$("#removeOrderSelect").load(location.href + " #removeOrderSelect>*","");
+			}
+		});
+	});
+	
+	// [ADMIN] cancella ordine selezionato
+	$('.removeOrderForm').submit(function(e) {
+		e.preventDefault();
+		$.ajax({
+			type: "post",
+			url: "EliminaOrdineServlet",
+			data: $(this).serialize(), 
+			success: function(data, status, xhr){
+					$("#removeOrderSelect").load(location.href + " #removeOrderSelect>*","");
+			}
+		});
+	});
 });

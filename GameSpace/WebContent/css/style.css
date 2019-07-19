@@ -631,8 +631,9 @@ select {
   margin-top: 2%;
   position: relative;
   display: table;
-  text-align: center;
+  text-align: left;
   width: 100%;
+  left: 6%;
 }
 
 .admin select{
@@ -642,21 +643,18 @@ select {
 .admin .user{
   display: table-cell;
   position: relative;
-  text-align: left;
   width: 33%;
 }
 
 .admin .product{
  position: relative;
  display: table-cell;
- text-align: left;
  width: 33%;
 }
 
 .account .order{
   display: table-cell;
   position: relative;
-  text-align: left;
   width: 33%;
 }
 

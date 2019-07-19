@@ -12,19 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 import Model.DatabaseQuery;
 
 /**
- * La servlet permette all'amministratore di eliminare un prodotto dal catalogo
+ * La servlet permette all'amministratore di eliminare un ordine
  */
 
-@WebServlet("/EliminaProdottoServlet")
-public class EliminaProdottoServlet extends HttpServlet {
+@WebServlet("/EliminaOrdineServlet")
+public class EliminaOrdineServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int gioco = Integer.parseInt(request.getParameter("removeProductSelect"));
+		int ordine = Integer.parseInt(request.getParameter("removeOrderSelect"));
 
 		try {
-			DatabaseQuery.delProdotto(gioco);
+			DatabaseQuery.delOrdine(ordine);
 		} catch (SQLException e) {
 			System.out.println(e.getLocalizedMessage());
 		}

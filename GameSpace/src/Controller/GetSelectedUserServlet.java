@@ -1,33 +1,27 @@
 package Controller;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import Model.DatabaseQuery;
+import javax.servlet.http.HttpSession;
 
 /**
- * La servlet permette all'amministratore di eliminare un prodotto dal catalogo
+ * Servlet implementation class GetSelectedUserServlet
  */
-
-@WebServlet("/EliminaProdottoServlet")
-public class EliminaProdottoServlet extends HttpServlet {
+@WebServlet("/GetSelectedUserServlet")
+public class GetSelectedUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int gioco = Integer.parseInt(request.getParameter("removeProductSelect"));
+		HttpSession session = request.getSession();
 
-		try {
-			DatabaseQuery.delProdotto(gioco);
-		} catch (SQLException e) {
-			System.out.println(e.getLocalizedMessage());
-		}
+		String selectedUser = request.getParameter("removeOrderSelectUser");
+		session.setAttribute("selectedUser", selectedUser);
 	}
 
 	@Override
