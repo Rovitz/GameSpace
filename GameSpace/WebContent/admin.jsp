@@ -18,6 +18,8 @@
 	
 	<% 
 	ArrayList<Utente> utenti = null; 
+	ArrayList<Gioco> giochi = null;
+	ArrayList<Ordine> ordini = null;
 	%>
 </head>
 <body class="bg">
@@ -48,9 +50,45 @@
 			</div>
 			<div class="product">
 			<h3>OPERAZIONI PRODOTTI</h3>
+			<br>
+				<h4>ELIMINA PRODOTTO</h4>
+					<form class="removeProductForm">
+					<select id="removeProductSelect" name="removeProductSelect">
+					<%
+						giochi = DatabaseQuery.getGiochiAll();
+						for (Gioco g : giochi){
+					%>
+					<option value="<%= g.getIDGioco() %>"><%= g.getIDGioco() %>&nbsp;<%= g.getTitolo() %></option>
+					<% } %>
+					</select>
+					<button type="submit" class="primary-btn">ELIMINA</button>
+					</form>
 			</div>
 			<div class="order">
 			<h3>OPERAZIONI ORDINI</h3>
+			<br>
+				<h4>ELIMINA ORDINE</h4>
+					<form class="removeOrderForm">
+					<select class="removeOrderSelectUser" name="removeOrderSelectUser">
+					<%
+						utenti = DatabaseQuery.getUtentiAll();
+						for (Utente u : utenti){
+					%>
+					<option value="<%= u.getEmail() %>"><%= u.getNome() %>&nbsp;<%= u.getCognome() %></option>
+					<% } %>
+					</select>
+					<select class="removeOrderSelect" name="removeOrderSelect">
+					<%
+					try{
+						ordini = DatabaseQuery.getOrdiniUtente((String) request.getAttribute("selectedUser"));
+						for (Ordine o : ordini){
+					%>
+					<option value="<%= o.getIDOrdine() %>"><%=  o.getIDOrdine() %>&nbsp;<%= o.geteMail() %></option>
+					<% } 
+					} catch (Exception e){}%>
+					</select>
+					<button type="submit" class="primary-btn">ELIMINA</button>
+					</form>
 			</div>
 		</div>
 	</div>

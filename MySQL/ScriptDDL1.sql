@@ -48,6 +48,9 @@ CREATE TABLE Ordine(
 	IDOrdine INTEGER PRIMARY KEY NOT NULL,
 	DataRicevuta DATE NOT NULL,
 	Prezzo DOUBLE NOT NULL,
+	Pagamento VARCHAR(20) NOT NULL
+						CHECK(VALUE='carta' OR VALUE='contrassegno'),
+	Indirizzo VARCHAR(100) NOT NULL,
 	Stato VARCHAR(20) NOT NULL DEFAULT 'inoltrato'
 						CHECK(VALUE='inoltrato' OR VALUE='completato'),
 	eMail INTEGER REFERENCES Utente(eMail)

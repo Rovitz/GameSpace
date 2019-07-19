@@ -1,103 +1,82 @@
-
-
 package Model;
 
-import java.math.BigDecimal;
 import java.sql.Date;
 
 public class Ordine {
-	private int idOrdine;
-	private int idProdotto;
-	private String idUtente;
-	private Date data;
-	private String pagamento;
-	private String indirizzo;
-	private String note;
-	private BigDecimal prezzo;
-	
-	public Ordine(){}
-	
-	public Ordine(int idOrdine, int idProdotto, String idUtente, Date data, String pagamento, String indirizzo, String note, BigDecimal prezzo) {
-		super();
-		this.idOrdine = idOrdine;
-		this.idProdotto = idProdotto;
-		this.idUtente = idUtente;
-		this.data = data;
-		this.pagamento = pagamento;
-		this.indirizzo = indirizzo;
-		this.note = note;
-		this.prezzo = prezzo;
-	}
+	private int IDOrdine;
+	private int IDGioco;
+	private String eMail;
+	private Date DataRicevuta;
+	private String Pagamento;
+	private String Indirizzo;
+	private Double Prezzo;
+	private String Stato;
 
-	public int getIdOrdine(){
-		return idOrdine;
-	}
-	
-	public void setIdOrdine(int idOrdine){
-		this.idOrdine = idOrdine;
-	}
-	
-	public int getIdProdotto() {
-		return idProdotto;
-	}
+	public Ordine () {}
 
-	public void setIdProdotto(int idProdotto) {
-		this.idProdotto = idProdotto;
+	public Ordine(int iDOrdine, int iDGioco, String eMail, Date dataRicevuta, String pagamento, String indirizzo, Double prezzo, String stato) {
+		IDOrdine = iDOrdine;
+		IDGioco = iDGioco;
+		this.eMail = eMail;
+		DataRicevuta = dataRicevuta;
+		Pagamento = pagamento;
+		Indirizzo = indirizzo;
+		Prezzo = prezzo;
+		Stato = stato;
 	}
-
-	public String getIdUtente() {
-		return idUtente;
+	public int getIDOrdine() {
+		return IDOrdine;
 	}
-
-	public void setIdUtente(String idUtente) {
-		this.idUtente = idUtente;
+	public void setIDOrdine(int iDOrdine) {
+		IDOrdine = iDOrdine;
 	}
-
-	public Date getData() {
-		return data;
+	public int getIDGioco() {
+		return IDGioco;
 	}
-
-	public void setData(Date data) {
-		this.data = data;
+	public void setIDGioco(int iDGioco) {
+		IDGioco = iDGioco;
 	}
-
+	public String geteMail() {
+		return eMail;
+	}
+	public void seteMail(String eMail) {
+		this.eMail = eMail;
+	}
+	public Date getDataRicevuta() {
+		return DataRicevuta;
+	}
+	public void setDataRicevuta(Date dataRicevuta) {
+		DataRicevuta = dataRicevuta;
+	}
 	public String getPagamento() {
-		return pagamento;
+		return Pagamento;
 	}
-
 	public void setPagamento(String pagamento) {
-		this.pagamento = pagamento;
+		Pagamento = pagamento;
 	}
-
 	public String getIndirizzo() {
-		return indirizzo;
+		return Indirizzo;
 	}
-
 	public void setIndirizzo(String indirizzo) {
-		this.indirizzo = indirizzo;
+		Indirizzo = indirizzo;
 	}
-
-	public String getNote() {
-		return note;
+	public Double getPrezzo() {
+		return Prezzo;
 	}
-
-	public void setNote(String note) {
-		this.note = note;
+	public void setPrezzo(Double prezzo) {
+		Prezzo = prezzo;
 	}
-	
-	public BigDecimal getPrezzo(){
-		return prezzo;
+	public String getStato() {
+		return Stato;
 	}
-	
-	public void setPrezzo(BigDecimal prezzo){
-		this.prezzo = prezzo;
+	public void setStato(String stato) {
+		Stato = stato;
 	}
 
 	@Override
 	public String toString() {
-		return "Ordine [idOrdine=" + idOrdine + ", idProdotto=" + idProdotto + ", idUtente=" + idUtente + ", data="
-				+ data + ", pagamento=" + pagamento + ", indirizzo=" + indirizzo + ", note=" + note + ", prezzo="
-				+ prezzo + "]";
+		return "Ordine [IDOrdine=" + IDOrdine + ", IDGioco=" + IDGioco + ", eMail=" + eMail + ", DataRicevuta="
+				+ DataRicevuta + ", Pagamento=" + Pagamento + ", Indirizzo=" + Indirizzo + ", Prezzo=" + Prezzo
+				+ ", Stato=" + Stato + "]";
 	}
-
 }

@@ -635,22 +635,29 @@ select {
   width: 100%;
 }
 
+.admin select{
+	width: 50%;
+}
+
 .admin .user{
   display: table-cell;
   position: relative;
-  width: 35%;
+  text-align: left;
+  width: 33%;
 }
 
 .admin .product{
  position: relative;
  display: table-cell;
- width: 30%;
+ text-align: left;
+ width: 33%;
 }
 
 .account .order{
   display: table-cell;
   position: relative;
-  width: 30%;
+  text-align: left;
+  width: 33%;
 }
 
 /*=========================================================

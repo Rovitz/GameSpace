@@ -99,4 +99,17 @@ $(document).ready(function() {
 			}
 		});
 	});
+	
+	$('select.removeOrderSelectUser').click(function(e) {
+		e.preventDefault();
+		$.ajax({
+			type: "post",
+			url: "Admin_SelectedUserServlet",
+			data: $(this).serialize(), 
+			success: function(data, status, xhr){
+					$(".removeOrderSelect").load(location.href + " .removeOrderSelect>*","");
+			}
+		});
+	});
+	
 });

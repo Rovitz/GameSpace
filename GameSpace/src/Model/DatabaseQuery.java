@@ -52,8 +52,8 @@ public class DatabaseQuery {
 	 */
 	private static ArrayList listProdotti;
 	private static ArrayList<Gioco> cercaProdotti;
+	private static ArrayList listGiochi;
 	private static ArrayList listCarrello;
-	private static ArrayList listProdCarrello;
 	private static ArrayList listOrdini;
 	private static ArrayList utenti;
 
@@ -371,39 +371,39 @@ public class DatabaseQuery {
 	/**
 	 * Ritorna la lista di tutti i prodotti presenti nel DB
 	 */
-
-	/*	public synchronized static ArrayList getProdotti() throws SQLException{
+	public synchronized static ArrayList getGiochiAll() throws SQLException{
 		Connection connection = null;
-		PreparedStatement psListProdotti= null;
-		listProdotti = new ArrayList<>();
+		PreparedStatement psListGiochi = null;
+		listGiochi = new ArrayList<>();
 		try{
 			connection = Database.getConnection();
-			psListProdotti = connection.prepareStatement(queryGetProdotti);
+			psListGiochi = connection.prepareStatement(queryGetProdotti);
 
-			ResultSet rs = psListProdotti.executeQuery();
+			ResultSet rs = psListGiochi.executeQuery();
 
 			while(rs.next()){
-				Gioco pr = new Gioco();
-				pr.setIdProdotto(rs.getInt("idProdotto"));
-				pr.setDescrizione(rs.getString("Descrizione"));
-				pr.setQuantita(rs.getInt("Quantita"));
-				pr.setPrezzo(rs.getBigDecimal("PrezzoSingolo"));
-				pr.setTipo(rs.getString("Tipo"));
-				pr.setCondizione(rs.getString("Condizione"));
-				pr.setNome(rs.getString("Nome"));
-				pr.setIdUtente(rs.getString("idUtente"));
-				pr.setPath(rs.getString("Path"));
+				Gioco g = new Gioco();
+				g.setIDGioco(rs.getInt("IDGioco"));
+				g.setDescrizione(rs.getString("Descrizione"));
+				g.setDisponibilita(rs.getInt("Disponibilita"));
+				g.setRating(rs.getInt("Rating"));
+				g.setPiattaforma(rs.getString("Piattaforma"));
+				g.setPrezzo(rs.getDouble("Prezzo"));
+				g.setGenere(rs.getString("Genere"));
+				g.setTitolo(rs.getString("Titolo"));
+				g.setCover(rs.getString("Cover"));
+				g.setDataRilascio(rs.getDate("DataRilascio"));
 
-				listProdotti.add(pr);
+				listGiochi.add(g);
 			}
 
 		}
 		finally {
 			try {
-				if(psListProdotti != null)
-					psListProdotti.close();
-				if(psListProdotti !=null)
-					psListProdotti.close();
+				if(psListGiochi != null)
+					psListGiochi.close();
+				if(psListGiochi !=null)
+					psListGiochi.close();
 			} catch(SQLException e) {
 				e.printStackTrace();
 			}
@@ -412,8 +412,8 @@ public class DatabaseQuery {
 				Database.releaseConnection(connection);
 			}
 		}
-		return listProdotti;
-	} */
+		return listGiochi;
+	}
 
 	/**
 	 * Ritorna la lista di tutti i prodotti di un utente nel DB
@@ -480,14 +480,14 @@ public class DatabaseQuery {
 
 			while(rs.next()){
 				Ordine or = new Ordine();
-				or.setIdOrdine(rs.getInt("idOrdine"));
-				or.setIdProdotto(rs.getInt("idProdotto"));
-				or.setIdUtente(rs.getString("idUtente"));
-				or.setData(rs.getDate("Data"));
+				or.setIDOrdine(rs.getInt("IDOrdine"));
+				or.setIDGioco(rs.getInt("IDGioco"));
+				or.seteMail(rs.getString("eMail"));
+				or.setDataRicevuta(rs.getDate("DataRicevuta"));
 				or.setPagamento(rs.getString("Pagamento"));
 				or.setIndirizzo(rs.getString("Indirizzo"));
-				or.setNote(rs.getString("Note"));
-				or.setPrezzo(rs.getBigDecimal("Prezzo"));
+				or.setStato(rs.getString("Stato"));
+				or.setPrezzo(rs.getDouble("Prezzo"));
 
 				listOrdini.add(or);
 			}
@@ -808,8 +808,8 @@ public class DatabaseQuery {
 		queryGetUtente = "SELECT * FROM gamespace.utente WHERE eMail=?";
 		queryAddProdotto = "INSERT INTO commerce1.prodotto (idProdotto, Descrizione, Quantità, PrezzoSingolo, Tipo, Condizione, Nome, idUtente, Path) VALUES (?,?,?,?,?,?,?,?,?);";
 		queryEliminaProdotto = "DELETE FROM commerce1.prodotto WHERE idProdotto = ?";
-		queryGetProdotti = "SELECT * FROM commerce1.prodotto";
-		queryGetMieiOrdini = "SELECT * FROM commerce1.ordine WHERE idUtente = ?";
+		queryGetProdotti = "SELECT * FROM gamespace.gioco";
+		queryGetMieiOrdini = "SELECT * FROM gamespace.ordine WHERE eMail = ?";
 		queryCercaProdotto = "SELECT * FROM commerce1.prodotto WHERE Nome = ?";
 		queryGetGiocoById ="SELECT * FROM gamespace.gioco WHERE IDGioco = ?";
 		queryGetProdottoByUser ="SELECT * FROM commerce1.prodotto WHERE idUtente = ?";
