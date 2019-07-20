@@ -31,20 +31,31 @@
 		<h1 style="text-align: center;">PAGINA ADMIN</h1>
 		<div class="admin">
 			<div class="user">
-			<h3>OPERAZIONI UTENTI</h3>
-			<br>
+				<h3>OPERAZIONI UTENTI</h3>
+				<br>
 				<div>
 					<h4>ELIMINA UTENTE</h4>
 					<form class="removeUserForm">
-					<select id="removeUserSelect" name="removeUserSelect">
-					<%
-						utenti = DatabaseQuery.getUtentiAll();
-						for (Utente u : utenti){
-					%>
-					<option value="<%= u.getEmail() %>"><%= u.getNome() %>&nbsp;<%= u.getCognome() %></option>
-					<% } %>
-					</select>
-					<button type="submit" class="primary-btn">ELIMINA</button>
+						<select id="removeUserSelect" name="removeUserSelect">
+							<option value="" disabled selected>Seleziona un utente</option>
+							<%
+								utenti = DatabaseQuery.getUtentiAll();
+								for (Utente u : utenti){
+							%>
+							<option value="<%= u.getEmail() %>"><%= u.getNome() %>&nbsp;<%= u.getCognome() %></option>
+							<% } %>
+						</select>
+						<button type="submit" class="primary-btn">ELIMINA</button>
+					</form>
+					<br><br>
+					<h4>AGGIUNGI UTENTE</h4>
+					<form class="addUserForm">
+						<input class="contact1" required name="user_email" placeholder="e-Mail" />
+						<input class="contact1" required name="user_nome" placeholder="Nome" />
+						<input class="contact1" required name="user_cognome" placeholder="Cognome"  />
+						<input class="contact1" type="password" name="user_password" placeholder="Password"/>
+						<br>
+						<button type="submit" class="primary-btn">AGGIUNGI</button>
 					</form>
 				</div>
 			</div>
@@ -54,6 +65,7 @@
 				<h4>ELIMINA GIOCO</h4>
 				<form class="removeProductForm">
 					<select id="removeProductSelect" name="removeProductSelect">
+						<option value="" disabled selected>Seleziona un prodotto</option>
 						<%
 							giochi = DatabaseQuery.getGiochiAll();
 							for (Gioco g : giochi){
@@ -63,6 +75,18 @@
 					</select>
 					<button type="submit" class="primary-btn">ELIMINA</button>
 				</form>
+				<br><br>
+				<h4>AGGIUNGI GIOCO</h4>
+				<form class="addProductForm">
+					<input class="contact1" required name="game_titolo" placeholder="Titolo" />
+					<input class="contact1" required name="game_piattaforma" placeholder="Piattaforma" />
+					<input class="contact1" required name="game_genere" placeholder="Genere"  />
+					<input class="contact1" required name="game_prezzo" placeholder="Prezzo"/>
+					<input class="contact1" required name="game_cover" placeholder="Cover (.png/.jpg)"/>
+					<input class="contact1" type="date" required name="game_datarilascio"/>
+					<br>
+					<button type="submit" class="primary-btn">AGGIUNGI</button>
+				</form>
 			</div>
 			<div class="order">
 				<h3>OPERAZIONI ORDINI</h3>
@@ -70,6 +94,7 @@
 				<h4>ELIMINA ORDINE</h4>
 				<form class="removeOrderForm">
 					<select class="removeOrderSelectUser" name="removeOrderSelectUser">
+						<option value="" disabled selected>Seleziona un utente</option>
 						<%
 							utenti = DatabaseQuery.getUtentiAll();
 							for (Utente u : utenti){
@@ -78,6 +103,7 @@
 						<% } %>
 					</select>
 					<select id="removeOrderSelect" name="removeOrderSelect">
+						<option value="" disabled selected>Seleziona un ordine</option>
 						<%
 						try{
 							ordini = DatabaseQuery.getOrdiniUtente((String) session.getAttribute("selectedUser"));
@@ -88,6 +114,32 @@
 						} catch (Exception e){}%>
 					</select>
 					<button type="submit" class="primary-btn">ELIMINA</button>
+				</form>
+				<br><br>
+				<h4>MODIFICA ORDINE</h4>
+				<form class="updateOrderForm">
+					<select class="removeOrderSelectUser" name="removeOrderSelectUser">
+						<option value="" disabled selected>Seleziona un utente</option>
+						<%
+							utenti = DatabaseQuery.getUtentiAll();
+							for (Utente u : utenti){
+						%>
+						<option value="<%= u.getEmail() %>"><%= u.getNome() %>&nbsp;<%= u.getCognome() %></option>
+						<% } %>
+					</select>
+					<select id="removeOrderSelect" name="removeOrderSelect">
+						<option value="" disabled selected>Seleziona un ordine</option>
+						<%
+						try{
+							ordini = DatabaseQuery.getOrdiniUtente((String) session.getAttribute("selectedUser"));
+							for (Ordine o : ordini){
+						%>
+						<option value="<%= o.getIDOrdine() %>"><%=  o.getIDOrdine() %>&nbsp;<%= o.geteMail() %></option>
+						<% } 
+						} catch (Exception e){}%>
+					</select>
+					<br><br>
+					<button type="submit" class="primary-btn">MODIFICA</button>
 				</form>
 			</div>
 		</div>
