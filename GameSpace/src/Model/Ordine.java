@@ -1,51 +1,63 @@
 package Model;
 
-import java.sql.Date;
+import java.util.List;
 
 public class Ordine {
 	private int IDOrdine;
-	private int IDGioco;
+	private List<Gioco> giochi = null;
+	private Indirizzo indirizzo;
 	private String eMail;
-	private Date DataRicevuta;
+	private String DataRicevuta;
 	private String Pagamento;
-	private String Indirizzo;
 	private Double Prezzo;
 	private String Stato;
 
 	public Ordine () {}
 
-	public Ordine(int iDOrdine, int iDGioco, String eMail, Date dataRicevuta, String pagamento, String indirizzo, Double prezzo, String stato) {
-		IDOrdine = iDOrdine;
-		IDGioco = iDGioco;
+	public Ordine(int IDOrdine, List<Gioco> giochi, String eMail, String pagamento, Double prezzo, String stato, String DataRicevuta) {
+		this.IDOrdine = IDOrdine;
+		this.giochi = giochi;
 		this.eMail = eMail;
-		DataRicevuta = dataRicevuta;
+		this.DataRicevuta = DataRicevuta;
 		Pagamento = pagamento;
-		Indirizzo = indirizzo;
 		Prezzo = prezzo;
 		Stato = stato;
 	}
+
+
+	public Indirizzo getIndirizzo() {
+		return indirizzo;
+	}
+
+	public void setIndirizzo(Indirizzo indirizzo) {
+		this.indirizzo = indirizzo;
+	}
+
+	public List<Gioco> getGiochi() {
+		return giochi;
+	}
+
+	public void setGiochi(List<Gioco> giochi) {
+		this.giochi = giochi;
+	}
+
 	public int getIDOrdine() {
 		return IDOrdine;
 	}
 	public void setIDOrdine(int iDOrdine) {
 		IDOrdine = iDOrdine;
 	}
-	public int getIDGioco() {
-		return IDGioco;
-	}
-	public void setIDGioco(int iDGioco) {
-		IDGioco = iDGioco;
-	}
+
 	public String geteMail() {
 		return eMail;
 	}
 	public void seteMail(String eMail) {
 		this.eMail = eMail;
 	}
-	public Date getDataRicevuta() {
+	public String getDataRicevuta() {
 		return DataRicevuta;
 	}
-	public void setDataRicevuta(Date dataRicevuta) {
+	public void setDataRicevuta(String dataRicevuta) {
 		DataRicevuta = dataRicevuta;
 	}
 	public String getPagamento() {
@@ -53,12 +65,6 @@ public class Ordine {
 	}
 	public void setPagamento(String pagamento) {
 		Pagamento = pagamento;
-	}
-	public String getIndirizzo() {
-		return Indirizzo;
-	}
-	public void setIndirizzo(String indirizzo) {
-		Indirizzo = indirizzo;
 	}
 	public Double getPrezzo() {
 		return Prezzo;
@@ -71,12 +77,5 @@ public class Ordine {
 	}
 	public void setStato(String stato) {
 		Stato = stato;
-	}
-
-	@Override
-	public String toString() {
-		return "Ordine [IDOrdine=" + IDOrdine + ", IDGioco=" + IDGioco + ", eMail=" + eMail + ", DataRicevuta="
-				+ DataRicevuta + ", Pagamento=" + Pagamento + ", Indirizzo=" + Indirizzo + ", Prezzo=" + Prezzo
-				+ ", Stato=" + Stato + "]";
 	}
 }

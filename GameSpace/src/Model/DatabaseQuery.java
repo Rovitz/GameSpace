@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class DatabaseQuery {
@@ -43,6 +44,7 @@ public class DatabaseQuery {
 	private static String queryGetCarrello;
 	private static String queryGetProdottiById;
 	private static String queryEliminaCarrello;
+	private static String queryGetMaxIDOrdine;
 
 	/*
 	 * Query Gestione Admin
@@ -56,7 +58,7 @@ public class DatabaseQuery {
 	private static ArrayList listProdotti;
 	private static ArrayList<Gioco> cercaProdotti;
 	private static ArrayList listGiochi;
-	private static ArrayList listCarrello;
+	private static ArrayList<Gioco> listCarrello;
 	private static ArrayList listOrdini;
 	private static ArrayList utenti;
 
@@ -421,21 +423,24 @@ public class DatabaseQuery {
 
 		try{
 			connection = Database.getConnection();
-			psAddOrdine = connection.prepareStatement(queryAddOrdine);
 
-			psAddOrdine.setInt(1, ordine.getIDOrdine());
-			psAddOrdine.setInt(2, ordine.getIDGioco());
-			psAddOrdine.setString(3, ordine.geteMail());
-			psAddOrdine.setDate(4, ordine.getDataRicevuta());
-			psAddOrdine.setString(5, ordine.getPagamento());
-			psAddOrdine.setString(6, ordine.getIndirizzo());
-			psAddOrdine.setString(7, ordine.getStato());
-			psAddOrdine.setDouble(8, ordine.getPrezzo());
+			List<Gioco> giochi = ordine.getGiochi();
 
-			psAddOrdine.executeUpdate();
+			if(giochi != null)
+				for (Gioco g : giochi) {
+					psAddOrdine = connection.prepareStatement(queryAddOrdine);
+					psAddOrdine.setInt(1, ordine.getIDOrdine());
+					psAddOrdine.setInt(2, g.getIDGioco());
+					psAddOrdine.setString(3, ordine.geteMail());
+					psAddOrdine.setString(4, ordine.getDataRicevuta());
+					psAddOrdine.setString(5, ordine.getPagamento());
+					psAddOrdine.setString(6, ordine.getStato());
+					psAddOrdine.setDouble(7, ordine.getPrezzo());
 
-			connection.commit();
-			System.out.println("Insert Ordine Connessione...");
+					psAddOrdine.executeUpdate();
+
+					connection.commit();
+				}
 		} finally {
 			try{
 				if(psAddOrdine != null)
@@ -444,7 +449,6 @@ public class DatabaseQuery {
 				Database.releaseConnection(connection);
 			}
 		}
-
 		return true;
 	}
 
@@ -525,54 +529,6 @@ public class DatabaseQuery {
 	}
 
 	/**
-	 * Ritorna la lista di tutti i prodotti di un utente nel DB
-	 */
-
-	/*	public synchronized static ArrayList getProdottiUtente(String email) throws SQLException{
-		Connection connection = null;
-		PreparedStatement psListProdotti= null;
-		listProdotti = new ArrayList<>();
-		try{
-			connection = Database.getConnection();
-			psListProdotti = connection.prepareStatement(queryGetProdottoByUser);
-
-			psListProdotti.setString(1, email);
-			ResultSet rs = psListProdotti.executeQuery();
-
-			while(rs.next()){
-				Gioco pr = new Gioco();
-				pr.setIdProdotto(rs.getInt("idProdotto"));
-				pr.setDescrizione(rs.getString("Descrizione"));
-				pr.setQuantita(rs.getInt("Quantita"));
-				pr.setPrezzo(rs.getBigDecimal("PrezzoSingolo"));
-				pr.setTipo(rs.getString("Tipo"));
-				pr.setCondizione(rs.getString("Condizione"));
-				pr.setNome(rs.getString("Nome"));
-				pr.setIdUtente(rs.getString("idUtente"));
-				pr.setPath(rs.getString("Path"));
-
-				listProdotti.add(pr);
-			}
-
-		}
-		finally {
-			try {
-				if(psListProdotti != null)
-					psListProdotti.close();
-				if(psListProdotti !=null)
-					psListProdotti.close();
-			} catch(SQLException e) {
-				e.printStackTrace();
-			}
-			finally {
-				connection.close();
-				Database.releaseConnection(connection);
-			}
-		}
-		return listProdotti;
-	} */
-
-	/**
 	 * Ritorna la lista di tutti gli ordini di un utente nel DB
 	 */
 
@@ -617,6 +573,40 @@ public class DatabaseQuery {
 			}
 		}
 		return listOrdini;
+	}
+
+	/**
+	 * Ritorna l'ordine con id maggiore
+	 */
+
+	public synchronized static int getMaxIDOrdine() throws SQLException{
+		Connection connection = null;
+		PreparedStatement psMaxIDOrdine= null;
+		int maxIDOrdine = 0;
+
+		try{
+			connection = Database.getConnection();
+			psMaxIDOrdine = connection.prepareStatement(queryGetMaxIDOrdine);
+
+			ResultSet rs =  psMaxIDOrdine.executeQuery();
+			while(rs.next())
+				maxIDOrdine = rs.getInt("MaxVal");
+		}
+		finally {
+			try {
+				if(psMaxIDOrdine != null)
+					psMaxIDOrdine.close();
+				if(psMaxIDOrdine !=null)
+					psMaxIDOrdine.close();
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+			finally {
+				connection.close();
+				Database.releaseConnection(connection);
+			}
+		}
+		return maxIDOrdine;
 	}
 
 	/**
@@ -745,11 +735,10 @@ public class DatabaseQuery {
 	 * Ritorna il carrello di un utente dato un idUtente
 	 */
 
-	public synchronized static ArrayList getCarrello(String idUtente) throws SQLException{
+	public synchronized static ArrayList<Gioco> getElementiCarrello(String idUtente) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psListCarrello= null;
 		listCarrello = new ArrayList<>();
-
 
 		try{
 			connection = Database.getConnection();
@@ -759,11 +748,8 @@ public class DatabaseQuery {
 			ResultSet rs = psListCarrello.executeQuery();
 
 			while(rs.next()){
-				Carrello cr = new Carrello(rs.getString("idUtente"), rs.getInt("idProdotto"));
-				listCarrello.add(cr);
-				cr = null;
+				listCarrello.add(getGioco(rs.getInt("IDGioco")));
 			}
-
 		}
 		finally {
 			try {
@@ -836,7 +822,7 @@ public class DatabaseQuery {
 			ResultSet rs = psGetTotCarrello.executeQuery();
 
 			while(rs.next()){
-				g = getGioco(Integer.parseInt(rs.getString("IDGioco")));
+				g = getGioco(rs.getInt("IDGioco"));
 				valore += g.getPrezzo();
 			}
 
@@ -898,7 +884,7 @@ public class DatabaseQuery {
 		queryGetGiocoById ="SELECT * FROM gamespace.gioco WHERE IDGioco = ?";
 		queryGetProdottoByUser ="SELECT * FROM commerce1.prodotto WHERE idUtente = ?";
 		queryAddCarrello = "INSERT INTO gamespace.carrello (eMail, IDGioco) VALUES (?, ?)";
-		queryAddOrdine = "INSERT INTO commerce1.ordine (idOrdine, idProdotto, idUtente, Data, Pagamento, Indirizzo, Note, Prezzo) VALUES (?,?,?,?,?,?,?,?)";
+		queryAddOrdine = "INSERT INTO gamespace.ordine (IDOrdine, IDGioco, eMail, DataRicevuta, Pagamento, Stato, Prezzo) VALUES (?,?,?,?,?,?,?)";
 		queryDelOrdine = "DELETE FROM Ordine WHERE IDOrdine = ?";
 		queryGetCarrello = "SELECT * FROM gamespace.carrello WHERE eMail = ?";
 		queryEliminaCarrello = "DELETE FROM gamespace.carrello WHERE eMail = ?";
@@ -907,6 +893,7 @@ public class DatabaseQuery {
 		queryGetAdmin = "SELECT * FROM gamespace.admin WHERE eMail = ?";
 		queryAddIndirizzo = "INSERT INTO gamespace.indirizzo (eMail, Via, Comune, Provincia, CAP, Telefono, Nominativo) VALUES (?,?,?,?,?,?,?)";
 		queryGetIndirizzo = "SELECT * FROM gamespace.indirizzo WHERE eMail = ?";
+		queryGetMaxIDOrdine = "SELECT IFNULL(MAX(IDOrdine), 0) AS MaxVal FROM gamespace.ordine";
 	}
 
 }
