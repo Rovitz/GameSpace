@@ -18,16 +18,21 @@
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 	
-	<% Connection connection = null;
-		ResultSet rs = null;
-		Statement stmt = null;
-		List<Gioco> gamesList = new ArrayList<>();
-		List<Gioco> listed = new ArrayList<>();
-		Utente u = null;
-		%>
+	<% 
+	Connection connection = null;
+	ResultSet rs = null;
+	Statement stmt = null;
+	List<Gioco> gamesList = new ArrayList<>();
+	List<Gioco> listed = new ArrayList<>();
+	Utente u = null;
+	Indirizzo i = null;
+	%>
 </head>
 
 <body class="bg">
+	<%  u = (Utente) session.getAttribute("user");
+		i = (Indirizzo) session.getAttribute("address");%>
+
 	<!-- HEADER -->
 	<jsp:include page="header.jsp" />
 	
@@ -37,45 +42,49 @@
 			<h1>CHECKOUT</h1>
 			<form action="CheckoutServlet" method="post">
 				<div class="shipping">
-					<h3>Spedizione</h3>
-					<input type="text" class="contact" required name="nominativo" placeholder="Nome e cognome"  />	
-					<input type="text" class="contact" required name="via" placeholder="Via" />
-					<input type="text" class="contact" required name="comune" placeholder="Comune" />
-					<input type="text" class="contact" required name="cap" placeholder="CAP"  />
-					<input type="text" class="contact" required name="provincia" placeholder="Provincia"  />
-					<input type="text" class="contact" required name="provincia" placeholder="Recapito telefonico" />
-					<br>
+					<h3>SPEDISCI A</h3>
+					<div class="shipping-left">
+					<h4>Nominativo: <%= i.getNominativo() %></h4>
+					<h4>Via: <%= i.getVia() %></h4>
+					<h4>Comune: <%= i.getComune() %></h4>
+				</div>
+				<div class="shipping-right">
+					<h4>Provincia: <%= i.getProvincia() %></h4>
+					<h4>CAP: <%= i.getCAP() %></h4>
+					<h4>Telefono: <%= i.getTelefono() %></h4>
+				</div>
 				</div>
 				<div class="payment">
 					<h3>Dati carta</h3>
-					<input type="text" class="contact" required name="intestatario" placeholder="Intestatario Carta"  />
-					<input type="text" class="contact" required name="numero_carta" placeholder="Numero carta"  />	
+					<input type="text" class="contact1" required name="intestatario" placeholder="Intestatario Carta"  />
+					<input type="text" class="contact1" required name="numero_carta" placeholder="Numero carta"  />	
 					<div>
-					<h4>Scadenza:</h4>
 					<select>
-                            <option value="01">Gennaio</option>
-                            <option value="02">Febbraio</option>
-                            <option value="03">Marzo</option>
-                            <option value="04">Aprile</option>
-                            <option value="05">Maggio</option>
-                            <option value="06">Giugno</option>
-                            <option value="07">Luglio</option>
-                            <option value="08">Agosto</option>
-                            <option value="09">Settembre</option>
-                            <option value="10">Ottobre</option>
-                            <option value="11">Novembre</option>
-                            <option value="12">Dicembre</option>
+							<option value="" disabled selected>MM</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
                         </select>
-                        <select class="expiration">
-                            <option value="19"> 2019</option>
-                            <option value="20"> 2020</option>
-                            <option value="21"> 2021</option>
-                            <option value="22"> 2022</option>
-                            <option value="23"> 2023</option>
-                            <option value="24"> 2024</option>
+                        <select>
+                        	<option value="" disabled selected>YY</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
                         </select>
                         </div>
-					<input type="number" class="contact" required name="cvv" placeholder="CVV" />
+					<input type="number" class="contact1" required name="cvv" placeholder="CVV" />
 				</div>
 				<div class="cart-items">
 					<h3>Carrello</h3>
@@ -129,6 +138,7 @@
 				<h3>TOTALE: EUR 0</h3>
 				<% } %>
 				</div>
+				<br>
 				<input class="submit" type="submit" name="order_submitted" style="width: 10%;" value="Conferma" />
 			</form>
 		</div>

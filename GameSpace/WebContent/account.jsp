@@ -17,13 +17,13 @@
 	
 	<% 
 	Utente u = null;
-	ResultSet rs = null;
-	Statement stmt = null;
-	Gioco g = null; %>
+	Indirizzo i = null;
+	%>
 </head>
 <body class="bg">
 <!-- HEADER -->
-	<%  u = (Utente) session.getAttribute("user"); %>
+	<%  u = (Utente) session.getAttribute("user");
+		i = (Indirizzo) session.getAttribute("address");%>
 	<jsp:include page="header.jsp" />
 	
 	<!-- NAVIGATION -->
@@ -42,14 +42,14 @@
 			<div class="shipping">
 				<h3>SPEDIZIONE</h3>
 				<div class="shipping-left">
-					<h4>Nominativo: </h4>
-					<h4>Via: </h4>
-					<h4>Comune: </h4>
+					<h4>Nominativo: <%= i.getNominativo() %></h4>
+					<h4>Via: <%= i.getVia() %></h4>
+					<h4>Comune: <%= i.getComune() %></h4>
 				</div>
 				<div class="shipping-right">
-					<h4>Provincia: </h4>
-					<h4>CAP: </h4>
-					<h4>Telefono: </h4>
+					<h4>Provincia: <%= i.getProvincia() %></h4>
+					<h4>CAP: <%= i.getCAP() %></h4>
+					<h4>Telefono: <%= i.getTelefono() %></h4>
 				</div>
 			</div>
 			

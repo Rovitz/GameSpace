@@ -3,7 +3,7 @@
 package Model;
 
 public class Utente {
-	
+
 	private String email;
 	private String Nome;
 	private String Cognome;
@@ -11,7 +11,7 @@ public class Utente {
 	private String Sesso;
 
 	public Utente () {}
-	
+
 	public Utente(String mail, String nome, String cognome, String pass, String sesso) {
 		super();
 		this.email = mail;
@@ -19,44 +19,6 @@ public class Utente {
 		this.Cognome = cognome;
 		this.Password = pass;
 		this.Sesso = sesso;
-	}
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Utente other = (Utente) obj;
-		if (Cognome == null) {
-			if (other.Cognome != null)
-				return false;
-		} else if (!Cognome.equals(other.Cognome))
-			return false;
-		if (Nome == null) {
-			if (other.Nome != null)
-				return false;
-		} else if (!Nome.equals(other.Nome))
-			return false;
-		if (Password == null) {
-			if (other.Password != null)
-				return false;
-		} else if (!Password.equals(other.Password))
-			return false;
-		if (Sesso == null) {
-			if (other.Sesso != null)
-				return false;
-		} else if (!Sesso.equals(other.Sesso))
-			return false;
-		if (email == null) {
-			if (other.email != null)
-				return false;
-		} else if (!email.equals(other.email))
-			return false;
-		return true;
 	}
 
 	@Override

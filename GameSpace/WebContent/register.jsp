@@ -45,14 +45,14 @@
 					<div class="shipping">
 						<h3>SPEDIZIONE</h3>
 						<div class="shipping-left">
-							<input type="text" class="contact1" required name="nominativo" placeholder="Nominativo"  />	
+							<input type="text" class="contact1" required name="nominativo" placeholder="Nominativo"/>	
 							<input type="text" class="contact1" required name="via" placeholder="Via" />
 							<input type="text" class="contact1" required name="comune" placeholder="Comune" />
 						</div>
 						<div class="shipping-right">
 							<input type="text" class="contact1" required name="cap" placeholder="CAP"  />
 							<input type="text" class="contact1" required name="provincia" placeholder="Provincia"  />
-							<input type="text" class="contact1" required name="provincia" placeholder="Telefono" />
+							<input type="text" class="contact1" required name="telefono" placeholder="Telefono" />
 						</div>
 					</div>
 					<input class="submit" type="submit" name="contact_submitted" value="Registrati" />

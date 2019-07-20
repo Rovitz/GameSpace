@@ -61,14 +61,14 @@ input.contact:focus ,  input.contact:hover{
 input.contact1 {
 	outline: none;
 	text-align: center;
-	margin: 3% auto;
+	margin: 1% auto;
 	width: 70%;
 	padding: 10px;
 	font: 100% arial;
 	border: 3px solid lightgray;
 	border-radius: 15px;
-	background-color: transparent;
-	color: white;
+	background-color: white;
+	color: black;
 	transition: 0.5s all;
 }
 
@@ -76,8 +76,9 @@ input.contact1:focus ,  input.contact1:hover{
 	border: 3px solid green;
 }
 
-.white-color {
-  color: #FFF;
+input.contact1::placeholder {
+  color: black;
+  opacity: 1; 
 }
 
 .font-weak {
@@ -548,32 +549,25 @@ input::-webkit-inner-spin-button {
 .checkout .shipping{
   position: relative;
   display: table-cell;
-  width: 30%;
+  vertical-align: middle;
+  text-align: left;
+  left: 6%;
+  width: 33%;
 }
 
 .checkout .payment{
   position: relative;
   display: table-cell;
   vertical-align: middle;
-  width: 30%;
-  top: -25%;
-}
-
-select {
-  position: relative;
-  display: inline-block;
-  outline: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  padding: 10px;
-  border-radius: 15px;
-  width: 29%;
+  left: 6%;
+  width: 33%;
 }
 
 .checkout .cart-items{
   position: relative;
   display: table-cell;
-  width: 30%;
+  left: 8%;
+  width: 33%;
   height: 100%;
 }
 
@@ -636,8 +630,27 @@ select {
   left: 6%;
 }
 
-.admin select{
-	width: 50%;
+select{
+	-moz-appearance: none;
+  	-webkit-appearance: none;
+  	position: relative;
+    display: inline-block;
+    border-radius: 15px;
+	text-align: center;
+	outline: none;
+	margin: 1% auto;
+	padding: 10px;
+	width: 70%;
+	border: 3px solid lightgray;
+	transition: 0.5s all;
+}
+
+.payment select {
+  width: 34.5%;
+}
+
+select:focus, select:hover{
+	border: 3px solid green;
 }
 
 .admin .user{

@@ -45,6 +45,7 @@
 							<option value="<%= u.getEmail() %>"><%= u.getNome() %>&nbsp;<%= u.getCognome() %></option>
 							<% } %>
 						</select>
+						<br>
 						<button type="submit" class="primary-btn">ELIMINA</button>
 					</form>
 					<br><br>
@@ -73,6 +74,7 @@
 						<option value="<%= g.getIDGioco() %>"><%= g.getIDGioco() %>&nbsp;<%= g.getTitolo() %></option>
 						<% } %>
 					</select>
+					<br>
 					<button type="submit" class="primary-btn">ELIMINA</button>
 				</form>
 				<br><br>
@@ -83,7 +85,6 @@
 					<input class="contact1" required name="game_genere" placeholder="Genere"  />
 					<input class="contact1" required name="game_prezzo" placeholder="Prezzo"/>
 					<input class="contact1" required name="game_cover" placeholder="Cover (.png/.jpg)"/>
-					<input class="contact1" type="date" required name="game_datarilascio"/>
 					<br>
 					<button type="submit" class="primary-btn">AGGIUNGI</button>
 				</form>
@@ -113,6 +114,19 @@
 						<% } 
 						} catch (Exception e){}%>
 					</select>
+					<br>
+					<select id="orderContent" name="orderContent">
+						<option value="" disabled selected>Contenuto ordine</option>
+						<%
+						try{
+							ordini = DatabaseQuery.getOrdiniUtente((String) session.getAttribute("selectedUser"));
+							for (Ordine o : ordini){
+						%>
+						<option value="<%= o.getIDOrdine() %>"><%=  o.getIDOrdine() %>&nbsp;<%= o.geteMail() %></option>
+						<% } 
+						} catch (Exception e){}%>
+					</select>
+					<br>
 					<button type="submit" class="primary-btn">ELIMINA</button>
 				</form>
 				<br><br>
@@ -139,7 +153,19 @@
 						} catch (Exception e){}%>
 					</select>
 					<br><br>
+					<select id="changeOrderState" name="changeOrderState">
+						<option value="" disabled selected>Modifica stato ordine</option>
+						<option value="completato">Completato</option>
+						<option value="spedito">Spedito</option>
+					</select>
+					<select id="changeOrderState" name="changeOrderState">
+						<option value="" disabled selected>Modifica pagamento</option>
+						<option value="carta">Carta</option>
+						<option value="contrassegno">Contrassegno</option>
+					</select>
+					<br>
 					<button type="submit" class="primary-btn">MODIFICA</button>
+					<button type="submit" class="primary-btn">ELIMINA GIOCO</button>
 				</form>
 			</div>
 		</div>

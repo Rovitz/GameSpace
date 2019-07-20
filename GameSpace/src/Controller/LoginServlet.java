@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Model.DatabaseQuery;
+import Model.Indirizzo;
 import Model.Utente;
 
 @WebServlet("/LoginServlet")
@@ -27,13 +28,14 @@ public class LoginServlet extends HttpServlet {
 
 		try {
 			Utente u = DatabaseQuery.getUtenteByID(Email);
+			Indirizzo i = DatabaseQuery.getIndirizzo(Email);
 			if(u!=null)
 			{
 				if(u.getPassword().toString().equals(Password))
 				{
-					// Crea sessione e aggiunge un utente alla sessione
 					HttpSession session = request.getSession();
 					session.setAttribute("user", u);
+					session.setAttribute("address", i);
 
 					// Carica numero elementi nel carrello
 					int cart_count = DatabaseQuery.getCountCarrello(Email);

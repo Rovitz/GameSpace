@@ -13,8 +13,10 @@ public class DatabaseQuery {
 	 * Query gestione Utente
 	 */
 	private static String queryAddUtente;
+	private static String queryAddIndirizzo;
 	private static String queryEliminaUtente;
 	private static String queryGetUtente;
+	private static String queryGetIndirizzo;
 	private static String queryCambiaPassword;
 
 	/*
@@ -60,8 +62,9 @@ public class DatabaseQuery {
 
 
 	/**
-	 * aggiunge un utente nel database
+	 * Aggiunge un utente nel database
 	 */
+
 	public synchronized static boolean addUser(Utente utente) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psAddUtente = null;
@@ -95,8 +98,43 @@ public class DatabaseQuery {
 	}
 
 	/**
+	 *	Aggiunge un indirizzo nel database
+	 */
+
+	public synchronized static boolean addIndirizzo(Indirizzo indirizzo) throws SQLException{
+		Connection connection = null;
+		PreparedStatement psAddIndirizzo = null;
+
+		try{
+			connection = Database.getConnection();
+			psAddIndirizzo = connection.prepareStatement(queryAddIndirizzo);
+
+			psAddIndirizzo.setString(1, indirizzo.geteMail());
+			psAddIndirizzo.setString(2, indirizzo.getVia());
+			psAddIndirizzo.setString(3, indirizzo.getComune());
+			psAddIndirizzo.setString(4, indirizzo.getProvincia());
+			psAddIndirizzo.setInt(5, indirizzo.getCAP());
+			psAddIndirizzo.setLong(6, indirizzo.getTelefono());
+			psAddIndirizzo.setString(7, indirizzo.getNominativo());
+
+			psAddIndirizzo.executeUpdate();
+
+			connection.commit();
+		} finally {
+			try{
+				if(psAddIndirizzo != null)
+					psAddIndirizzo.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+		return true;
+	}
+
+	/**
 	 * Elimina un utente dal database
 	 */
+
 	public synchronized static boolean delUser(String email) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psDelUtente = null;
@@ -148,7 +186,6 @@ public class DatabaseQuery {
 		return true;
 	}
 
-
 	/**
 	 * Restituisce ,se esiste, un oggetto Utente data una email
 	 */
@@ -187,6 +224,48 @@ public class DatabaseQuery {
 			return null;
 		else
 			return utente;
+	}
+
+	/**
+	 * Restituisce ,se esiste, un oggetto indirizzo data una email
+	 */
+
+	public synchronized static Indirizzo getIndirizzo(String email) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		Indirizzo i = new Indirizzo();
+
+		try {
+			connection = Database.getConnection();
+			preparedStatement = connection.prepareStatement(queryGetIndirizzo);
+			preparedStatement.setString(1, email);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			connection.commit();
+
+			while (rs.next()) {
+				i.seteMail(rs.getString("eMail"));
+				i.setVia(rs.getString("Via"));
+				i.setComune(rs.getString("Comune"));
+				i.setProvincia(rs.getString("Provincia"));
+				i.setCAP(rs.getInt("CAP"));
+				i.setTelefono(rs.getLong("Telefono"));
+				i.setNominativo(rs.getString("Nominativo"));
+			}
+		} finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+		if (i.geteMail() == null)
+			return null;
+		else
+			return i;
 	}
 
 	/**
@@ -344,14 +423,14 @@ public class DatabaseQuery {
 			connection = Database.getConnection();
 			psAddOrdine = connection.prepareStatement(queryAddOrdine);
 
-			psAddOrdine.setInt(1, ordine.getIdOrdine());
-			psAddOrdine.setInt(2, ordine.getIdProdotto());
-			psAddOrdine.setString(3, ordine.getIdUtente());
-			psAddOrdine.setDate(4, ordine.getData());
+			psAddOrdine.setInt(1, ordine.getIDOrdine());
+			psAddOrdine.setInt(2, ordine.getIDGioco());
+			psAddOrdine.setString(3, ordine.geteMail());
+			psAddOrdine.setDate(4, ordine.getDataRicevuta());
 			psAddOrdine.setString(5, ordine.getPagamento());
 			psAddOrdine.setString(6, ordine.getIndirizzo());
-			psAddOrdine.setString(7, ordine.getNote());
-			psAddOrdine.setBigDecimal(8, ordine.getPrezzo());
+			psAddOrdine.setString(7, ordine.getStato());
+			psAddOrdine.setDouble(8, ordine.getPrezzo());
 
 			psAddOrdine.executeUpdate();
 
@@ -807,31 +886,6 @@ public class DatabaseQuery {
 		return true;
 	}
 
-	public synchronized static boolean modificaQuantita(int IDGioco, int quantita) throws SQLException{
-		Connection connection = null;
-		PreparedStatement psModificaQuantita = null;
-
-		try{
-			connection = Database.getConnection();
-			psModificaQuantita = connection.prepareStatement(queryDecrementaQuantita);
-			psModificaQuantita.setInt(1, quantita);
-			psModificaQuantita.setInt(2, IDGioco);
-
-			psModificaQuantita.executeUpdate();
-
-			connection.commit();
-		} finally {
-			try{
-				if(psModificaQuantita != null)
-					psModificaQuantita.close();
-			} finally {
-				Database.releaseConnection(connection);
-			}
-		}
-
-		return true;
-	}
-
 	static {
 		queryAddUtente = "INSERT INTO gamespace.utente (eMail, Nome, Cognome, Password, Sesso) VALUES (?,?,?,?,?);";
 		queryEliminaUtente = "DELETE FROM gamespace.utente WHERE eMail = ?";
@@ -850,8 +904,9 @@ public class DatabaseQuery {
 		queryEliminaCarrello = "DELETE FROM gamespace.carrello WHERE eMail = ?";
 		queryGetNumeroProdotto = "SELECT * FROM commerce1.carrello WHERE idUtente = ?";
 		queryGetUtenti = "SELECT * FROM gamespace.utente";
-		queryGetAdmin = "SELECT * FROM commerce1.admin WHERE eMail = ?";
-		queryDecrementaQuantita = "UPDATE gamespace.gioco SET Disponibilita=? WHERE IDGioco=?";
+		queryGetAdmin = "SELECT * FROM gamespace.admin WHERE eMail = ?";
+		queryAddIndirizzo = "INSERT INTO gamespace.indirizzo (eMail, Via, Comune, Provincia, CAP, Telefono, Nominativo) VALUES (?,?,?,?,?,?,?)";
+		queryGetIndirizzo = "SELECT * FROM gamespace.indirizzo WHERE eMail = ?";
 	}
 
 }
