@@ -139,4 +139,15 @@ $(document).ready(function() {
 			}
 		});
 	});
+	
+	$('select.userOrderSelect').click(function() {
+		$.ajax({
+			method: "POST",
+			url: "GetSelectedOrderServlet",
+			data: $(this).serialize(),
+			success: function(data, status, xhr){
+				$("#orderContent").load(location.href + " #orderContent>*","");
+			}
+		});
+	});
 });

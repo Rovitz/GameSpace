@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
 	import="Model.*"
-	import="java.sql.*"%>
+	import="java.sql.*"
+	import="java.util.*"%>
 	
 <!DOCTYPE html>
 <html lang="it">
@@ -16,8 +17,11 @@
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
 	
 	<% 
+	Ordine ordine = null;
 	Utente u = null;
 	Indirizzo i = null;
+	List<Ordine> ordini = null;
+	List<Gioco> giochi = null;
 	%>
 </head>
 <body class="bg">
@@ -54,7 +58,29 @@
 			</div>
 			
 			<div class="orders">
-				<h3>ORDINI</h3>
+				<h3>I MIEI ORDINI</h3>
+				<select class="userOrderSelect" name="userOrderSelect">
+					<option value="" disabled selected>I tuoi ordini</option>
+					<%
+						ordini = DatabaseQuery.getOrdiniUtente(u.getEmail());
+						for (Ordine o : ordini){
+					%>
+					<option value="<%= o.getIDOrdine() %>">ID.<%= o.getIDOrdine() %> | Data: <%= o.getDataRicevuta() %> | Prezzo: <%= o.getPrezzo()%>€</option>
+					<% } %>
+				</select>
+				<ul id="orderContent">
+					<%
+					try{
+						for (Ordine o : ordini)
+							if (o.getIDOrdine() == (int) session.getAttribute("selectedOrder"))
+								ordine = o;
+								
+						for (Gioco g : ordine.getGiochi()){
+					%>
+					<li>ID.<%= g.getIDGioco() %> | <%= g.getTitolo() %> | <%= g.getPrezzo() %>€</li>
+					<%}
+						} catch (Exception e){}%>
+				</ul>
 			</div>
 		
 		</div>

@@ -529,12 +529,14 @@ input::-webkit-inner-spin-button {
   display: table;
   text-align: left;
   width: 100%;
-  left: 8%;
+  height: 200px;
+  left: 5%;
 }
 
 .account .data{
   display: table-cell;
   position: relative;
+  vertical-align: middle;
   text-align: left;
   width: 30%;
 }
@@ -560,10 +562,20 @@ input::-webkit-inner-spin-button {
 .account .orders{
   display: table-cell;
   position: relative;
+  vertical-align: middle;
   text-align: left;
+  left: 5%;
   width: 30%;
 }
 
+.account .orders ul{
+  background-color:white;
+  width: 70%;
+  border-radius: 15px;
+  padding: 10px;
+  height: 150px;
+  overflow-y: auto;
+}
 
 /*=========================================================
 	ADMIN

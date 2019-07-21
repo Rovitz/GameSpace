@@ -536,6 +536,7 @@ public class DatabaseQuery {
 		Connection connection = null;
 		PreparedStatement psListProdotti= null;
 		listOrdini = new ArrayList<>();
+
 		try{
 			connection = Database.getConnection();
 			psListProdotti = connection.prepareStatement(queryGetMieiOrdini);
@@ -543,20 +544,35 @@ public class DatabaseQuery {
 			psListProdotti.setString(1, email);
 			ResultSet rs = psListProdotti.executeQuery();
 
+			int cur = 0;
+			int first;
+			List<Gioco> giochi = null;
+
 			while(rs.next()){
 				Ordine or = new Ordine();
+				first = rs.getInt("IDOrdine");
+
+				giochi = new ArrayList<>();
+				giochi.add(getGioco(rs.getInt("IDGioco")));
+
 				or.setIDOrdine(rs.getInt("IDOrdine"));
-				or.setIDGioco(rs.getInt("IDGioco"));
 				or.seteMail(rs.getString("eMail"));
-				or.setDataRicevuta(rs.getDate("DataRicevuta"));
+				or.setDataRicevuta(rs.getString("DataRicevuta"));
 				or.setPagamento(rs.getString("Pagamento"));
-				or.setIndirizzo(rs.getString("Indirizzo"));
 				or.setStato(rs.getString("Stato"));
 				or.setPrezzo(rs.getDouble("Prezzo"));
 
+				while (rs.next()) {
+					if (rs.getInt("IDOrdine") == first)
+						giochi.add(getGioco(rs.getInt("IDGioco")));
+					else {
+						rs.previous();
+						break;
+					}
+				}
+				or.setGiochi(giochi);
 				listOrdini.add(or);
 			}
-
 		}
 		finally {
 			try {
