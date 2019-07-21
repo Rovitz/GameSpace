@@ -43,16 +43,12 @@
 			<form action="CheckoutServlet" method="post">
 				<div class="shipping">
 					<h3>SPEDISCI A</h3>
-					<div class="shipping-left">
 					<h4>Nominativo: <%= i.getNominativo() %></h4>
 					<h4>Via: <%= i.getVia() %></h4>
 					<h4>Comune: <%= i.getComune() %></h4>
-				</div>
-				<div class="shipping-right">
 					<h4>Provincia: <%= i.getProvincia() %></h4>
 					<h4>CAP: <%= i.getCAP() %></h4>
 					<h4>Telefono: <%= i.getTelefono() %></h4>
-				</div>
 				</div>
 				<div class="payment">
 					<h3>Dati carta</h3>

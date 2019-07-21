@@ -65,7 +65,7 @@
 						ordini = DatabaseQuery.getOrdiniUtente(u.getEmail());
 						for (Ordine o : ordini){
 					%>
-					<option value="<%= o.getIDOrdine() %>">ID.<%= o.getIDOrdine() %> | Data: <%= o.getDataRicevuta() %> | Prezzo: <%= o.getPrezzo()%>€</option>
+					<option value="<%= o.getIDOrdine() %>">ID.<%= o.getIDOrdine() %> | Data: <%= o.getDataRicevuta() %> | Totale: <%= o.getPrezzo()%>€</option>
 					<% } %>
 				</select>
 				<ul id="orderContent">

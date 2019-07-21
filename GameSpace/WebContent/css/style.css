@@ -632,6 +632,47 @@ select:focus, select:hover{
 }
 
 /*=========================================================
+	INVOICE
+===========================================================*/
+
+.invoice {
+  position: relative;
+  display: table;
+  text-align: center;
+  width: 100%;
+  left: 7%;
+}
+
+.invoice .order{
+  display: table-cell;
+  position: relative;
+  text-align: left;
+  width: 30%;
+}
+
+.invoice .shipping{
+ position: relative;
+ display: table-cell;
+ text-align: left;
+ width: 30%;
+}
+
+.invoice .content{
+  display: table-cell;
+  position: relative;
+  text-align: left;
+  width: 30%;
+}
+
+.invoice .content ul{
+  background-color:white;
+  width: 80%;
+  border-radius: 15px;
+  padding: 10px;
+  height: 180px;
+  overflow-y: auto;
+}
+/*=========================================================
 	03 -> NAVIGATION
 ===========================================================*/
 

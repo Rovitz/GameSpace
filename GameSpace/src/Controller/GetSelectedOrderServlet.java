@@ -21,7 +21,6 @@ public class GetSelectedOrderServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		int selectedOrder = Integer.parseInt(request.getParameter("userOrderSelect"));
-		System.out.println("Settato: "+ selectedOrder);
 		session.setAttribute("selectedOrder", selectedOrder);
 	}
 
