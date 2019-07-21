@@ -56,15 +56,18 @@ CREATE TABLE Vetrina(
 	);
  
 CREATE TABLE Ordine(
-	IDOrdine INTEGER PRIMARY KEY,
+	IDOrdine INTEGER DEFAULT 1,
+	eMail VARCHAR(30) NOT NULL,
 	DataRicevuta DATE NOT NULL,
 	Prezzo DOUBLE NOT NULL,
 	Pagamento VARCHAR(20) NOT NULL
 						CHECK(VALUE='carta' OR VALUE='contrassegno'),
-	Indirizzo VARCHAR(100) NOT NULL,
 	Stato VARCHAR(20) NOT NULL DEFAULT 'inoltrato'
 						CHECK(VALUE='inoltrato' OR VALUE='completato'),
-	eMail VARCHAR(30) REFERENCES Utente(eMail)
+	FOREIGN KEY (eMail) REFERENCES Utente(eMail)
+									ON UPDATE CASCADE
+                                    ON DELETE CASCADE,
+	FOREIGN KEY (eMail) REFERENCES Indirizzo(eMail)
 									ON UPDATE CASCADE
                                     ON DELETE CASCADE,
 	IDGioco INTEGER REFERENCES Gioco(IDGioco)
