@@ -154,6 +154,7 @@
 	<script src="js/jquery.zoom.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/user_cart.js"></script>
+	<script src="js/validation.js"></script>
 	<!-- /jQuery Plugins -->
 </body>
 </html>

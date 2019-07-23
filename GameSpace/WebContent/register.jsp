@@ -66,5 +66,17 @@
 	 
     <!-- FOOTER -->
 	<jsp:include page="footer.jsp" />
+	
+	<!-- jQuery Plugins -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.form.min.js"></script> 
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/slick.min.js"></script>
+	<script src="js/nouislider.min.js"></script>
+	<script src="js/jquery.zoom.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/user_cart.js"></script>
+	<script src="js/validation.js"></script>
+	<!-- /jQuery Plugins -->
 </body>
 </html>
