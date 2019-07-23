@@ -47,7 +47,7 @@ public class RegistrazioneServlet extends HttpServlet {
 		try {
 			DatabaseQuery.addUser(u);
 			DatabaseQuery.addIndirizzo(i);
-			this.getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
+			response.sendRedirect("/GameSpace/index.jsp");
 		} catch (SQLException e) {
 			System.out.println(e.getLocalizedMessage());
 			if(e.getLocalizedMessage().startsWith("Duplicate entry")) {

@@ -35,7 +35,10 @@
 				<!-- footer account -->
 				<div class="col-lg-4">
 					<div class="footer">
-						<h2 class="footer-header"></h2>
+						<h2 class="footer-header"> Informazioni negozio </h2>
+            			<p style="color: white;"><i class="fa fa-map-marker"></i>&nbsp;GAMESPACE, Via Vinciprova, 12 - 84127 - SALERNO(SA) </p>
+           				<p style="color: white;"><i class="fa fa-phone"></i>&nbsp;Contattaci subito: 3383367189 </p>
+            			<p style="color: white;"><i class="fa fa-at"></i>&nbsp;Email: <a href="mailto:gamespace@gmail.com">gamespace@gmail.com</a> </p>
 					</div>
 				</div>
 				<!-- /footer account -->

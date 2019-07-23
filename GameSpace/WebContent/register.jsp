@@ -23,7 +23,7 @@
 	<div class="navigation">
 		<div class="register">
 			<h1>REGISTRATI</h1>
-				<form action="RegistrazioneServlet" method="post">
+				<form action="RegistrazioneServlet" method="post" name="register" onsubmit="return validateRegister()">
 					<div class="data">
 						<h3>DATI UTENTE</h3>
 						<input class="contact1" required name="user_email" placeholder="e-Mail" />

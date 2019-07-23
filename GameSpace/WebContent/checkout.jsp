@@ -40,7 +40,7 @@
 	<div class="navigation">
 		<div class="checkout">
 			<h1>CHECKOUT</h1>
-			<form action="CheckoutServlet" method="post">
+			<form action="CheckoutServlet" method="post" name="checkout" onsubmit="return validateCheckout()">
 				<div class="shipping">
 					<h3>SPEDISCI A</h3>
 					<% try { %>
