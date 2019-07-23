@@ -22,6 +22,7 @@
 </head>
 
 <body class="bg">
+	
 	<!-- HEADER -->
 	<jsp:include page="header.jsp" />
 	

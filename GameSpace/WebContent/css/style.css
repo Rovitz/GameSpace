@@ -677,22 +677,30 @@ select:focus, select:hover{
 ===========================================================*/
 
 .navigation {
-  background-color: rgba(23, 23, 23);
-  border-radius: 15px;
-  border: 1px solid white;
-  padding: 20px; 
-  margin-left: 10%;
-  margin-right: 10%;
+  background-color: transparent;
   margin-bottom: 10%;
   transition: 0.3s all;
 }
 
-.navigation:hover {
-  border: 1px solid red;
+footer {
+  background-color: rgba(23, 23, 23, 0.5);
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 10%;
+  border-left: 1px solid red;
+  border-right: 1px solid red;
+  border-radius: 15px;
+  transition: 0.3s all;
 }
 
 .navigation .container {
-  position: relative;
+	position: relative;
+	padding: 20px;
+	background-color: rgba(23, 23, 23, 0.5);
+	border-left: 1px solid red;
+	border-right: 1px solid red;
+	border-radius: 15px;
+	margin-top: 10px;
 }
 
 /*----------------------------*\
@@ -722,6 +730,7 @@ select:focus, select:hover{
 }
 
 .category-nav .category-list {
+  margin-top: 30px;
   padding: 10px;
   position: absolute;
   width: 270px;

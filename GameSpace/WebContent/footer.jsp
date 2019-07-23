@@ -35,7 +35,7 @@
 				<!-- footer account -->
 				<div class="col-lg-4">
 					<div class="footer">
-						<h2 class="footer-header">Il mio account</h2>
+						<h2 class="footer-header"></h2>
 					</div>
 				</div>
 				<!-- /footer account -->
