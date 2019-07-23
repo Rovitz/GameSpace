@@ -489,10 +489,11 @@ input::-webkit-inner-spin-button {
 }
 
 .checkout {
-  position: relative;
   display: table;
   text-align: center;
-  width: 100%;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
   height: 100%;
 }
 
@@ -501,23 +502,21 @@ input::-webkit-inner-spin-button {
   display: table-cell;
   vertical-align: middle;
   text-align: left;
-  left: 6%;
-  width: 33%;
+  left: 10%;
+  width: 30%;
 }
 
 .checkout .payment{
   position: relative;
   display: table-cell;
   vertical-align: middle;
-  left: 6%;
-  width: 33%;
+  width: 30%;
 }
 
 .checkout .cart-items{
   position: relative;
   display: table-cell;
-  left: 8%;
-  width: 33%;
+  width: 30%;
   height: 100%;
 }
 
@@ -695,7 +694,7 @@ footer {
   transition: 0.3s all;
 }
 
-.navigation .container {
+.navigation .container,  .navigation .checkout{
 	position: relative;
 	padding: 20px;
 	background-color: rgba(23, 23, 23, 0.7);
