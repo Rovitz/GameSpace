@@ -26,11 +26,13 @@ public class DatabaseQuery {
 	private static String queryAddProdotto;
 	private static String queryEliminaProdotto;
 	private static String queryGetProdotti;
-	private static String queryCercaProdotto;
+	private static String queryCercaGioco;
+	private static String queryCercaGiocoByPiattaforma;
 	private static String queryGetGiocoById;
 	private static String queryGetProdottoByUser;
 	private static String queryGetNumeroProdotto;
 	private static String queryDecrementaQuantita;
+	private static String queryGetSezione;
 
 
 	/*
@@ -626,35 +628,23 @@ public class DatabaseQuery {
 	}
 
 	/**
-	 * Ritorna una lista di prodotti dal database data una keyword
+	 * Ritorna una lista giochi dal database data una keyword
 	 */
 
-	/*	public synchronized static ArrayList cercaProdotti(String nomeProdotto) throws SQLException{
+	public synchronized static ArrayList cercaGioco(String nomeGioco) throws SQLException{
 		Connection connection = null;
 		PreparedStatement psListProdotti= null;
 		cercaProdotti = new ArrayList<Gioco>();
+		
 		try{
 			connection = Database.getConnection();
-			psListProdotti = connection.prepareStatement(queryCercaProdotto);
+			psListProdotti = connection.prepareStatement("SELECT * FROM GIOCO WHERE Titolo LIKE \"%" + nomeGioco + "%\"");
 
-			psListProdotti.setString(1, nomeProdotto);
 			ResultSet rs = psListProdotti.executeQuery();
 
 			while(rs.next()){
-				Gioco pr = new Gioco();
-				pr.setIdProdotto(rs.getInt("idProdotto"));
-				pr.setDescrizione(rs.getString("Descrizione"));
-				pr.setQuantita(rs.getInt("Quantita"));
-				pr.setPrezzo(rs.getBigDecimal("PrezzoSingolo"));
-				pr.setTipo(rs.getString("Tipo"));
-				pr.setCondizione(rs.getString("Condizione"));
-				pr.setNome(rs.getString("Nome"));
-				pr.setIdUtente(rs.getString("idUtente"));
-				pr.setPath(rs.getString("Path"));
-
-				cercaProdotti.add(pr);
+				cercaProdotti.add(getGioco(rs.getInt("IDGioco")));
 			}
-
 		}
 		finally {
 			try {
@@ -671,8 +661,81 @@ public class DatabaseQuery {
 			}
 		}
 		return cercaProdotti;
-	} */
+	}
+	
+	/**
+	 * Ritorna una lista giochi dal database data una piattaforma
+	 */
 
+	public synchronized static ArrayList cercaGiocoByPiattaforma(String piattaforma) throws SQLException{
+		Connection connection = null;
+		PreparedStatement psListProdotti= null;
+		cercaProdotti = new ArrayList<Gioco>();
+		
+		try{
+			connection = Database.getConnection();
+			psListProdotti = connection.prepareStatement(queryCercaGiocoByPiattaforma);
+
+			psListProdotti.setString(1, piattaforma);
+			ResultSet rs = psListProdotti.executeQuery();
+
+			while(rs.next()){
+				cercaProdotti.add(getGioco(rs.getInt("IDGioco")));
+			}
+		}
+		finally {
+			try {
+				if(psListProdotti != null)
+					psListProdotti.close();
+				if(psListProdotti !=null)
+					psListProdotti.close();
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+			finally {
+				connection.close();
+				Database.releaseConnection(connection);
+			}
+		}
+		return cercaProdotti;
+	}
+	
+	/**
+	 * Ritorna i giochi in una sezione 
+	 */
+	
+	public synchronized static ArrayList getSezione(String sezione) throws SQLException{
+		Connection connection = null;
+		PreparedStatement psGetSezione= null;
+		ArrayList<Gioco> giochi = null;
+
+		try{
+			giochi = new ArrayList<>();
+			connection = Database.getConnection();
+			psGetSezione = connection.prepareStatement(queryGetSezione);
+
+			psGetSezione.setString(1, sezione);
+			ResultSet rs = psGetSezione.executeQuery();
+
+			while(rs.next()){
+				giochi.add(getGioco(rs.getInt("IDGioco")));
+			}
+		}
+		finally {
+			try {
+				if(psGetSezione != null)
+					psGetSezione.close();
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+			finally {
+				connection.close();
+				Database.releaseConnection(connection);
+			}
+		}
+		return giochi;
+	}
+	
 	/**
 	 * Ritorna un gioco dato un id
 	 */
@@ -896,7 +959,6 @@ public class DatabaseQuery {
 		queryEliminaProdotto = "DELETE FROM gamespace.gioco WHERE IDGioco = ?";
 		queryGetProdotti = "SELECT * FROM gamespace.gioco";
 		queryGetMieiOrdini = "SELECT * FROM gamespace.ordine WHERE eMail = ?";
-		queryCercaProdotto = "SELECT * FROM commerce1.prodotto WHERE Nome = ?";
 		queryGetGiocoById ="SELECT * FROM gamespace.gioco WHERE IDGioco = ?";
 		queryGetProdottoByUser ="SELECT * FROM commerce1.prodotto WHERE idUtente = ?";
 		queryAddCarrello = "INSERT INTO gamespace.carrello (eMail, IDGioco) VALUES (?, ?)";
@@ -904,12 +966,13 @@ public class DatabaseQuery {
 		queryDelOrdine = "DELETE FROM Ordine WHERE IDOrdine = ?";
 		queryGetCarrello = "SELECT * FROM gamespace.carrello WHERE eMail = ?";
 		queryEliminaCarrello = "DELETE FROM gamespace.carrello WHERE eMail = ?";
-		queryGetNumeroProdotto = "SELECT * FROM commerce1.carrello WHERE idUtente = ?";
 		queryGetUtenti = "SELECT * FROM gamespace.utente";
 		queryGetAdmin = "SELECT * FROM gamespace.admin WHERE eMail = ?";
 		queryAddIndirizzo = "INSERT INTO gamespace.indirizzo (eMail, Via, Comune, Provincia, CAP, Telefono, Nominativo) VALUES (?,?,?,?,?,?,?)";
 		queryGetIndirizzo = "SELECT * FROM gamespace.indirizzo WHERE eMail = ?";
 		queryGetMaxIDOrdine = "SELECT IFNULL(MAX(IDOrdine), 0) AS MaxVal FROM gamespace.ordine";
+		queryGetSezione = "SELECT * FROM VETRINA WHERE Sezione = ?";
+		queryCercaGiocoByPiattaforma = "SELECT * FROM GIOCO WHERE Piattaforma = ?";
 	}
 
 }

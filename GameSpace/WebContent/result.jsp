@@ -17,11 +17,7 @@
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
 	
-	<% Connection connection = null;
-		ResultSet rs = null;
-		Statement stmt = null;
-		Gioco g = null; 
-		%>
+	<% List<Gioco> giochi = null; %>
 </head>
 
 <body class="bg">
@@ -43,40 +39,38 @@
 			</div>
 			<!-- Product Single -->
 			<%
-				try{
-					connection = Database.getConnection();
-					stmt = connection.createStatement();
-					if (request.getParameter("section") != null)
-						rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"" + request.getParameter("section") + "\"");
-					else if (request.getParameter("search") != null)
-						rs = stmt.executeQuery("SELECT * FROM GIOCO WHERE Titolo LIKE \"%" + request.getParameter("search") + "%\"");
-					else if (request.getParameter("platform") != null)
-						rs = stmt.executeQuery("SELECT * FROM GIOCO WHERE Piattaforma =\"" + request.getParameter("platform") + "\"");
+			try{
+				if (request.getParameter("section") != null)
+					giochi = DatabaseQuery.getSezione(request.getParameter("section"));
+				else if (request.getParameter("search") != null)
+					giochi = DatabaseQuery.cercaGioco(request.getParameter("search"));
+				else if (request.getParameter("platform") != null)
+					giochi = DatabaseQuery.cercaGiocoByPiattaforma(request.getParameter("platform"));
 															
-					int i=0; 
+				int i=0; 
 															
-					while(rs.next()){
-						if((i>0) && (i%4 == 0)){
-							i = 0;
-							rs.previous();
-						}
+				for(int j=0; j<giochi.size(); j++){
+					if((i>0) && (i%4 == 0)){
+						i = 0;
+						j--;
+					}
 			%>
 			<div class="row">
 			<%
-			do{ 
-				g = DatabaseQuery.getGioco(rs.getInt("IDGioco"));
-				session.setAttribute("showGame", g);
-				i++;
+				do{ 
+					session.setAttribute("showGame", giochi.get(j));
+					j++;
+					i++;
 			%>
 			<div class="col-md-3 col-sm-6 col-xs-6">
 				<jsp:include page="game.jsp"/>
 			</div>
 			<% 
-				} while(rs.next() && ((i%4) != 0));%>
+				} while(j<giochi.size() && ((i%4) != 0));%>
 			</div>
 			<% 
-				} 
-				}catch (SQLException e){}
+				}
+			} catch (Exception e){}
 			%>
 			</div>
 		</div>

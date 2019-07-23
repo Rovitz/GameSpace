@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
 	import="Model.*"
-	import="java.sql.*"%>
+	import="java.sql.*"
+	import="java.util.*"%>
 	
 <!DOCTYPE html>
 <html lang="it">
@@ -15,10 +16,7 @@
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
 	
-	<% Connection connection = null;
-	ResultSet rs = null;
-	Statement stmt = null;
-	Gioco g = null; %>
+	<% List<Gioco> giochi = null; %>
 </head>
 
 <body class="bg">
@@ -165,19 +163,12 @@
 						<div id="product-slick-1" class="product-slick">
 							<!-- Product Single -->
 							<%
-								try{
-									connection = Model.Database.getConnection();
-									stmt = connection.createStatement();
-									rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"piu_venduti\"");
-
-									while(rs.next()){ 
-										g = Model.DatabaseQuery.getGioco(rs.getInt("IDGioco"));
-										session.setAttribute("showGame", g);
+								giochi = DatabaseQuery.getSezione("piu_venduti");
+								for(Gioco g : giochi){
+									session.setAttribute("showGame", g);
 							%>
 							<jsp:include page="game.jsp"/>
 							<%
-								}
-									}catch (SQLException e){
 								}
 							%>
 							<!-- /Product Single -->
@@ -217,19 +208,12 @@
 						<div id="product-slick-2" class="product-slick">
 							<!-- Product Single -->
 							<%
-								try{
-									connection = Model.Database.getConnection();
-									stmt = connection.createStatement();
-									rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"top_5\"");
-
-									while(rs.next()){ 
-										g = Model.DatabaseQuery.getGioco(rs.getInt("IDGioco"));
-										session.setAttribute("showGame", g);
+								giochi = DatabaseQuery.getSezione("top_5");
+								for(Gioco g : giochi){
+									session.setAttribute("showGame", g);
 							%>
 							<jsp:include page="game.jsp"/>
 							<%
-								}
-									}catch (SQLException e){
 								}
 							%>
 							<!-- /Product Single -->
@@ -250,25 +234,18 @@
 				</div>
 			</div>
 			<!-- Product Single -->
-							<%
-								try{
-									connection = Model.Database.getConnection();
-									stmt = connection.createStatement();
-									rs = stmt.executeQuery("SELECT * FROM VETRINA WHERE Sezione = \"scontati\"");
-
-									while(rs.next()){ 
-										g = Model.DatabaseQuery.getGioco(rs.getInt("IDGioco"));
-										session.setAttribute("showGame", g);
-							%>
-							<div class="col-md-3">
-								<jsp:include page="game.jsp"/>
-							</div>
-							<%
-								}
-									}catch (SQLException e){
-								}
-							%>
-							<!-- /Product Single -->
+			<%
+				giochi = DatabaseQuery.getSezione("scontati");
+				for(Gioco g : giochi){
+					session.setAttribute("showGame", g);
+			%>
+			<div class="col-md-3">
+				<jsp:include page="game.jsp"/>
+			</div>
+			<%
+				}
+			%>
+			<!-- /Product Single -->
 			</div>
 			<!-- /row -->
 		</div>
