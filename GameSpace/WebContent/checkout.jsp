@@ -53,11 +53,43 @@
 					<% } catch (Exception e){} %>
 				</div>
 				<div class="payment">
+				<h3>Metodi di pagamento</h3>
+				<strong><span style="color:white;">Carta:</span></strong> <input class="checkbox"  type="radio" onclick="carta()" name="user_payment" value="carta" style="left:1%";/>
+				<strong><span style="color:white; padding-left:40px;">Contrassegno:</span></strong> <input class="checkbox" onclick="contrassegno()" type="radio" name="user_payment" value="contrassegno" style="left:1%";/>
+				
+				<script>
+				function contrassegno(){
+					document.checkout.intestatario.disabled=true;
+					document.checkout.numero_carta.disabled=true;
+					document.checkout.c.disabled=true;
+					document.checkout.d.disabled=true;
+					document.checkout.cvv.disabled=true;
+					document.getElementById("a").style.backgroundColor="grey";
+					document.getElementById("b").style.backgroundColor="grey";
+					document.getElementById("c").style.backgroundColor="grey";
+					document.getElementById("d").style.backgroundColor="grey";
+					document.getElementById("e").style.backgroundColor="grey";
+				}
+				function carta(){
+					document.checkout.intestatario.disabled=false;
+					document.checkout.numero_carta.disabled=false;
+					document.checkout.c.disabled=false;
+					document.checkout.d.disabled=false;
+					document.checkout.cvv.disabled=false;
+					document.getElementById("a").style.backgroundColor="white";
+					document.getElementById("b").style.backgroundColor="white";
+					document.getElementById("c").style.backgroundColor="white";
+					document.getElementById("d").style.backgroundColor="white";
+					document.getElementById("e").style.backgroundColor="white";
+					
+				}
+				</script>
+					<div style="margin-top:20px">
 					<h3>Dati carta</h3>
-					<input type="text" class="contact1" required name="intestatario" placeholder="Intestatario Carta"  />
-					<input type="text" class="contact1" required name="numero_carta" placeholder="Numero carta"  />	
+					<input type="text" class="contact1" id="a" required name="intestatario" placeholder="Intestatario Carta"  />
+					<input type="text" class="contact1" id="b" required name="numero_carta" placeholder="Numero carta"  />	
 					<div>
-					<select>
+					<select id="c" name="c">
 							<option value="" disabled selected>MM</option>
                             <option value="01">01</option>
                             <option value="02">02</option>
@@ -72,7 +104,7 @@
                             <option value="11">11</option>
                             <option value="12">12</option>
                         </select>
-                        <select>
+                        <select name="d" id="d">
                         	<option value="" disabled selected>YY</option>
                             <option value="19">19</option>
                             <option value="20">20</option>
@@ -82,7 +114,8 @@
                             <option value="24">24</option>
                         </select>
                         </div>
-					<input type="number" class="contact1" required name="cvv" placeholder="CVV" />
+                        </div>
+					<input type="number" class="contact1" id="e" required name="cvv" placeholder="CVV" />
 				</div>
 				<div class="cart-items">
 					<h3>Carrello</h3>

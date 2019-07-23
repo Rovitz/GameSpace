@@ -31,7 +31,8 @@ public class CheckoutServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		Utente utente = (Utente) session.getAttribute("user");
 		double cart_total = (double) session.getAttribute("cart_total");
-
+		String pagamento = request.getParameter("user_payment");
+		
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 		LocalDate localDate = LocalDate.now();
 
@@ -41,7 +42,7 @@ public class CheckoutServlet extends HttpServlet {
 			List<Gioco> giochi = DatabaseQuery.getElementiCarrello(utente.getEmail());
 			int maxID = DatabaseQuery.getMaxIDOrdine();
 			if(giochi != null) {
-				ordine = new Ordine(maxID+1, giochi, utente.getEmail(), "carta", cart_total, "inoltrato", dtf.format(localDate));
+				ordine = new Ordine(maxID+1, giochi, utente.getEmail(), pagamento, cart_total, "inoltrato", dtf.format(localDate));
 				DatabaseQuery.addOrdine(ordine);
 				session.setAttribute("order", ordine);
 				DatabaseQuery.delCarrello(utente.getEmail());
