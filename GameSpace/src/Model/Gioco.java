@@ -12,13 +12,11 @@ public class Gioco {
 	private String Piattaforma;
 	private int Rating;
 	private String Cover;
-	private Date DataRilascio;
-	private String IDUtente;
+	private String DataRilascio;
 
-	public Gioco(int iDGioco, String titolo, String descrizione, int disponibilita, Double prezzo, String genere,
-			String piattaforma, int rating, String cover, Date dataRilascio, String iDUtente) {
+	public Gioco(String titolo, String descrizione, int disponibilita, Double prezzo, String genere,
+			String piattaforma, int rating, String cover, String dataRilascio) {
 		super();
-		IDGioco = iDGioco;
 		Titolo = titolo;
 		Descrizione = descrizione;
 		Disponibilita = disponibilita;
@@ -28,7 +26,6 @@ public class Gioco {
 		Rating = rating;
 		Cover = cover;
 		DataRilascio = dataRilascio;
-		IDUtente = iDUtente;
 	}
 
 	public Gioco() {
@@ -107,19 +104,12 @@ public class Gioco {
 		Cover = cover;
 	}
 
-	public Date getDataRilascio() {
+	public String getDataRilascio() {
 		return DataRilascio;
 	}
 
-	public void setDataRilascio(Date dataRilascio) {
+	public void setDataRilascio(String dataRilascio) {
 		DataRilascio = dataRilascio;
 	}
 
-	public String getIDUtente() {
-		return IDUtente;
-	}
-
-	public void setIDUtente(String iDUtente) {
-		IDUtente = iDUtente;
-	}
 }

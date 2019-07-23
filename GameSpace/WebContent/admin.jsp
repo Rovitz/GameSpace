@@ -94,7 +94,11 @@
 					<input class="contact1" required name="game_piattaforma" placeholder="Piattaforma" />
 					<input class="contact1" required name="game_genere" placeholder="Genere"  />
 					<input class="contact1" required name="game_prezzo" placeholder="Prezzo"/>
+					<input class="contact1" required name="game_descrizione" placeholder="Descrizione"/>
+					<input class="contact1" required name="game_datarilascio" placeholder="Data rilascio (YYYY-MM-DD)"/>
+					<input class="contact1" required name="game_disponibilità" placeholder="Disponibilità"/>
 					<input class="contact1" required name="game_cover" placeholder="Cover (.png/.jpg)"/>
+					<input class="contact1" required name="game_rating" placeholder="Rating"/>
 					<br>
 					<button type="submit" class="primary-btn">AGGIUNGI</button>
 				</form>
@@ -125,24 +129,12 @@
 						} catch (Exception e){}%>
 					</select>
 					<br>
-					<select id="orderContent" name="orderContent">
-						<option value="" disabled selected>Contenuto ordine</option>
-						<%
-						try{
-							ordini = DatabaseQuery.getOrdiniUtente((String) session.getAttribute("selectedUser"));
-							for (Ordine o : ordini){
-						%>
-						<option value="<%= o.getIDOrdine() %>"><%=  o.getIDOrdine() %>&nbsp;<%= o.geteMail() %></option>
-						<% } 
-						} catch (Exception e){}%>
-					</select>
-					<br>
 					<button type="submit" class="primary-btn">ELIMINA</button>
 				</form>
 				<br><br>
 				<h4>MODIFICA ORDINE</h4>
 				<form class="updateOrderForm">
-					<select class="removeOrderSelectUser" name="removeOrderSelectUser">
+					<select class="modifyOrderSelectUser" name="modifyOrderSelectUser">
 						<option value="" disabled selected>Seleziona un utente</option>
 						<%
 							utenti = DatabaseQuery.getUtentiAll();
@@ -151,7 +143,7 @@
 						<option value="<%= u.getEmail() %>"><%= u.getNome() %>&nbsp;<%= u.getCognome() %></option>
 						<% } %>
 					</select>
-					<select id="removeOrderSelect" name="removeOrderSelect">
+					<select id="modifyOrderSelect" name="modifyOrderSelect">
 						<option value="" disabled selected>Seleziona un ordine</option>
 						<%
 						try{

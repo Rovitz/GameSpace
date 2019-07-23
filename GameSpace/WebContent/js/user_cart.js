@@ -3,7 +3,7 @@
  */
 
 $(document).ready(function() {
-	$('.addToCartForm').submit(function(e) {
+	$(document).on('submit' , '.addToCartForm' , function(e) {
 		e.preventDefault();
 		var form_data = $(this).serialize();
 		$.ajax({
@@ -15,6 +15,8 @@ $(document).ready(function() {
 						alert(xhr.getResponseHeader("error"));
 				}
 				else{
+					var quantita= $('.disp').text();
+					alert(quantita);
 					$('#ok').fadeIn("fast").delay(500).fadeOut("fast");
 					//$('[id="prod"]').load(location.href + ' [id="prod"]');
 					$("#user_cart").load(location.href + " #user_cart>*","");
@@ -106,7 +108,7 @@ $(document).ready(function() {
 		e.preventDefault();
 		$.ajax({
 			type: "post",
-			url: "AggiungiUtente",
+			url: "AggiungiUtenteServlet",
 			data: $(this).serialize(), 
 			success: function(data, status, xhr){
 					$("#removeUserSelect").load(location.href + " #removeUserSelect>*","");
@@ -161,6 +163,20 @@ $(document).ready(function() {
 			data: $(this).serialize(),
 			success: function(data, status, xhr){
 				$("#orderContent").load(location.href + " #orderContent>*","");
+			}
+		});
+	});
+
+
+	//[ADMIN] aggiungi gioco selezionato
+	$('.addProductForm').submit(function(e) {
+	e.preventDefault();
+	$.ajax({
+		type: "post",
+		url: "AggiungiGiocoServlet",
+		data: $(this).serialize(), 
+		success: function(data, status, xhr){
+				$("#removeProductSelect").load(location.href + " #removeProductSelect>*","");
 			}
 		});
 	});

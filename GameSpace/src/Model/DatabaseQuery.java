@@ -23,7 +23,7 @@ public class DatabaseQuery {
 	/*
 	 * Query gestione Prodotti
 	 */
-	private static String queryAddProdotto;
+	private static String queryAddGioco;
 	private static String queryEliminaProdotto;
 	private static String queryGetProdotti;
 	private static String queryCercaGioco;
@@ -350,42 +350,41 @@ public class DatabaseQuery {
 	 * Registra un prodotto nel database
 	 */
 
-	/*	public synchronized static boolean addProdotto(Gioco prodotto, String idUtente) throws SQLException{
+	public synchronized static boolean addGioco(Gioco gioco) throws SQLException{
 		Connection connection = null;
-		PreparedStatement psAddProdotto = null;
+		PreparedStatement psAddGioco = null;
+		
+		//(Prezzo, Disponibilita, Rating, Piattaforma, Genere, Titolo, Descrizione, DataRilascio, Cover) VALUES (?,?,?,?,?,?,?,?,?);";
 
 		try{
 			connection = Database.getConnection();
-			psAddProdotto = connection.prepareStatement(queryAddProdotto);
+			psAddGioco = connection.prepareStatement(queryAddGioco);
 
-			psAddProdotto.setInt(1, prodotto.getIdProdotto());
-			psAddProdotto.setString(2, prodotto.getDescrizione());
-			psAddProdotto.setInt(3, prodotto.getQuantita());
-			psAddProdotto.setBigDecimal(4, prodotto.getPrezzo());
-			psAddProdotto.setString(5, prodotto.getTipo());
-			psAddProdotto.setString(6, prodotto.getCondizione());
-			psAddProdotto.setString(7, prodotto.getNome());
-			psAddProdotto.setString(8, idUtente);
-			psAddProdotto.setString(9, prodotto.getPath());
+			psAddGioco.setDouble(1, gioco.getPrezzo());
+			psAddGioco.setInt(2, gioco.getDisponibilita());
+			psAddGioco.setInt(3, gioco.getRating());
+			psAddGioco.setString(4, gioco.getPiattaforma());
+			psAddGioco.setString(5, gioco.getGenere());
+			psAddGioco.setString(6, gioco.getTitolo());
+			psAddGioco.setString(7, gioco.getDescrizione());
+			psAddGioco.setString(8, gioco.getDataRilascio());
+			psAddGioco.setString(9, gioco.getCover());
 
-
-			System.out.println(psAddProdotto.toString());
-
-			psAddProdotto.executeUpdate();
+			psAddGioco.executeUpdate();
 
 			connection.commit();
-			System.out.println("Insert Prodotto Connessione...");
+			System.out.println("Insert Gioco Connessione...");
 		} finally {
 			try{
-				if(psAddProdotto != null)
-					psAddProdotto.close();
+				if(psAddGioco != null)
+					psAddGioco.close();
 			} finally {
 				Database.releaseConnection(connection);
 			}
 		}
 
 		return true;
-	} */
+	} 
 
 	/**
 	 * Elimina un prodotto nel database
@@ -507,7 +506,7 @@ public class DatabaseQuery {
 				g.setGenere(rs.getString("Genere"));
 				g.setTitolo(rs.getString("Titolo"));
 				g.setCover(rs.getString("Cover"));
-				g.setDataRilascio(rs.getDate("DataRilascio"));
+				g.setDataRilascio(rs.getString("DataRilascio"));
 
 				listGiochi.add(g);
 			}
@@ -761,7 +760,7 @@ public class DatabaseQuery {
 				g.setPiattaforma(rs.getString("Piattaforma"));
 				g.setGenere(rs.getString("Genere"));
 				g.setCover(rs.getString("Cover"));
-				g.setDataRilascio(rs.getDate("DataRilascio"));
+				g.setDataRilascio(rs.getString("DataRilascio"));
 
 			}
 		}
@@ -955,7 +954,7 @@ public class DatabaseQuery {
 		queryAddUtente = "INSERT INTO gamespace.utente (eMail, Nome, Cognome, Password, Sesso) VALUES (?,?,?,?,?);";
 		queryEliminaUtente = "DELETE FROM gamespace.utente WHERE eMail = ?";
 		queryGetUtente = "SELECT * FROM gamespace.utente WHERE eMail=?";
-		queryAddProdotto = "INSERT INTO commerce1.prodotto (idProdotto, Descrizione, Quantità, PrezzoSingolo, Tipo, Condizione, Nome, idUtente, Path) VALUES (?,?,?,?,?,?,?,?,?);";
+		queryAddGioco = "INSERT INTO gamespace.gioco (Prezzo, Disponibilita, Rating, Piattaforma, Genere, Titolo, Descrizione, DataRilascio, Cover) VALUES (?,?,?,?,?,?,?,?,?);";
 		queryEliminaProdotto = "DELETE FROM gamespace.gioco WHERE IDGioco = ?";
 		queryGetProdotti = "SELECT * FROM gamespace.gioco";
 		queryGetMieiOrdini = "SELECT * FROM gamespace.ordine WHERE eMail = ?";

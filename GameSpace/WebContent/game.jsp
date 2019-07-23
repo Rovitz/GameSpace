@@ -39,7 +39,7 @@
 			%>
 			<i class="fa fa-star-o empty"></i>
 		</div>
-		<h4><span style="float:right;">Q.tà:&nbsp;<%=g.getDisponibilita()%></span></h4>
+		<h4><span style="float:right;"">Q.tà:&nbsp;<input type="hidden" class="disp" value="<%=g.getDisponibilita()%>"><%=g.getDisponibilita()%></span></h4>
 		<h3 class="product-nome"><a href="#"><%=g.getTitolo()%></a></h3>
 		<h4 class="product-console"><a href="#"><%=g.getPiattaforma()%></a></h4>
 		<div class="product-btns">

@@ -15,12 +15,12 @@ import Model.Utente;
 /**
  * Servlet implementation class AggiungiUtente
  */
-@WebServlet("/AggiungiUtente")
-public class AggiungiUtente extends HttpServlet {
+@WebServlet("/AggiungiUtenteServlet")
+public class AggiungiUtenteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     
-    public AggiungiUtente() {
+    public AggiungiUtenteServlet() {
         super();
         
     }
