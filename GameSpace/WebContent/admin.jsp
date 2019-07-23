@@ -55,6 +55,16 @@
 						<input class="contact1" required name="user_nome" placeholder="Nome" />
 						<input class="contact1" required name="user_cognome" placeholder="Cognome"  />
 						<input class="contact1" type="password" name="user_password" placeholder="Password"/>
+						<p>
+							<strong><font color="white">Sesso:</font></strong>
+							&nbsp;
+							<strong><font color="white">Uomo: <input class="checkbox" type="radio" name="user_sesso" value="uomo" style="left:1%;"/></font></strong>
+							&nbsp; &nbsp;
+							<strong><font color="white">Donna: <input class="checkbox" type="radio" name="user_sesso" value="donna" style="left:1%;"/></font></strong>
+							<br>
+							
+							
+						</p>
 						<br>
 						<button type="submit" class="primary-btn">AGGIUNGI</button>
 					</form>
@@ -94,7 +104,7 @@
 				<br>
 				<h4>ELIMINA ORDINE</h4>
 				<form class="removeOrderForm">
-					<select class="removeOrderSelectUser" name="removeOrderSelectUser">
+					<select id="removeOrderSelectUser" name="removeOrderSelectUser">
 						<option value="" disabled selected>Seleziona un utente</option>
 						<%
 							utenti = DatabaseQuery.getUtentiAll();

@@ -101,6 +101,20 @@ $(document).ready(function() {
 		});
 	});
 	
+	// [ADMIN] aggiungi utente
+	$('.addUserForm').submit(function(e) {
+		e.preventDefault();
+		$.ajax({
+			type: "post",
+			url: "AggiungiUtente",
+			data: $(this).serialize(), 
+			success: function(data, status, xhr){
+					$("#removeUserSelect").load(location.href + " #removeUserSelect>*","");
+					$("#removeOrderSelectUser").load(location.href + " #removeOrderSelectUser>*","");
+			}
+		});
+	});
+	
 	// [ADMIN] elimina prodotto selezionato
 	$('.removeProductForm').submit(function(e) {
 		e.preventDefault();
@@ -116,7 +130,7 @@ $(document).ready(function() {
 	
 	
 	// [ADMIN] selezione utente per ordini da eliminare
-	$('select.removeOrderSelectUser').click(function() {
+	$('#removeOrderSelectUser').click(function() {
 		$.ajax({
 			method: "POST",
 			url: "GetSelectedUserServlet",

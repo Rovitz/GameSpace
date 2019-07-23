@@ -18,9 +18,9 @@
 		<div class="header-btns-icon">
 			<i class="fa fa-shopping-cart"></i>
 				<%if (session.getAttribute("cart_count") != null) { %>
-				<span class="qty"><%= session.getAttribute("cart_count") %></span>
+				<span class="qty" id="qty"><%= session.getAttribute("cart_count") %></span>
 				<%} else {%>
-				<span class="qty">0</span>
+				<span class="qty" id="qty">0</span>
 				<% } %>
 		</div>
 		<strong class="text-uppercase">IL MIO CARRELLO&nbsp;<i class="fa fa-caret-down"></i></strong><br>
@@ -80,9 +80,10 @@
 			</div>
 			<div class="shopping-cart-btns">
 				<a id="emptyCartBtn" class="primary-btn">SVUOTA&nbsp;<i class="fa fa-trash"></i></a>
-				<a class="primary-btn" href="checkout.jsp">CHECKOUT&nbsp;<i class="fa fa-arrow-circle-right"></i></a>
+				<a class="primary-btn" href="checkout.jsp" id="checkout_btn" onclick="return checkOut();">CHECKOUT&nbsp;<i class="fa fa-arrow-circle-right"></i></a>
 			</div>
 		</div>
 	</div>
 </li>
+
 <!-- /CART -->

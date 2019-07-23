@@ -20,7 +20,15 @@ public class Utente {
 		this.Password = pass;
 		this.Sesso = sesso;
 	}
-
+	public Utente(String mail, String nome, String cognome, String pass) {
+		super();
+		this.email = mail;
+		this.Nome = nome;
+		this.Cognome = cognome;
+		this.Password = pass;
+		
+	}
+	
 	@Override
 	public String toString() {
 		return "Utente [email=" + email + ", Nome=" + Nome + ", Cognome=" + Cognome + ", Password=" + Password + ", Sesso=" + Sesso + "]";

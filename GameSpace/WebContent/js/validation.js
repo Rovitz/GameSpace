@@ -1,19 +1,26 @@
 function validateCheckout(){
 	var cvv= document.checkout.cvv.value;
 	var numeroCarta= document.checkout.numero_carta.value;
+	var intestatarioCarta=document.checkout.intestatario.value;
+	var card_valid = /^([0-9])+$/;
 		if(cvv.length!=3){
 			alert("CVV Errato");
 			return false;
 		}
-		if(numeroCarta.length!=16){
+		if(numeroCarta.length!=16 || !card_valid.test(numeroCarta)){
 			  alert("Numero carta non valido");
 			  return false;
+		}
+		
+		if(intestatarioCarta=="" || intestatario.length<5){
+			alert("Nome intestatario non valido");
+			return false;
 		}
 		else {
 			  alert("Ordine effettuato con successo");
 			  return true;
 		}
-}
+} 
  
 function validateRegister(){
 	var password= document.register.user_password.value;
@@ -42,4 +49,16 @@ function validateRegister(){
 		alert("Registrazione avvenuta con successo!");
 		return true;
 	}	
+}
+
+function checkOut(){
+	
+	var quantita=document.getElementById("qty").innerHTML;
+	var qty=parseInt(quantita);
+	
+	if(qty==0){
+		alert("Non hai elementi nel carrello");
+		return false;
+	}
+	
 }
