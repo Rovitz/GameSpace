@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
 		try {
 			Utente u = DatabaseQuery.getUtenteByID(Email);
 			Indirizzo i = DatabaseQuery.getIndirizzo(Email);
-			if(u!=null)
+			if(u!=null && i!=null)
 			{
 				if(u.getPassword().toString().equals(Password))
 				{
@@ -47,13 +47,13 @@ public class LoginServlet extends HttpServlet {
 				}
 				else
 				{
-					request.setAttribute("error", "Si è verificato un errore durante il login!");
+					response.setHeader("loginerror", "EMAIL O PASSWORD ERRATI!");
 				}
 			} else {
-				request.setAttribute("error", "Si è verificato un errore durante il login!");
+				response.setHeader("loginerror", "EMAIL O PASSWORD ERRATI!");
 			}
 		} catch (SQLException e) {
-			request.setAttribute("error", "Si è verificato un errore con il database!");
+			response.setHeader("loginerror", "Si è verificato un errore con il database!");
 		}
 	}
 }

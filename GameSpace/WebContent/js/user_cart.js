@@ -43,7 +43,9 @@ $(document).ready(function() {
 	$('[id="popupLoginForm"]').submit(function(e) {
 		e.preventDefault();
 		$(this).ajaxSubmit({
-			target: function(){
+			success: function(data, status, xhr){
+				if(xhr.getResponseHeader("loginerror") != null)
+					alert(xhr.getResponseHeader("loginerror"));
 				$('[id="modal-wrapper"]').css("display", "none");
 				$("#user_cart").load(location.href + " #user_cart>*","");
 				}

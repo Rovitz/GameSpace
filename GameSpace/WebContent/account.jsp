@@ -37,16 +37,19 @@
 		<div class="account">
 			<div class="data">
 				<h3>DATI ACCOUNT</h3>
+				<% if (u != null) { %>
 				<h4>Nome: <%= u.getNome() %></h4>
 				<h4>Cognome: <%= u.getCognome() %></h4>
 				<h4>e-Mail: <%= u.getEmail() %></h4>
 				<h4>Sesso: <%= u.getSesso() %></h4>
+				<% } %>
 			</div>
 			
 			<div class="shipping">
 				<h3>SPEDIZIONE</h3>
+				<% if (i != null) { %>
 				<div class="shipping-left">
-					<h4>Nominativo: <%= i.getNominativo() %></h4>
+					<h4>A nome di: <%= i.getNominativo() %></h4>
 					<h4>Via: <%= i.getVia() %></h4>
 					<h4>Comune: <%= i.getComune() %></h4>
 				</div>
@@ -55,6 +58,7 @@
 					<h4>CAP: <%= i.getCAP() %></h4>
 					<h4>Telefono: <%= i.getTelefono() %></h4>
 				</div>
+				<% } %>
 			</div>
 			
 			<div class="orders">

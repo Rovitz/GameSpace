@@ -16,7 +16,6 @@
 	<link type="text/css" rel="stylesheet" href="css/nouislider.min.css" />
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
-	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 	
 	<% 
 	Ordine ordine = null;
@@ -32,7 +31,7 @@
 	<jsp:include page="header.jsp" />
 	
 	<!-- NAVIGATION -->
-	<div class="navigation">
+	<div id="navigation" class="navigation">
 		<h1 style="text-align: center;">FATTURA</h1>
 		<div class="invoice">
 			<div class="order">
@@ -71,8 +70,12 @@
 				<h4>Telefono: <%= i.getTelefono() %></h4>
 				<% } %>
 			</div>
+			
 		</div>
+		<button id="print_btn">STAMPA</button>
 	</div>
+	
+	<div id="editor"></div>
 	
 	<!-- FOOTER -->
 	<jsp:include page="footer.jsp" />
@@ -86,6 +89,8 @@
 	<script src="js/jquery.zoom.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/user_cart.js"></script>
+	<script src="js/jspdf.min.js"></script>
+	<script src="js/printpdf.js"></script>
 	<!-- /jQuery Plugins -->
 </body>
 </html>
