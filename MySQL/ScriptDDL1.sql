@@ -74,3 +74,8 @@ CREATE TABLE Ordine(
 									ON UPDATE CASCADE
                                     ON DELETE CASCADE
 	);
+    
+CREATE TABLE Admin(
+eMail VARCHAR(30) NOT NULL,
+Password VARCHAR(20) NOT NULL
+);
