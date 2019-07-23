@@ -35,7 +35,7 @@
 			<div id="responsive-nav">
 				<!-- category nav -->
 				<div class="category-nav">
-					<span class="category-header">FILTRA<i class="fa fa-list"></i></span>
+					<span class="category-header">PIATTAFORMA<i class="fa fa-list"></i></span>
 					<ul class="category-list">
 						<li class="dropdown side-dropdown"><a href="result.jsp?platform=PS4">PS4</a></li>
 						<li class="dropdown side-dropdown"><a href="result.jsp?platform=PC">PC</a></li>

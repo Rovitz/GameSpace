@@ -685,23 +685,35 @@ select:focus, select:hover{
 
 footer {
   background-color: rgba(23, 23, 23, 0.7);
+  padding-top: 20px;
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: 10%;
-  border-left: 1px solid red;
-  border-right: 1px solid red;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
   border-radius: 15px;
   transition: 0.3s all;
+}
+
+footer:hover {
+  border-left: 1px solid red;
+  border-right: 1px solid red;
 }
 
 .navigation .container,  .navigation .checkout{
 	position: relative;
 	padding: 20px;
 	background-color: rgba(23, 23, 23, 0.7);
-	border-left: 1px solid red;
-	border-right: 1px solid red;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
 	border-radius: 15px;
 	margin-top: 10px;
+	transition: 0.3s all;
+}
+
+.navigation .container:hover,  .navigation .checkout:hover{
+	border-left: 1px solid red;
+	border-right: 1px solid red;
 }
 
 /*----------------------------*\
@@ -731,7 +743,7 @@ footer {
 }
 
 .category-nav .category-list {
-  margin-top: 30px;
+  margin-top: 50px;
   padding: 10px;
   position: absolute;
   width: 270px;
