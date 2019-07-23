@@ -72,7 +72,7 @@
 			</div>
 			
 		</div>
-		<button id="print_btn">STAMPA</button>
+		<button class="submitbottom" id="print_btn" >STAMPA</button>
 	</div>
 	
 	<div id="editor"></div>
