@@ -11,8 +11,11 @@
 		List<Gioco> gamesList = new ArrayList<>();
 		List<Gioco> listed = new ArrayList<>();
 		Utente u = null;
+		Admin a = null;
 		%>
 
+<% a = (Admin) session.getAttribute("admin");
+if (a == null) {%>
 <li class="header-cart dropdown default-dropdown">
 	<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 		<div class="header-btns-icon">
@@ -85,5 +88,5 @@
 		</div>
 	</div>
 </li>
-
+<% } %>
 <!-- /CART -->

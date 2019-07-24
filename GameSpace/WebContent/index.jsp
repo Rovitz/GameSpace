@@ -16,10 +16,14 @@
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
 	
-	<% List<Gioco> giochi = null; %>
+	<% List<Gioco> giochi = null;
+	Admin a = null;
+	%>
 </head>
 
 <body class="bg">
+	
+	<% a = (Admin) session.getAttribute("admin"); %>
 	
 	<!-- HEADER -->
 	<jsp:include page="header.jsp" />
@@ -52,6 +56,10 @@
 						<li><a href="result.jsp?section=usato">Usato</a></li>
 						<li><a href="result.jsp?section=scontati">Sconti</a></li>
 						<li><a href="result.jsp?section=ultime_uscite">Ultime Uscite</a></li>
+						<% if (a != null){ %>
+						<li><strong><a href="admin.jsp">PANNELLO ADMIN</a></strong></li>
+						<% } %>
+					</ul>
 					</ul>
 				</div>
 				<!--  /menu nav -->

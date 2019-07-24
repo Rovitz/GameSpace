@@ -5,7 +5,7 @@
 <link type="text/css" rel="stylesheet" href="css/popup_login.css">
 
 <div id="modal-wrapper" class="modal-1">
-  <form id="popupLoginForm" class="modal-content-1 animate" action="LoginServlet" method="post">
+  <form id="popupLoginForm" class="modal-content-1 animate">
 	<h1>LOGIN</h1>
 	<hr>
     <div class="popup-align-center">

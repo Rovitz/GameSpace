@@ -42,12 +42,17 @@ $(document).ready(function() {
 	
 	$('[id="popupLoginForm"]').submit(function(e) {
 		e.preventDefault();
-		$(this).ajaxSubmit({
+		$.ajax({
+			type: "post",
+			data: $(this).serialize(),
+			url: "LoginServlet",
 			success: function(data, status, xhr){
 				if(xhr.getResponseHeader("loginerror") != null)
 					alert(xhr.getResponseHeader("loginerror"));
+				
 				$('[id="modal-wrapper"]').css("display", "none");
 				$("#user_cart").load(location.href + " #user_cart>*","");
+				$(".menu-nav").load(location.href + " .menu-nav>*","");
 				}
 		});
 	});
@@ -59,6 +64,7 @@ $(document).ready(function() {
 			url: "LogoutServlet",
 			success: function(){
 				$("#user_cart").load(location.href + " #user_cart>*","");
+				$(".menu-nav").load(location.href + " .menu-nav>*","");
 				}
 		 });
 	});
@@ -169,6 +175,8 @@ $(document).ready(function() {
 			}
 		});
 	});
+	
+	
 	
 	//[ADMIN] aggiorna stato ordine selezionato
 	$('.updateOrderForm').submit(function(e) {

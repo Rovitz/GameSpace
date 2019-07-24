@@ -604,12 +604,11 @@ input::-webkit-inner-spin-button {
 ===========================================================*/
 
 .admin {
-  margin-top: 2%;
-  position: relative;
   display: table;
   text-align: left;
-  width: 100%;
-  left: 6%;
+  width: 90%;
+  margin-left: 5%;
+  margin-right:5%;
 }
 
 select{
@@ -638,19 +637,22 @@ select:focus, select:hover{
 .admin .user{
   display: table-cell;
   position: relative;
-  width: 33%;
+  width: 30%;
+  left: 5%
 }
 
 .admin .product{
  position: relative;
  display: table-cell;
- width: 33%;
+ width: 30%;
+ left: 5%
 }
 
-.account .order{
+.admin .order{
   display: table-cell;
   position: relative;
-  width: 33%;
+  width: 30%;
+  left: 5%
 }
 
 /*=========================================================
@@ -724,7 +726,7 @@ footer:hover {
   border-right: 1px solid red;
 }
 
-.navigation .container,  .navigation .checkout, .navigation .account, .navigation .invoice{
+.navigation .container,  .navigation .checkout, .navigation .account, .navigation .invoice, .navigation .admin{
 	position: relative;
 	padding: 20px;
 	background-color: rgba(23, 23, 23, 0.7);
@@ -735,7 +737,7 @@ footer:hover {
 	transition: 0.3s all;
 }
 
-.navigation .container:hover,  .navigation .checkout:hover, .navigation .account:hover, .navigation .invoice:hover{
+.navigation .container:hover,  .navigation .checkout:hover, .navigation .account:hover, .navigation .invoice:hover, .navigation .admin:hover{
 	border-left: 1px solid red;
 	border-right: 1px solid red;
 }

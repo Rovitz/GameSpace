@@ -22,7 +22,7 @@
 	ArrayList<Ordine> ordini = null;
 	%>
 </head>
-<body class="bg">
+<body>
 	<!-- HEADER -->
 	<jsp:include page="header.jsp" />
 	

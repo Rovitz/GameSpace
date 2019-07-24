@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Model.Admin;
 import Model.DatabaseQuery;
 import Model.Indirizzo;
 import Model.Utente;
@@ -20,13 +21,11 @@ public class LoginServlet extends HttpServlet {
 
 	@Override
 	protected synchronized void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Serve a rimanere nella pagina che effettua la richiesta
-		response.setStatus(HttpServletResponse.SC_NO_CONTENT);
-
 		String Email = request.getParameter("user_email");
 		String Password = request.getParameter("user_password");
 
 		try {
+			Admin a= DatabaseQuery.getAdmin(Email);
 			Utente u = DatabaseQuery.getUtenteByID(Email);
 			Indirizzo i = DatabaseQuery.getIndirizzo(Email);
 			if(u!=null && i!=null)
@@ -45,12 +44,19 @@ public class LoginServlet extends HttpServlet {
 					double cart_total = DatabaseQuery.getTotalCarrello(Email);
 					session.setAttribute("cart_total", cart_total);
 				}
-				else
-				{
+				else {
 					response.setHeader("loginerror", "EMAIL O PASSWORD ERRATI!");
 				}
-			} else {
-				response.setHeader("loginerror", "EMAIL O PASSWORD ERRATI!");
+			}
+			else if (a != null) {
+				if(a.getPassword().toString().equals(Password))
+				{
+					HttpSession session = request.getSession();
+					session.setAttribute("admin", a);
+				}
+				else {
+					response.setHeader("loginerror", "EMAIL O PASSWORD ERRATI!");
+				}
 			}
 		} catch (SQLException e) {
 			response.setHeader("loginerror", "Si è verificato un errore con il database!");

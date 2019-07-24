@@ -7,8 +7,8 @@ var specialElementHandlers = {
 
 $('#print_btn').click(function () {   
     doc.fromHTML($('#navigation').html(), 15, 15, {
-        'width': 400,
+        'width': 170,
             'elementHandlers': specialElementHandlers
     });
-    doc.save('sample-file.pdf');
+    doc.save('invoice.pdf');
 });

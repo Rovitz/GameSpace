@@ -76,6 +76,6 @@ CREATE TABLE Ordine(
 	);
     
 CREATE TABLE Admin(
-eMail VARCHAR(30) NOT NULL,
+Username VARCHAR(30) PRIMARY KEY ,
 Password VARCHAR(20) NOT NULL
 );

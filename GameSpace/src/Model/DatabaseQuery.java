@@ -231,7 +231,10 @@ public class DatabaseQuery {
 		else
 			return utente;
 	}
+      
+	
 
+	
 	/**
 	 * Restituisce ,se esiste, un oggetto indirizzo data una email
 	 */
@@ -314,7 +317,7 @@ public class DatabaseQuery {
 	 * Recupera un admin dal DB
 	 */
 
-	public synchronized static Admin getAdmin(String email) throws SQLException {
+	public synchronized static Admin getAdmin(String username) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -323,15 +326,15 @@ public class DatabaseQuery {
 		try {
 			connection = Database.getConnection();
 			preparedStatement = connection.prepareStatement(queryGetAdmin);
-			preparedStatement.setString(1, email);
+			preparedStatement.setString(1, username);
 
 			ResultSet rs = preparedStatement.executeQuery();
 
 			connection.commit();
 
 			while (rs.next()) {
-				admin.setUserName(rs.getString("idadmin"));
-				admin.setPassword(rs.getString("PasswordAdmin"));
+				admin.setUserName(rs.getString("Username"));
+				admin.setPassword(rs.getString("Password"));
 
 			}
 		} finally {
@@ -1035,7 +1038,7 @@ public class DatabaseQuery {
 		queryGetCarrello = "SELECT * FROM gamespace.carrello WHERE eMail = ?";
 		queryEliminaCarrello = "DELETE FROM gamespace.carrello WHERE eMail = ?";
 		queryGetUtenti = "SELECT * FROM gamespace.utente";
-		queryGetAdmin = "SELECT * FROM gamespace.admin WHERE eMail = ?";
+		queryGetAdmin = "SELECT * FROM gamespace.admin WHERE Username = ? ";
 		queryAddIndirizzo = "INSERT INTO gamespace.indirizzo (eMail, Via, Comune, Provincia, CAP, Telefono, Nominativo) VALUES (?,?,?,?,?,?,?)";
 		queryGetIndirizzo = "SELECT * FROM gamespace.indirizzo WHERE eMail = ?";
 		queryGetMaxIDOrdine = "SELECT IFNULL(MAX(IDOrdine), 0) AS MaxVal FROM gamespace.ordine";
