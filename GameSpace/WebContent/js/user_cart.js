@@ -53,6 +53,8 @@ $(document).ready(function() {
 				$('[id="modal-wrapper"]').css("display", "none");
 				$("#user_cart").load(location.href + " #user_cart>*","");
 				$(".menu-nav").load(location.href + " .menu-nav>*","");
+				$(".account").load(location.href + " .account>*","");
+				$(".admin").load(location.href + " .admin>*","");
 				}
 		});
 	});
@@ -65,6 +67,8 @@ $(document).ready(function() {
 			success: function(){
 				$("#user_cart").load(location.href + " #user_cart>*","");
 				$(".menu-nav").load(location.href + " .menu-nav>*","");
+				$(".account").load(location.href + " .account>*","");
+				$(".admin").load(location.href + " .admin>*","");
 				}
 		 });
 	});
@@ -104,6 +108,7 @@ $(document).ready(function() {
 			url: "EliminaUtenteServlet",
 			data: $(this).serialize(), 
 			success: function(data, status, xhr){
+					alert("Utente eliminato con successo!");
 					$("#removeUserSelect").load(location.href + " #removeUserSelect>*","");
 			}
 		});
@@ -117,6 +122,7 @@ $(document).ready(function() {
 			url: "AggiungiUtenteServlet",
 			data: $(this).serialize(), 
 			success: function(data, status, xhr){
+					alert("Utente aggiunto con successo!");
 					$("#removeUserSelect").load(location.href + " #removeUserSelect>*","");
 					$("#removeOrderSelectUser").load(location.href + " #removeOrderSelectUser>*","");
 			}
@@ -131,20 +137,31 @@ $(document).ready(function() {
 			url: "EliminaProdottoServlet",
 			data: $(this).serialize(), 
 			success: function(data, status, xhr){
+					alert("Gioco eliminato con successo!");
 					$("#removeProductSelect").load(location.href + " #removeProductSelect>*","");
 			}
 		});
 	});
 	
-	
 	// [ADMIN] selezione utente per ordini da eliminare
-	$('#removeOrderSelectUser','#modifyOrderSelectUser').click(function() {
+	$('#removeOrderSelectUser').click(function() {
 		$.ajax({
 			method: "POST",
 			url: "GetSelectedUserServlet",
 			data: $(this).serialize(),
 			success: function(data, status, xhr){
 				$("#removeOrderSelect").load(location.href + " #removeOrderSelect>*","");
+			}
+		});
+	});
+	
+	// [ADMIN] selezione utente per ordini da modificare
+	$('#modifyOrderSelectUser').click(function() {
+		$.ajax({
+			method: "POST",
+			url: "GetSelectedUserServlet",
+			data: $(this).serialize(),
+			success: function(data, status, xhr){
 				$("#modifyOrderSelect").load(location.href + " #modifyOrderSelect>*","");
 			}
 		});
@@ -158,6 +175,7 @@ $(document).ready(function() {
 			url: "EliminaOrdineServlet",
 			data: $(this).serialize(), 
 			success: function(data, status, xhr){
+					alert("Ordine eliminato con successo!");
 					$("#removeOrderSelect").load(location.href + " #removeOrderSelect>*","");
 			}
 		});
@@ -171,6 +189,7 @@ $(document).ready(function() {
 		url: "AggiungiGiocoServlet",
 		data: $(this).serialize(), 
 		success: function(data, status, xhr){
+				alert("Gioco aggiunto con successo!");
 				$("#removeProductSelect").load(location.href + " #removeProductSelect>*","");
 			}
 		});
@@ -201,6 +220,19 @@ $(document).ready(function() {
 		success: function(data, status, xhr){
 				alert("Gioco modificato!");
 				$("#removeProductSelect").load(location.href + " #removeProductSelect>*","");
+			}
+		});
+	});
+	
+	//[ACCOUNT] mostra detagli ordine
+	$('.userOrderSelect').click(function(e) {
+	e.preventDefault();
+	$.ajax({
+		type: "post",
+		url: "GetSelectedOrderServlet",
+		data: $(this).serialize(), 
+		success: function(data, status, xhr){
+				$("#orderContent").load(location.href + " #orderContent>*","");
 			}
 		});
 	});

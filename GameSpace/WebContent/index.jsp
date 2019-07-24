@@ -57,7 +57,7 @@
 						<li><a href="result.jsp?section=scontati">Sconti</a></li>
 						<li><a href="result.jsp?section=ultime_uscite">Ultime Uscite</a></li>
 						<% if (a != null){ %>
-						<li><strong><a href="admin.jsp">PANNELLO ADMIN</a></strong></li>
+						<li><a href="admin.jsp"><strong style="color:red">PANNELLO ADMIN</strong></a></li>
 						<% } %>
 					</ul>
 					</ul>
@@ -108,7 +108,7 @@
 			<div class="row">
 				<!-- banner -->
 				<div class="col-md-4 col-sm-6">
-					<a class="banner banner-1" href="#">
+					<a class="banner banner-1" href="result.jsp?platform=PS4">
 						<img src="./img/ps4.png">
 					</a>
 				</div>
@@ -116,7 +116,7 @@
 
 				<!-- banner -->
 				<div class="col-md-4 col-sm-6" style="margin-top: 70px;">
-					<a class="banner banner-1" href="#">
+					<a class="banner banner-1" href="result.jsp?platform=SWITCH">
 						<img src="./img/switch.png">
 					</a>
 				</div>
@@ -124,7 +124,7 @@
 
 				<!-- banner -->
 				<div class="col-md-4 col-sm-6" style="margin-top: 70px;">
-					<a class="banner banner-1" href="#">
+					<a class="banner banner-1" href="result.jsp?platform=ONE">
 						<img src="./img/xboxone.png">
 					</a>
 				</div>

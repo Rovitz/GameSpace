@@ -545,7 +545,6 @@ input::-webkit-inner-spin-button {
 ===========================================================*/
 
 .account {
-  margin-top: 2%;
   display: table;
   text-align: left;
   width: 90%;
@@ -554,6 +553,9 @@ input::-webkit-inner-spin-button {
   height: 200px;
 }
 
+.account select{
+	width: 100%;
+}
 .account .data{
   display: table-cell;
   position: relative;
@@ -586,12 +588,12 @@ input::-webkit-inner-spin-button {
   position: relative;
   vertical-align: middle;
   text-align: left;
-  left: 5%;
   width: 30%;
 }
 
 .account .orders ul{
   background-color:white;
+  text-align: center;
   width: 70%;
   border-radius: 15px;
   padding: 10px;

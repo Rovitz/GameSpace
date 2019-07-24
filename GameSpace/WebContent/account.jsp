@@ -28,6 +28,7 @@
 <!-- HEADER -->
 	<%  u = (Utente) session.getAttribute("user");
 		i = (Indirizzo) session.getAttribute("address");%>
+		
 	<jsp:include page="header.jsp" />
 	
 	<!-- NAVIGATION -->
@@ -66,11 +67,13 @@
 				<select class="userOrderSelect" name="userOrderSelect">
 					<option value="" disabled selected>I tuoi ordini</option>
 					<%
+					try{
 						ordini = DatabaseQuery.getOrdiniUtente(u.getEmail());
 						for (Ordine o : ordini){
 					%>
 					<option value="<%= o.getIDOrdine() %>">ID.<%= o.getIDOrdine() %> | Data: <%= o.getDataRicevuta() %> | Totale: <%= o.getPrezzo()%>€ | Stato:<span id="ordine"><%=o.getStato() %></span></option>
-					<% } %>
+					<% } 
+					} catch (Exception e){}%>
 				</select>
 				<ul id="orderContent">
 					<%
@@ -102,6 +105,6 @@
 	<script src="js/jquery.zoom.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/user_cart.js"></script>
-	<!-- /jQuery Plugins -->
+	<!-- /jQuery Plugins -->		
 </body>
 </html>

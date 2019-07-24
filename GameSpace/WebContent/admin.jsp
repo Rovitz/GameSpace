@@ -20,15 +20,19 @@
 	ArrayList<Utente> utenti = null; 
 	ArrayList<Gioco> giochi = null;
 	ArrayList<Ordine> ordini = null;
+	Admin a = null;
 	%>
 </head>
 <body>
 	<!-- HEADER -->
 	<jsp:include page="header.jsp" />
 	
+	<% a = (Admin) session.getAttribute("admin");
+    
+    if (a != null) { %>
 	<!-- NAVIGATION -->
 	<div class="navigation">
-		<h1 style="text-align: center;">PAGINA ADMIN</h1>
+		<h1 style="text-align: center;">PANNELLO ADMIN</h1>
 		<div class="admin">
 			<div class="user">
 				<h3>OPERAZIONI UTENTI</h3>
@@ -149,7 +153,7 @@
 							ordini = DatabaseQuery.getOrdiniUtente((String) session.getAttribute("selectedUser"));
 							for (Ordine o : ordini){
 						%>
-						<option value="<%= o.getIDOrdine() %>"><%=  o.getIDOrdine() %>&nbsp;<%= o.geteMail() %></option>
+						<option value="<%= o.getIDOrdine() %>"><%=  o.getIDOrdine() %> | <%= o.geteMail() %> | <%= o.getDataRicevuta() %></option>
 						<% } 
 						} catch (Exception e){}%>
 					</select>
@@ -175,7 +179,7 @@
 							ordini = DatabaseQuery.getOrdiniUtente((String) session.getAttribute("selectedUser"));
 							for (Ordine o : ordini){
 						%>
-						<option value="<%= o.getIDOrdine() %>"><%=  o.getIDOrdine() %>&nbsp;<%= o.geteMail() %></option>
+						<option value="<%= o.getIDOrdine() %>"><%=  o.getIDOrdine() %> | <%= o.geteMail() %> | <%= o.getDataRicevuta() %></option>
 						<% } 
 						} catch (Exception e){}%>
 					</select>
@@ -191,6 +195,7 @@
 			</div>
 		</div>
 	</div>
+	<% } %>
 	
 	<!-- FOOTER -->
 	<jsp:include page="footer.jsp" />
