@@ -132,13 +132,14 @@ $(document).ready(function() {
 	
 	
 	// [ADMIN] selezione utente per ordini da eliminare
-	$('#removeOrderSelectUser').click(function() {
+	$('#removeOrderSelectUser','#modifyOrderSelectUser').click(function() {
 		$.ajax({
 			method: "POST",
 			url: "GetSelectedUserServlet",
 			data: $(this).serialize(),
 			success: function(data, status, xhr){
 				$("#removeOrderSelect").load(location.href + " #removeOrderSelect>*","");
+				$("#modifyOrderSelect").load(location.href + " #modifyOrderSelect>*","");
 			}
 		});
 	});
@@ -156,18 +157,6 @@ $(document).ready(function() {
 		});
 	});
 	
-	$('select.userOrderSelect').click(function() {
-		$.ajax({
-			method: "POST",
-			url: "GetSelectedOrderServlet",
-			data: $(this).serialize(),
-			success: function(data, status, xhr){
-				$("#orderContent").load(location.href + " #orderContent>*","");
-			}
-		});
-	});
-
-
 	//[ADMIN] aggiungi gioco selezionato
 	$('.addProductForm').submit(function(e) {
 	e.preventDefault();
@@ -176,6 +165,33 @@ $(document).ready(function() {
 		url: "AggiungiGiocoServlet",
 		data: $(this).serialize(), 
 		success: function(data, status, xhr){
+				$("#removeProductSelect").load(location.href + " #removeProductSelect>*","");
+			}
+		});
+	});
+	
+	//[ADMIN] aggiorna stato ordine selezionato
+	$('.updateOrderForm').submit(function(e) {
+	e.preventDefault();
+	$.ajax({
+		type: "post",
+		url: "AggiornaOrdineServlet",
+		data: $(this).serialize(), 
+		success: function(data, status, xhr){
+				alert("Stato ordine aggiornato!");
+			}
+		});
+	});
+	
+	//[ADMIN] modifica gioco 
+	$('.modifyProductForm').submit(function(e) {
+	e.preventDefault();
+	$.ajax({
+		type: "post",
+		url: "ModificaGiocoServlet",
+		data: $(this).serialize(), 
+		success: function(data, status, xhr){
+				alert("Gioco modificato!");
 				$("#removeProductSelect").load(location.href + " #removeProductSelect>*","");
 			}
 		});

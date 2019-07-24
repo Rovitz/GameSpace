@@ -102,6 +102,31 @@
 					<br>
 					<button type="submit" class="primary-btn">AGGIUNGI</button>
 				</form>
+				<br><br>
+				<h4>MODIFICA GIOCO</h4>
+				<form class="modifyProductForm">
+					<select id="modifyProductSelect" name="modifyProductSelect">
+						<option value="" disabled selected>Seleziona un prodotto</option>
+						<%
+							giochi = DatabaseQuery.getGiochiAll();
+							for (Gioco g : giochi){
+						%>
+						<option value="<%= g.getIDGioco() %>"><%= g.getIDGioco() %>&nbsp;<%= g.getTitolo() %></option>
+						<% } %>
+					</select>
+				
+					<input class="contact1" required name="game_titolo" placeholder="Titolo" />
+					<input class="contact1" required name="game_piattaforma" placeholder="Piattaforma" />
+					<input class="contact1" required name="game_genere" placeholder="Genere"  />
+					<input class="contact1" required name="game_prezzo" placeholder="Prezzo"/>
+					<input class="contact1" required name="game_descrizione" placeholder="Descrizione"/>
+					<input class="contact1" required name="game_datarilascio" placeholder="Data rilascio (YYYY-MM-DD)"/>
+					<input class="contact1" required name="game_disponibilità" placeholder="Disponibilità"/>
+					<input class="contact1" required name="game_cover" placeholder="Cover (.png/.jpg)"/>
+					<input class="contact1" required name="game_rating" placeholder="Rating"/>
+					<br>
+					<button type="submit" class="primary-btn">MODIFICA</button>
+				</form>
 			</div>
 			<div class="order">
 				<h3>OPERAZIONI ORDINI</h3>
@@ -160,14 +185,8 @@
 						<option value="completato">Completato</option>
 						<option value="spedito">Spedito</option>
 					</select>
-					<select id="changeOrderState" name="changeOrderState">
-						<option value="" disabled selected>Modifica pagamento</option>
-						<option value="carta">Carta</option>
-						<option value="contrassegno">Contrassegno</option>
-					</select>
 					<br>
 					<button type="submit" class="primary-btn">MODIFICA</button>
-					<button type="submit" class="primary-btn">ELIMINA GIOCO</button>
 				</form>
 			</div>
 		</div>

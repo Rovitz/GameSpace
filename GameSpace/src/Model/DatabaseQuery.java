@@ -33,6 +33,7 @@ public class DatabaseQuery {
 	private static String queryGetNumeroProdotto;
 	private static String queryDecrementaQuantita;
 	private static String queryGetSezione;
+	private static String queryUpdateGioco;
 
 
 	/*
@@ -47,6 +48,7 @@ public class DatabaseQuery {
 	private static String queryGetProdottiById;
 	private static String queryEliminaCarrello;
 	private static String queryGetMaxIDOrdine;
+	private static String queryUpdateOrdine;
 
 	/*
 	 * Query Gestione Admin
@@ -384,7 +386,46 @@ public class DatabaseQuery {
 		}
 
 		return true;
-	} 
+	}
+	
+	//Update gioco
+	
+	public synchronized static boolean updateGioco(Gioco gioco) throws SQLException{
+		Connection connection = null;
+		PreparedStatement psUpdateGioco = null;
+		
+		//(Prezzo, Disponibilita, Rating, Piattaforma, Genere, Titolo, Descrizione, DataRilascio, Cover) VALUES (?,?,?,?,?,?,?,?,?);";
+
+		try{
+			connection = Database.getConnection();
+			psUpdateGioco = connection.prepareStatement(queryUpdateGioco);
+
+			psUpdateGioco.setDouble(1, gioco.getPrezzo());
+			psUpdateGioco.setInt(2, gioco.getDisponibilita());
+			psUpdateGioco.setInt(3, gioco.getRating());
+			psUpdateGioco.setString(4, gioco.getPiattaforma());
+			psUpdateGioco.setString(5, gioco.getGenere());
+			psUpdateGioco.setString(6, gioco.getTitolo());
+			psUpdateGioco.setString(7, gioco.getDescrizione());
+			psUpdateGioco.setString(8, gioco.getDataRilascio());
+			psUpdateGioco.setString(9, gioco.getCover());
+			psUpdateGioco.setInt(10,gioco.getIDGioco());
+
+			psUpdateGioco.executeUpdate();
+
+			connection.commit();
+			System.out.println("Insert Gioco Connessione...");
+		} finally {
+			try{
+				if(psUpdateGioco != null)
+					psUpdateGioco.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+
+		return true;
+	}
 
 	/**
 	 * Elimina un prodotto nel database
@@ -949,6 +990,34 @@ public class DatabaseQuery {
 
 		return true;
 	}
+	
+	/**
+	 * Aggiorna lo stato di un ordine nel database
+	 */
+
+	public synchronized static boolean updateOrdine(int IDOrdine, String stato) throws SQLException{
+		Connection connection = null;
+		PreparedStatement psUpdateOrdine = null;
+
+		try{
+			connection = Database.getConnection();
+			psUpdateOrdine = connection.prepareStatement(queryUpdateOrdine);
+			psUpdateOrdine.setString(1, stato);
+			psUpdateOrdine.setInt(2, IDOrdine);
+
+			psUpdateOrdine.executeUpdate();
+
+			connection.commit();
+		} finally {
+			try{
+				if(psUpdateOrdine != null)
+					psUpdateOrdine.close();
+			} finally {
+				Database.releaseConnection(connection);
+			}
+		}
+		return true;
+	}
 
 	static {
 		queryAddUtente = "INSERT INTO gamespace.utente (eMail, Nome, Cognome, Password, Sesso) VALUES (?,?,?,?,?);";
@@ -972,6 +1041,8 @@ public class DatabaseQuery {
 		queryGetMaxIDOrdine = "SELECT IFNULL(MAX(IDOrdine), 0) AS MaxVal FROM gamespace.ordine";
 		queryGetSezione = "SELECT * FROM VETRINA WHERE Sezione = ?";
 		queryCercaGiocoByPiattaforma = "SELECT * FROM GIOCO WHERE Piattaforma = ?";
+		queryUpdateOrdine = "UPDATE gamespace.ordine SET Stato = ? WHERE IDOrdine = ?";
+		queryUpdateGioco = "UPDATE gamespace.gioco SET Prezzo = ? , Disponibilita = ? , Rating = ?, Piattaforma = ?, Genere = ?, Titolo = ?, Descrizione = ?, DataRilascio = ?, Cover = ? WHERE IDGioco = ?";
 	}
 
 }

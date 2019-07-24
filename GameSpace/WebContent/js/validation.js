@@ -21,6 +21,7 @@ function validateCheckout(){
 			  return true;
 		}
 } 
+
  
 function validateRegister(){
 	var password= document.register.user_password.value;
